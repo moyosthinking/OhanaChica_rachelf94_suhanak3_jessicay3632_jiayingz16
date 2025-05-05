@@ -1,0 +1,3 @@
+michelleZ - 2025-05-05 11:30
+- investigated node repo structure
+- set up node development environment
