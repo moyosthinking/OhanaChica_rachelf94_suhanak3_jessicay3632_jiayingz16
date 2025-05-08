@@ -1,3 +1,13 @@
-michelleZ - 2025-05-05 11:30
+michelleZ -- 2025-05-05 11:30
 - investigated node repo structure
 - set up node development environment
+
+Design Doc Changes:
+- Added database tables
+- Created visualizations for database tables
+- Fixed component map
+- Removed API
+- Updated core functionalities
+- Redistributed tasks
+
+
