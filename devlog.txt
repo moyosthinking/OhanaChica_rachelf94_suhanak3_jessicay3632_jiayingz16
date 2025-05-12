@@ -15,3 +15,7 @@ michelleZ -- 2025-05-12 11:20
 - created database tables & user.db
 - created login.html and register.html
 - added more dependencies
+
+jessicaY -- 2025-05-12 15:19
+- added basic html to home, login, and register pages
+- created styles.css
