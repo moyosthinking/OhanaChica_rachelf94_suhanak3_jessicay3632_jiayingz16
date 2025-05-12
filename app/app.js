@@ -25,10 +25,14 @@ app.get('/register.html', (req, res) => {
 // Registration endpoint
 app.post('/register', (req, res) => {
   const { username, password, birthday } = req.body;
+  console.log(`Registration attempt: username=${username}, birthday=${birthday}`);
+  
   user.createUser(username, password, birthday, (err, userId) => {
     if (err) {
+      console.error('Registration error:', err.message);
       res.send('<p>Registration failed. Username may already exist.</p><a href="/register.html">Try again</a>');
     } else {
+      console.log(`User registered successfully with ID: ${userId}`);
       res.send('<p>Registration successful! <a href="/login.html">Login here</a></p>');
     }
   });
@@ -42,7 +46,7 @@ app.post('/login', (req, res) => {
       res.send('<p>Login error occurred.</p><a href="/login.html">Try again</a>');
     } else if (userObj) {
       req.session.user = userObj.username;
-      res.send(`<p>Welcome, ${userObj.username}! You are logged in.</p>`);
+      res.redirect('/');
     } else {
       res.send('<p>Invalid credentials.</p><a href="/login.html">Try again</a>');
     }
@@ -51,7 +55,15 @@ app.post('/login', (req, res) => {
 
 app.get('/', (req,res) => {
   res.sendFile(path.join(__dirname, 'public', 'home.html'));
-  //res.send("Hello World!");
+});
+
+app.get('/logout', (req, res) => {
+  req.session.destroy((err) => {
+    if (err) {
+      console.error('Error destroying session:', err);
+    }
+  });
+  res.redirect('/');
 });
 
 app.listen(port, () => {
