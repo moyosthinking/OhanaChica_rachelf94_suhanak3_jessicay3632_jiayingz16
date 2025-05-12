@@ -21,4 +21,6 @@ db.serialize(() => {
         advice TEXT
     )`)
 
-}
+});
+
+module.exports = db;
