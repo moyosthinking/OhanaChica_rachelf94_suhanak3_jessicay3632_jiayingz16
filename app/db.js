@@ -4,10 +4,10 @@ const db = new sqlite3.Database('db.sqlite');
 db.serialize(() => {
     // Users table
     db.run(`CREATE TABLE IF NOT EXISTS users (
-        id INTEGER,
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
         username TEXT UNIQUE,
         password TEXT,
-        brithday TEXT
+        birthday TEXT
         )`
     );
 

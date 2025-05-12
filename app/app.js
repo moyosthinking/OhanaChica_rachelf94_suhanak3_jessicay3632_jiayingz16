@@ -16,10 +16,10 @@ app.use('/static', express.static(path.join(__dirname, 'public')));
 
 // Serve login and register HTML
 app.get('/login.html', (req, res) => {
-  res.sendFile(path.join(__dirname, 'login.html'));
+  res.sendFile(path.join(__dirname, 'public', 'login.html'));
 });
 app.get('/register.html', (req, res) => {
-  res.sendFile(path.join(__dirname, 'register.html'));
+  res.sendFile(path.join(__dirname, 'public', 'register.html'));
 });
 
 // Registration endpoint
