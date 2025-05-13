@@ -4,7 +4,7 @@ const session = require('express-session');
 const bodyParser = require('body-parser');
 const user = require('./user');
 const app = express();
-const port = 4001;
+const port = 3000;
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(session({
