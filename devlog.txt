@@ -19,3 +19,7 @@ michelleZ -- 2025-05-12 11:20
 jessicaY -- 2025-05-12 15:19
 - added basic html to home, login, and register pages
 - created styles.css
+
+michelleZ -- 2025-05-13 11:20
+- fixed version mismatch issue
+- researched how to train ai model
