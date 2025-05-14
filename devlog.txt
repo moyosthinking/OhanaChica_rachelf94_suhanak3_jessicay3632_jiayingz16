@@ -10,6 +10,9 @@ Design Doc Changes:
 - Updated core functionalities
 - Redistributed tasks
 
+michelleZ -- 2025-05-08 11:47
+- got a working app
+
 michelleZ -- 2025-05-12 11:20
 - implemented user authentication
 - created database tables & user.db
