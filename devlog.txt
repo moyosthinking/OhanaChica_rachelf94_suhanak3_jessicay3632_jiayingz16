@@ -26,3 +26,7 @@ jessicaY -- 2025-05-12 15:19
 michelleZ -- 2025-05-13 11:20
 - fixed version mismatch issue
 - researched how to train ai model
+
+moyoF -- 2025-05-13 22:06
+- install guides
+- devlog
