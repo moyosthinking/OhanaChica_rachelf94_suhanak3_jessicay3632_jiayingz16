@@ -30,3 +30,9 @@ michelleZ -- 2025-05-13 11:20
 moyoF -- 2025-05-13 22:06
 - install guides
 - devlog
+- test.js
+
+michelleZ -- 2025-05-15 11:10
+- revised README
+- figured out approach to train AI model
+- 
