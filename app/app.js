@@ -26,7 +26,7 @@ app.get('/register.html', (req, res) => {
 app.post('/register', (req, res) => {
   const { username, password, birthday } = req.body;
   console.log(`Registration attempt: username=${username}, birthday=${birthday}`);
-  
+
   user.createUser(username, password, birthday, (err, userId) => {
     if (err) {
       console.error('Registration error:', err.message);
