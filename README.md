@@ -12,6 +12,9 @@ This project is a web application that introduces users to astrology through per
 - Check compatibility with others
 - Learn self-improvement tips related to their sign
 
+## Direct Access
+http://142.93.122.179/
+
 ## Install Guide
 1. Clone this Repo
 ```
@@ -20,23 +23,23 @@ git clone https://github.com/moyosthinking/OhanaChica_rachelf94_suhanak3_jessica
 
 ## Launch Codes
 
-1. Move into this repo + folder
+1. Navigate to the app folder
 ```
 $ cd OhanaChica_rachelf94_suhanak3_jessicay3632_jiayingz16/app
 ```
-2. Activate your Virtual Machine
+2. Install dependencies
 ```
-vm/bin/source activate
-```
-or for Windows
-```
-vm/Scripts/source activate
+$ npm install
 ```
 3. Run the Node app
 ```
 $ node app.js
 ```
+or
+```
+$ nodemon app.js
+```
 4. Navigate to Server
 ```
-http://142.93.122.179/
+http://localhost:3000/
 ```
