@@ -1,3 +1,11 @@
+//
+// OhanaChica: Moyo F., Suhana K., Jessica Y., Michelle Z.
+//  SoftDev
+//  P05: Astrology
+//  2025-06-06
+//  Time Spent: ???? hours
+//
+
 var request = require('request');
 const keys = require('./keys/api_keys');
 
@@ -32,7 +40,7 @@ function getAstrologyData(callback) {
     if (error) {
       return callback(error);
     }
-    
+
     try {
       const data = JSON.parse(response.body);
       callback(null, data);
@@ -50,7 +58,7 @@ if (require.main === module) {
       return;
     }
     console.log(JSON.stringify(data, null, 2));
-    
+
     // Save data to file
     const fs = require('fs');
     fs.writeFileSync('./astrology-data.json', JSON.stringify(data, null, 2));
