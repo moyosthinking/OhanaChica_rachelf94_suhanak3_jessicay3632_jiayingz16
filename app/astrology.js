@@ -1,12 +1,14 @@
 var request = require('request');
+const keys = require('./keys/api_keys');
+
 var options = {
     'method': 'POST',
     'url': 'https://astroapi-4.divineapi.com/western-api/v1/general-sign-report/sun',
     'headers': {
-    'Authorization': 'Bearer {Your Auth Token}'
+    'Authorization': `Bearer ${keys.AUTH_TOKEN}`
   },
   formData: {
-    'api_key': '1081c67cef0e0bc1059b7e10902d2656',
+    'api_key': keys.API_KEY,
     'full_name': 'Rahul Kumar',
     'day': '24',
     'month': '05',
@@ -23,7 +25,39 @@ var options = {
     'house_system': 'P'
   }
 };
-request(options, function (error, response) {
-  if (error) throw new Error(error);
-  console.log(response.body);
-});
+
+// Export a function to get the astrology data
+function getAstrologyData(callback) {
+  request(options, function (error, response) {
+    if (error) {
+      return callback(error);
+    }
+    
+    try {
+      const data = JSON.parse(response.body);
+      callback(null, data);
+    } catch (parseError) {
+      callback(parseError);
+    }
+  });
+}
+
+// If this file is run directly, execute the API call
+if (require.main === module) {
+  getAstrologyData((error, data) => {
+    if (error) {
+      console.error('Error:', error.message);
+      return;
+    }
+    console.log(JSON.stringify(data, null, 2));
+    
+    // Save data to file
+    const fs = require('fs');
+    fs.writeFileSync('./astrology-data.json', JSON.stringify(data, null, 2));
+    console.log('Data saved to astrology-data.json');
+  });
+}
+
+module.exports = {
+  getAstrologyData
+};

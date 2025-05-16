@@ -1,4 +1,6 @@
 const request = require('request');
+const keys = require('./keys/api_keys');
+const fs = require('fs');
 
 // Test function to check if the API call is successful
 function testAstrologyAPI() {
@@ -8,10 +10,10 @@ function testAstrologyAPI() {
     'method': 'POST',
     'url': 'https://astroapi-4.divineapi.com/western-api/v1/general-sign-report/sun',
     'headers': {
-      'Authorization': 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwczovL2RpdmluZWFwaS5jb20vc2lnbnVwIiwiaWF0IjoxNzQ3MzIyNDk2LCJuYmYiOjE3NDczMjI0OTYsImp0aSI6IkdzWmxMT3BxTTROSUt4NU4iLCJzdWIiOiIzNjY3IiwicHJ2IjoiZTZlNjRiYjBiNjEyNmQ3M2M2Yjk3YWZjM2I0NjRkOTg1ZjQ2YzlkNyJ9.F8T_rtQoPwVvFNsZ_3JACpEozAPUSaVswePrbzDWjd4'
+      'Authorization': `Bearer ${keys.AUTH_TOKEN}`
     },
     formData: {
-      'api_key': '1081c67cef0e0bc1059b7e10902d2656',
+      'api_key': keys.API_KEY,
       'full_name': 'Test User',
       'day': '15',
       'month': '06',
@@ -57,7 +59,6 @@ function testAstrologyAPI() {
         });
         
         // Save the full response to a file for inspection
-        const fs = require('fs');
         fs.writeFileSync('./api-response.json', JSON.stringify(data, null, 2));
         console.log('\nFull response saved to api-response.json');
       } else {
