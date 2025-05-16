@@ -8,7 +8,7 @@ function testAstrologyAPI() {
   
   const options = {
     'method': 'POST',
-    'url': 'https://astroapi-4.divineapi.com/western-api/v1/general-sign-report/sun',
+    'url': 'https://astroapi-4.divineapi.com/western-api/v1/general-sign-report/moon',
     'headers': {
       'Authorization': `Bearer ${keys.AUTH_TOKEN}`
     },
