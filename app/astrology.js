@@ -6,7 +6,7 @@ var options = {
     'Authorization': 'Bearer {Your Auth Token}'
   },
   formData: {
-    'api_key': '{Your API Key}',
+    'api_key': '1081c67cef0e0bc1059b7e10902d2656',
     'full_name': 'Rahul Kumar',
     'day': '24',
     'month': '05',
@@ -18,7 +18,7 @@ var options = {
     'place': 'New Delhi, India',
     'lat': '28.7041',
     'lon': '77.1025',
-    'tzone': '5.5'
+    'tzone': '5.5',
     'lan': 'en',
     'house_system': 'P'
   }

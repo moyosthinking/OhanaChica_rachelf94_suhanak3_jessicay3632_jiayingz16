@@ -35,4 +35,7 @@ moyoF -- 2025-05-13 22:06
 michelleZ -- 2025-05-15 11:10
 - revised README
 - figured out approach to train AI model
-- 
+
+michelleZ -- 2025-05-16 11:10
+- implemented API calls
+- tested API calls
