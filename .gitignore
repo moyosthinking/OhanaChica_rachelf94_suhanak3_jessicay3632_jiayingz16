@@ -1,1 +1,4 @@
 node_modules
+app/keys/api_keys.js
+*.env
+.DS_Store
