@@ -1,3 +1,11 @@
+//
+// OhanaChica: Moyo F., Suhana K., Jessica Y., Michelle Z.
+//  SoftDev
+//  P05: Astrology
+//  2025-06-06
+//  Time Spent: ???? hours
+//
+
 var request = require('request');
 var options = {
     'method': 'POST',

@@ -1,0 +1,26 @@
+<!--
+  OhanaChica: Moyo F., Suhana K., Jessica Y., Michelle Z.
+  SoftDev
+  P05: Astrology
+  2025-06-06
+  Time Spent: ???? hours
+-->
+
+<html>
+  <head>
+    <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="/static/styles.css" rel="stylesheet">
+    <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
+    <title>{% block title %}Home{% endblock %}</title>
+  </head>
+  <nav class="flex justify-center space-x-4">
+    <a href="/" class="text-lg font-medium rounded-lg px-3 py-2 text-gray-700 hover:bg-gray-100 hover:text-gray-900"> Home </a>
+    <a href="/" class="text-lg font-medium rounded-lg px-3 py-2 text-gray-700 hover:bg-gray-100 hover:text-gray-900"> Compatibility Checker </a>
+    <a href="/" class="text-lg font-medium rounded-lg px-3 py-2 text-gray-700 hover:bg-gray-100 hover:text-gray-900"> Self Improvement </a>
+    <a href="/" class="text-lg font-medium rounded-lg px-3 py-2 text-gray-700 hover:bg-gray-100 hover:text-gray-900"> Horoscopes </a>
+    <a href="/" class="text-lg font-medium rounded-lg px-3 py-2 text-gray-700 hover:bg-gray-100 hover:text-gray-900"> Chat </a>
+  </nav>
+  <body>
+    {% block content %}{% endblock %}
+  </body>
+</html>

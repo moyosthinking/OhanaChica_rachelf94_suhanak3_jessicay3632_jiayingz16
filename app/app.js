@@ -1,3 +1,11 @@
+//
+// OhanaChica: Moyo F., Suhana K., Jessica Y., Michelle Z.
+//  SoftDev
+//  P05: Astrology
+//  2025-06-06
+//  Time Spent: ???? hours
+//
+
 const express = require('express');
 const path = require('path');
 const session = require('express-session');
@@ -15,10 +23,10 @@ app.use(session({
 app.use('/static', express.static(path.join(__dirname, 'public')));
 
 // Serve login and register HTML
-app.get('/login.html', (req, res) => {
+app.get('/login', (req, res) => {
   res.sendFile(path.join(__dirname, 'public', 'login.html'));
 });
-app.get('/register.html', (req, res) => {
+app.get('/register', (req, res) => {
   res.sendFile(path.join(__dirname, 'public', 'register.html'));
 });
 
