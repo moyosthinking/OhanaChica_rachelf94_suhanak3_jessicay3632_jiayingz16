@@ -1,8 +1,243 @@
 {
-  "success": 1,
-  "data": {
-    "planet_name": "Moon",
-    "sign_name": "Cancer",
-    "report": "When the Moon is in Cancer, it means that the Moon was in the zodiac sign of Cancer at the time of your birth. The placement of the Moon represents your emotions, instincts, subconscious mind, and how you respond to the world around you. With the Moon in Cancer, you have a deeply sensitive and nurturing nature. You are highly attuned to your emotions and the emotions of others, often experiencing a strong empathetic connection. Your intuition is powerful, and you rely on your gut feelings and instincts when navigating life's challenges. Your emotions play a significant role in your decision-making process. You may make choices based on how they align with your emotional well-being and the well-being of those you care about. Creating a sense of security and emotional stability is essential to you, and you may actively seek out environments and relationships that provide a nurturing and safe space. Family and home hold great importance in your life. You have a strong attachment to your roots and may have a close-knit relationship with your family members. You derive comfort and a sense of belonging from your home and often invest considerable time and energy in creating a warm and harmonious domestic environment. Your caring and nurturing qualities are evident in your relationships. You are deeply devoted to your loved ones and seek to provide emotional support and care. You are attentive and intuitive, able to sense the needs of others and offer comfort and understanding. Your empathy and compassion make you a natural caretaker and someone others often turn to for emotional support. However, the influence of the Moon in Cancer can also bring emotional challenges. You may be prone to mood swings or experiencing heightened sensitivity to criticism or perceived rejection. Your strong emotional connection to others may sometimes lead to an excessive need for validation and approval. Learning to balance your emotional needs with independence and self-care is important for your well-being. In creative pursuits, you are often drawn to outlets that allow you to express your emotions and tap into your intuition. Artistic endeavors, writing, music, or any form of creative self-expression can serve as a means of emotional release and personal exploration. Your nurturing qualities and empathetic nature also make you well-suited for careers that involve caregiving, counseling, social work, or any field that allows you to support and uplift others. Overall, with the Moon in Cancer, your emotional depth, intuition, and nurturing qualities are prominent aspects of your personality. Embracing and understanding your emotions, practicing self-care, and creating a loving and supportive environment for yourself and others will help you navigate life's challenges and cultivate deep and meaningful connections."
-  }
+  "profiles": [
+    {
+      "person": {
+        "name": "Mia Harris",
+        "birthdate": "1998-01-07",
+        "birthtime": "06:37:00",
+        "location": "Cairo, Egypt",
+        "gender": "female"
+      },
+      "aspects": {},
+      "general_report": {}
+    },
+    {
+      "person": {
+        "name": "Harper Lewis",
+        "birthdate": "1965-01-15",
+        "birthtime": "16:13:00",
+        "location": "Paris, France",
+        "gender": "female"
+      },
+      "aspects": {},
+      "general_report": {}
+    },
+    {
+      "person": {
+        "name": "William Davis",
+        "birthdate": "2001-05-02",
+        "birthtime": "23:22:00",
+        "location": "Tokyo, Japan",
+        "gender": "female"
+      },
+      "aspects": {},
+      "general_report": {}
+    },
+    {
+      "person": {
+        "name": "Joseph Martin",
+        "birthdate": "1978-12-21",
+        "birthtime": "00:53:00",
+        "location": "Chicago, USA",
+        "gender": "female"
+      },
+      "aspects": {},
+      "general_report": {}
+    },
+    {
+      "person": {
+        "name": "Joseph Martin",
+        "birthdate": "1975-01-08",
+        "birthtime": "08:50:00",
+        "location": "Paris, France",
+        "gender": "female"
+      },
+      "aspects": {},
+      "general_report": {}
+    }
+  ],
+  "compatibility": [
+    {
+      "person1": {
+        "name": "Mia Harris",
+        "birthdate": "1998-01-07",
+        "birthtime": "06:37:00",
+        "location": "Cairo, Egypt",
+        "gender": "female"
+      },
+      "person2": {
+        "name": "Harper Lewis",
+        "birthdate": "1965-01-15",
+        "birthtime": "16:13:00",
+        "location": "Paris, France",
+        "gender": "female"
+      },
+      "physical_compatibility": {},
+      "sexual_compatibility": {}
+    },
+    {
+      "person1": {
+        "name": "Mia Harris",
+        "birthdate": "1998-01-07",
+        "birthtime": "06:37:00",
+        "location": "Cairo, Egypt",
+        "gender": "female"
+      },
+      "person2": {
+        "name": "William Davis",
+        "birthdate": "2001-05-02",
+        "birthtime": "23:22:00",
+        "location": "Tokyo, Japan",
+        "gender": "female"
+      },
+      "physical_compatibility": {},
+      "sexual_compatibility": {}
+    },
+    {
+      "person1": {
+        "name": "Mia Harris",
+        "birthdate": "1998-01-07",
+        "birthtime": "06:37:00",
+        "location": "Cairo, Egypt",
+        "gender": "female"
+      },
+      "person2": {
+        "name": "Joseph Martin",
+        "birthdate": "1978-12-21",
+        "birthtime": "00:53:00",
+        "location": "Chicago, USA",
+        "gender": "female"
+      },
+      "physical_compatibility": {},
+      "sexual_compatibility": {}
+    },
+    {
+      "person1": {
+        "name": "Mia Harris",
+        "birthdate": "1998-01-07",
+        "birthtime": "06:37:00",
+        "location": "Cairo, Egypt",
+        "gender": "female"
+      },
+      "person2": {
+        "name": "Joseph Martin",
+        "birthdate": "1975-01-08",
+        "birthtime": "08:50:00",
+        "location": "Paris, France",
+        "gender": "female"
+      },
+      "physical_compatibility": {},
+      "sexual_compatibility": {}
+    },
+    {
+      "person1": {
+        "name": "Harper Lewis",
+        "birthdate": "1965-01-15",
+        "birthtime": "16:13:00",
+        "location": "Paris, France",
+        "gender": "female"
+      },
+      "person2": {
+        "name": "William Davis",
+        "birthdate": "2001-05-02",
+        "birthtime": "23:22:00",
+        "location": "Tokyo, Japan",
+        "gender": "female"
+      },
+      "physical_compatibility": {},
+      "sexual_compatibility": {}
+    },
+    {
+      "person1": {
+        "name": "Harper Lewis",
+        "birthdate": "1965-01-15",
+        "birthtime": "16:13:00",
+        "location": "Paris, France",
+        "gender": "female"
+      },
+      "person2": {
+        "name": "Joseph Martin",
+        "birthdate": "1978-12-21",
+        "birthtime": "00:53:00",
+        "location": "Chicago, USA",
+        "gender": "female"
+      },
+      "physical_compatibility": {},
+      "sexual_compatibility": {}
+    },
+    {
+      "person1": {
+        "name": "Harper Lewis",
+        "birthdate": "1965-01-15",
+        "birthtime": "16:13:00",
+        "location": "Paris, France",
+        "gender": "female"
+      },
+      "person2": {
+        "name": "Joseph Martin",
+        "birthdate": "1975-01-08",
+        "birthtime": "08:50:00",
+        "location": "Paris, France",
+        "gender": "female"
+      },
+      "physical_compatibility": {},
+      "sexual_compatibility": {}
+    },
+    {
+      "person1": {
+        "name": "William Davis",
+        "birthdate": "2001-05-02",
+        "birthtime": "23:22:00",
+        "location": "Tokyo, Japan",
+        "gender": "female"
+      },
+      "person2": {
+        "name": "Joseph Martin",
+        "birthdate": "1978-12-21",
+        "birthtime": "00:53:00",
+        "location": "Chicago, USA",
+        "gender": "female"
+      },
+      "physical_compatibility": {},
+      "sexual_compatibility": {}
+    },
+    {
+      "person1": {
+        "name": "William Davis",
+        "birthdate": "2001-05-02",
+        "birthtime": "23:22:00",
+        "location": "Tokyo, Japan",
+        "gender": "female"
+      },
+      "person2": {
+        "name": "Joseph Martin",
+        "birthdate": "1975-01-08",
+        "birthtime": "08:50:00",
+        "location": "Paris, France",
+        "gender": "female"
+      },
+      "physical_compatibility": {},
+      "sexual_compatibility": {}
+    },
+    {
+      "person1": {
+        "name": "Joseph Martin",
+        "birthdate": "1978-12-21",
+        "birthtime": "00:53:00",
+        "location": "Chicago, USA",
+        "gender": "female"
+      },
+      "person2": {
+        "name": "Joseph Martin",
+        "birthdate": "1975-01-08",
+        "birthtime": "08:50:00",
+        "location": "Paris, France",
+        "gender": "female"
+      },
+      "physical_compatibility": {},
+      "sexual_compatibility": {}
+    }
+  ],
+  "generated": "2025-05-16T18:46:48.973Z",
+  "total_entries": 5
 }
