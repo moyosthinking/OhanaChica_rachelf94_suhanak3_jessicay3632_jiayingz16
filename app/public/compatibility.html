@@ -6,13 +6,14 @@
   Time Spent: ???? hours
 -->
 
-<html>
-  <head>
-    <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="/static/styles.css" rel="stylesheet">
-    <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
-    <title>{% block title %}Home{% endblock %}</title>
-  </head>
+<!DOCTYPE html>
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="/static/styles.css" rel="stylesheet">
+  <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
+  <title> Compatibility Checker </title>
+</head>
+  <body>
       <nav class="flex justify-center space-x-4">
         <a href="/" class="text-lg font-medium rounded-lg px-3 py-2 text-gray-700 hover:bg-gray-100 hover:text-gray-900"> Home </a>
         <a href="/" class="text-lg font-medium rounded-lg px-3 py-2 text-gray-700 hover:bg-gray-100 hover:text-gray-900"> Compatibility Checker </a>
@@ -22,7 +23,11 @@
         <a href="/login" class="text-lg font-medium rounded-lg px-3 py-2 text-gray-700 hover:bg-gray-100 hover:text-gray-900"> Login </a>
         <a href="/register" class="text-lg font-medium rounded-lg px-3 py-2 text-gray-700 hover:bg-gray-100 hover:text-gray-900"> Register </a>
       </nav>
-  <body>
-    {% block content %}{% endblock %}
-  </body>
+      <br> <br>
+      <center>
+      <div>
+        <h1 class="text-4xl font-medium text-gray-700"> Compatibility Checker </h1>
+      </div>
+    </center>
+    </body>
 </html>
