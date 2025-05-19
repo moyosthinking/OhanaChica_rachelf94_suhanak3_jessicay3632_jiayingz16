@@ -2,242 +2,289 @@
   "profiles": [
     {
       "person": {
-        "name": "Mia Harris",
-        "birthdate": "1998-01-07",
-        "birthtime": "06:37:00",
-        "location": "Cairo, Egypt",
+        "name": "Daniel Anderson",
+        "birthdate": "1960-08-18",
+        "birthtime": "05:50:00",
+        "location": "Chicago",
         "gender": "female"
       },
-      "aspects": {},
+      "aspects": {
+        "sun": {
+          "planet_name": "Sun",
+          "sign_name": "Leo",
+          "report": "When the Sun is in Leo, it means that at the time of your birth, the Sun was positioned in the zodiac sign of Leo. This placement has a significant influence on your personality, self-expression, and sense of identity. With the Sun in Leo, you have a radiant and charismatic personality that naturally draws attention and admiration. You possess a strong sense of self and take pride in expressing your unique individuality. You have a natural inclination to shine and be the center of attention, and you often have a magnetic presence that captivates others. You have a strong need for recognition and appreciation for your talents and abilities. You thrive when your creative expression is acknowledged and celebrated. You have a natural talent for leadership and tend to gravitate towards positions where you can be in charge and have a significant impact. Your sense of self-worth is closely tied to your accomplishments, and you have a strong desire to leave a lasting impression on the world. You approach life with confidence, enthusiasm, and a belief in your own capabilities. Your optimistic and positive nature inspires those around you and encourages them to pursue their own passions and goals. You have a generous and warm-hearted nature, and you enjoy being generous with your time, resources, and love. You are known for your loyalty and your ability to create a sense of unity and camaraderie among those around you. Your natural leadership skills make you a natural-born motivator and mentor to others. Creativity is an essential part of your identity, and you thrive when given the opportunity to express yourself artistically. You have a flair for the dramatic and a natural talent for performance. Whether it's on stage, in the arts, or through any form of self-expression, you have a knack for capturing attention and leaving a lasting impact. While you exude confidence and charisma, it's important for you to maintain a healthy balance between self-assuredness and humility. Your strong sense of self can sometimes come across as arrogance or a need for constant validation. Embracing humility and recognizing the value and contributions of others will help you maintain positive relationships and create a harmonious environment. Overall, with the Sun in Leo, you possess a magnetic personality, a strong sense of self-expression, and a desire to make a significant impact on the world. Embracing your creative talents, inspiring others through your leadership, and finding the balance between self-assuredness and humility will lead to a fulfilling and meaningful life. Your natural ability to shine and uplift others makes you a natural leader and a source of inspiration."
+        },
+        "moon": {
+          "planet_name": "Moon",
+          "sign_name": "Cancer",
+          "report": "When the Moon is in Cancer, it means that the Moon was in the zodiac sign of Cancer at the time of your birth. The placement of the Moon represents your emotions, instincts, subconscious mind, and how you respond to the world around you. With the Moon in Cancer, you have a deeply sensitive and nurturing nature. You are highly attuned to your emotions and the emotions of others, often experiencing a strong empathetic connection. Your intuition is powerful, and you rely on your gut feelings and instincts when navigating life's challenges. Your emotions play a significant role in your decision-making process. You may make choices based on how they align with your emotional well-being and the well-being of those you care about. Creating a sense of security and emotional stability is essential to you, and you may actively seek out environments and relationships that provide a nurturing and safe space. Family and home hold great importance in your life. You have a strong attachment to your roots and may have a close-knit relationship with your family members. You derive comfort and a sense of belonging from your home and often invest considerable time and energy in creating a warm and harmonious domestic environment. Your caring and nurturing qualities are evident in your relationships. You are deeply devoted to your loved ones and seek to provide emotional support and care. You are attentive and intuitive, able to sense the needs of others and offer comfort and understanding. Your empathy and compassion make you a natural caretaker and someone others often turn to for emotional support. However, the influence of the Moon in Cancer can also bring emotional challenges. You may be prone to mood swings or experiencing heightened sensitivity to criticism or perceived rejection. Your strong emotional connection to others may sometimes lead to an excessive need for validation and approval. Learning to balance your emotional needs with independence and self-care is important for your well-being. In creative pursuits, you are often drawn to outlets that allow you to express your emotions and tap into your intuition. Artistic endeavors, writing, music, or any form of creative self-expression can serve as a means of emotional release and personal exploration. Your nurturing qualities and empathetic nature also make you well-suited for careers that involve caregiving, counseling, social work, or any field that allows you to support and uplift others. Overall, with the Moon in Cancer, your emotional depth, intuition, and nurturing qualities are prominent aspects of your personality. Embracing and understanding your emotions, practicing self-care, and creating a loving and supportive environment for yourself and others will help you navigate life's challenges and cultivate deep and meaningful connections."
+        }
+      },
       "general_report": {}
     },
     {
       "person": {
-        "name": "Harper Lewis",
-        "birthdate": "1965-01-15",
-        "birthtime": "16:13:00",
-        "location": "Paris, France",
+        "name": "James Wilson",
+        "birthdate": "1951-07-22",
+        "birthtime": "12:46:00",
+        "location": "Anchorage",
         "gender": "female"
       },
-      "aspects": {},
-      "general_report": {}
-    },
-    {
-      "person": {
-        "name": "William Davis",
-        "birthdate": "2001-05-02",
-        "birthtime": "23:22:00",
-        "location": "Tokyo, Japan",
-        "gender": "female"
+      "aspects": {
+        "sun": {
+          "planet_name": "Sun",
+          "sign_name": "Cancer",
+          "report": "When the Sun is in Cancer, it means that the Sun was in the zodiac sign of Cancer at the time of your birth. This placement influences your core identity, ego, and self-expression, highlighting the traits associated with the Cancer sign. With the Sun in Cancer, you possess a deep sense of empathy, emotional sensitivity, and nurturing qualities. You are strongly connected to your emotions and have a natural instinct to care for and protect others. Your compassionate nature is often evident in your relationships, where you strive to create a sense of emotional security and comfort for your loved ones. Family and home hold great importance to you. You have a strong attachment to your roots and a desire to create a nurturing environment for yourself and those close to you. You may have a strong connection with your mother or a maternal figure in your life, and you may possess nurturing qualities that extend beyond traditional family structures. Your intuition is heightened with the Sun in Cancer, and you often rely on your gut feelings and instincts when making decisions. You have a keen sense of emotional intelligence and are able to understand the needs and feelings of others, making you a supportive and empathetic friend or partner. Security is essential for your well-being, and you are motivated to create stability and protect what you hold dear. You may have a natural talent for managing finances and ensuring the emotional well-being of yourself and those around you. Your ability to create a safe and nurturing environment provides a strong foundation for growth and personal development. However, the influence of the Sun in Cancer can also bring challenges. You may sometimes find it difficult to express your own needs and assert yourself, as you tend to prioritize the needs of others. It's important for you to find a balance between caring for others and taking care of yourself. Learning to establish healthy boundaries and communicate your own emotions and desires will contribute to your personal growth. In career and creative pursuits, you are often drawn to fields that allow you to express your nurturing qualities and emotional depth. Careers involving caregiving, counseling, teaching, or artistic expression may resonate with you. Your ability to connect with others on an emotional level can be a valuable asset in your professional endeavors. Overall, with the Sun in Cancer, you possess a caring, nurturing, and emotionally sensitive nature. Your deep empathy and strong connection to family and home are defining characteristics of your personality. Embracing your intuitive wisdom, finding a balance between self-care and caring for others, and utilizing your nurturing qualities in meaningful ways will allow you to shine brightly and create a positive impact in the lives of those around you."
+        },
+        "moon": {
+          "planet_name": "Moon",
+          "sign_name": "Pisces",
+          "report": "If you have the Moon in Pisces in your astrological chart, it means that the Moon, which represents your emotions, instincts, and inner self, was located in the zodiac sign of Pisces at the time of your birth. Having the Moon in Pisces indicates that you have a deeply empathetic and compassionate nature. You are highly attuned to the emotions and needs of others, often absorbing their feelings as if they were your own. You possess a gentle and caring demeanor, and your intuitive insights allow you to understand others on a profound level. Your emotional world is rich and vivid, filled with a wide range of emotions and a heightened sensitivity to the subtleties of the world around you. You may have a vivid imagination and a tendency to daydream or escape into a world of fantasy to process and express your emotions. Creativity is a natural outlet for your emotional energy, and you may find solace in artistic pursuits or other forms of self-expression. The Moon in Pisces suggests that you have a strong connection to the spiritual realm. You may have vivid dreams, intuitive insights, or a deep interest in mystical and metaphysical subjects. Your emotional well-being is often tied to your spiritual connection, and finding ways to nourish your soul and connect with higher realms is essential for your overall happiness. However, it's important to be mindful of the potential challenges associated with the Moon in Pisces. Your heightened sensitivity and empathetic nature may sometimes make you vulnerable to emotional overwhelm or a loss of boundaries. It's important to find healthy ways to protect your emotional well-being and establish boundaries to prevent yourself from being drained by the emotions of others. In relationships, you are loving, compassionate, and understanding. You have a natural ability to provide emotional support and create a safe and nurturing space for your loved ones. However, you may need to be mindful of maintaining your individuality within your relationships and avoid becoming overly self-sacrificing or losing yourself in the needs of others. Career-wise, you may be drawn to professions that involve helping others, such as counseling, healing, or creative fields. Your deep empathy and intuitive understanding make you a natural healer and a source of comfort for those in need. You may also excel in artistic endeavors, as your emotional depth and vivid imagination can bring a unique and inspiring perspective to your creative work."
+        }
       },
-      "aspects": {},
-      "general_report": {}
-    },
-    {
-      "person": {
-        "name": "Joseph Martin",
-        "birthdate": "1978-12-21",
-        "birthtime": "00:53:00",
-        "location": "Chicago, USA",
-        "gender": "female"
-      },
-      "aspects": {},
-      "general_report": {}
-    },
-    {
-      "person": {
-        "name": "Joseph Martin",
-        "birthdate": "1975-01-08",
-        "birthtime": "08:50:00",
-        "location": "Paris, France",
-        "gender": "female"
-      },
-      "aspects": {},
       "general_report": {}
     }
   ],
   "compatibility": [
     {
       "person1": {
-        "name": "Mia Harris",
-        "birthdate": "1998-01-07",
-        "birthtime": "06:37:00",
-        "location": "Cairo, Egypt",
+        "name": "Daniel Anderson",
+        "birthdate": "1960-08-18",
+        "birthtime": "05:50:00",
+        "location": "Chicago",
         "gender": "female"
       },
       "person2": {
-        "name": "Harper Lewis",
-        "birthdate": "1965-01-15",
-        "birthtime": "16:13:00",
-        "location": "Paris, France",
+        "name": "James Wilson",
+        "birthdate": "1951-07-22",
+        "birthtime": "12:46:00",
+        "location": "Anchorage",
         "gender": "female"
       },
-      "physical_compatibility": {},
-      "sexual_compatibility": {}
-    },
-    {
-      "person1": {
-        "name": "Mia Harris",
-        "birthdate": "1998-01-07",
-        "birthtime": "06:37:00",
-        "location": "Cairo, Egypt",
-        "gender": "female"
+      "physical_compatibility": {
+        "success": 1,
+        "data": {
+          "content": [
+            {
+              "p1": {
+                "planet": "Venus",
+                "full_degree": "70.5540991",
+                "sign": "Gemini",
+                "sign_no": 3,
+                "longitude": "10:33:15"
+              },
+              "p2": {
+                "planet": "Mars",
+                "full_degree": "160.9066968",
+                "sign": "Virgo",
+                "sign_no": 6,
+                "longitude": "10:54:24"
+              },
+              "orb": 0.35,
+              "aspect": "Square",
+              "aspect_type": "Hard",
+              "reading": [
+                {
+                  "title": "Passionate Attraction",
+                  "description": "Mars symbolizes the passion and desire of Daniel Anderson and under Venus's influence, it intensifies. Daniel Anderson may feel a strong, almost magnetic, attraction towards James Wilson. The physical desires may be heightened, resulting in a passionate, fiery relationship."
+                },
+                {
+                  "title": "Harmony and Balance",
+                  "description": "Venus, representing love and values of James Wilson, forming a square aspect with Mars of Daniel Anderson may indicate harmony and balance. James Wilson may offer affection, beauty, and comfort that can make Daniel Anderson feel appreciated and valued, creating an appealing balance in their physical relationship."
+                },
+                {
+                  "title": "Dynamic Tensions",
+                  "description": "The square aspect between Mars and Venus may also introduce dynamic tensions. Daniel Anderson's aggressive energies might conflict with James Wilson's harmony-seeking tendencies. This tension, if managed well, can lead to a stimulating relationship that keeps both parties on their toes."
+                }
+              ]
+            },
+            {
+              "p1": {
+                "planet": "Saturn",
+                "full_degree": "282.4575860",
+                "sign": "Capricorn",
+                "sign_no": 10,
+                "longitude": "12:27:27"
+              },
+              "p2": {
+                "planet": "Ascendant",
+                "full_degree": "196.0644951",
+                "sign": "Libra",
+                "sign_no": 7,
+                "longitude": "16:3:52"
+              },
+              "orb": 3.61,
+              "aspect": "Square",
+              "aspect_type": "Hard",
+              "reading": [
+                {
+                  "title": "Initial Attraction",
+                  "description": "Daniel Anderson and James Wilson might have an initial attraction due to Daniel Anderson's Ascendent square Saturn aspect of James Wilson. This aspect represents challenge and growth which might bring the two closer initially."
+                },
+                {
+                  "title": "Physical Challenges",
+                  "description": "However, over time, the physical compatibility might be a challenge. Saturn's influence may restrict or delay physical intimacy. James Wilson might appear as a taskmaster to Daniel Anderson, offering lessons in patience and restraint."
+                },
+                {
+                  "title": "Long-Term Compatibility",
+                  "description": "Long-term physical compatibility would depend on how much Daniel Anderson can adapt to the physical limitations imposed by James Wilson's Saturn. If Daniel Anderson could view these challenges as growth opportunities, physical compatibility can still be achieved."
+                }
+              ]
+            }
+          ],
+          "message": []
+        }
       },
-      "person2": {
-        "name": "William Davis",
-        "birthdate": "2001-05-02",
-        "birthtime": "23:22:00",
-        "location": "Tokyo, Japan",
-        "gender": "female"
+      "sexual_compatibility": {
+        "success": 1,
+        "data": {
+          "content": [
+            {
+              "p1": {
+                "planet": "Venus",
+                "full_degree": "70.5540991",
+                "sign": "Gemini",
+                "sign_no": 3,
+                "longitude": "10:33:15"
+              },
+              "p2": {
+                "planet": "Mars",
+                "full_degree": "160.9066968",
+                "sign": "Virgo",
+                "sign_no": 6,
+                "longitude": "10:54:24"
+              },
+              "orb": 0.35,
+              "aspect": "Square",
+              "aspect_type": "Hard",
+              "reading": [
+                {
+                  "title": "Strong Attraction",
+                  "description": "In astrology, a square aspect between Daniel Anderson's Mars and James Wilson's Venus often indicates a strong magnetic pull. This can result in intense sexual attraction and a passionate connection that can be quite energizing for both parties."
+                },
+                {
+                  "title": "Dynamic Tension",
+                  "description": "However, this aspect also infers dynamic tension. It can create friction, which can manifest itself in arguments. Yet, this also enhances their sexual drive, as that tension converts into explosive passion for Daniel Anderson and James Wilson."
+                },
+                {
+                  "title": "Balance Needed",
+                  "description": "Daniel Anderson and James Wilson need to strike a balance. While the chemistry is intense, their relationship might be volatile and stuffed with pressure. They would need to manage this energy responsibly, focusing on open communication and understanding for maintaining longevity in their relationship."
+                }
+              ]
+            }
+          ],
+          "message": []
+        }
       },
-      "physical_compatibility": {},
-      "sexual_compatibility": {}
-    },
-    {
-      "person1": {
-        "name": "Mia Harris",
-        "birthdate": "1998-01-07",
-        "birthtime": "06:37:00",
-        "location": "Cairo, Egypt",
-        "gender": "female"
-      },
-      "person2": {
-        "name": "Joseph Martin",
-        "birthdate": "1978-12-21",
-        "birthtime": "00:53:00",
-        "location": "Chicago, USA",
-        "gender": "female"
-      },
-      "physical_compatibility": {},
-      "sexual_compatibility": {}
-    },
-    {
-      "person1": {
-        "name": "Mia Harris",
-        "birthdate": "1998-01-07",
-        "birthtime": "06:37:00",
-        "location": "Cairo, Egypt",
-        "gender": "female"
-      },
-      "person2": {
-        "name": "Joseph Martin",
-        "birthdate": "1975-01-08",
-        "birthtime": "08:50:00",
-        "location": "Paris, France",
-        "gender": "female"
-      },
-      "physical_compatibility": {},
-      "sexual_compatibility": {}
-    },
-    {
-      "person1": {
-        "name": "Harper Lewis",
-        "birthdate": "1965-01-15",
-        "birthtime": "16:13:00",
-        "location": "Paris, France",
-        "gender": "female"
-      },
-      "person2": {
-        "name": "William Davis",
-        "birthdate": "2001-05-02",
-        "birthtime": "23:22:00",
-        "location": "Tokyo, Japan",
-        "gender": "female"
-      },
-      "physical_compatibility": {},
-      "sexual_compatibility": {}
-    },
-    {
-      "person1": {
-        "name": "Harper Lewis",
-        "birthdate": "1965-01-15",
-        "birthtime": "16:13:00",
-        "location": "Paris, France",
-        "gender": "female"
-      },
-      "person2": {
-        "name": "Joseph Martin",
-        "birthdate": "1978-12-21",
-        "birthtime": "00:53:00",
-        "location": "Chicago, USA",
-        "gender": "female"
-      },
-      "physical_compatibility": {},
-      "sexual_compatibility": {}
-    },
-    {
-      "person1": {
-        "name": "Harper Lewis",
-        "birthdate": "1965-01-15",
-        "birthtime": "16:13:00",
-        "location": "Paris, France",
-        "gender": "female"
-      },
-      "person2": {
-        "name": "Joseph Martin",
-        "birthdate": "1975-01-08",
-        "birthtime": "08:50:00",
-        "location": "Paris, France",
-        "gender": "female"
-      },
-      "physical_compatibility": {},
-      "sexual_compatibility": {}
-    },
-    {
-      "person1": {
-        "name": "William Davis",
-        "birthdate": "2001-05-02",
-        "birthtime": "23:22:00",
-        "location": "Tokyo, Japan",
-        "gender": "female"
-      },
-      "person2": {
-        "name": "Joseph Martin",
-        "birthdate": "1978-12-21",
-        "birthtime": "00:53:00",
-        "location": "Chicago, USA",
-        "gender": "female"
-      },
-      "physical_compatibility": {},
-      "sexual_compatibility": {}
-    },
-    {
-      "person1": {
-        "name": "William Davis",
-        "birthdate": "2001-05-02",
-        "birthtime": "23:22:00",
-        "location": "Tokyo, Japan",
-        "gender": "female"
-      },
-      "person2": {
-        "name": "Joseph Martin",
-        "birthdate": "1975-01-08",
-        "birthtime": "08:50:00",
-        "location": "Paris, France",
-        "gender": "female"
-      },
-      "physical_compatibility": {},
-      "sexual_compatibility": {}
-    },
-    {
-      "person1": {
-        "name": "Joseph Martin",
-        "birthdate": "1978-12-21",
-        "birthtime": "00:53:00",
-        "location": "Chicago, USA",
-        "gender": "female"
-      },
-      "person2": {
-        "name": "Joseph Martin",
-        "birthdate": "1975-01-08",
-        "birthtime": "08:50:00",
-        "location": "Paris, France",
-        "gender": "female"
-      },
-      "physical_compatibility": {},
-      "sexual_compatibility": {}
+      "emotional_compatibility": {
+        "success": 1,
+        "data": {
+          "content": [
+            {
+              "p1": {
+                "planet": "Ascendant",
+                "full_degree": "102.4089556",
+                "sign": "Cancer",
+                "sign_no": 4,
+                "longitude": "12:24:32"
+              },
+              "p2": {
+                "planet": "Moon",
+                "full_degree": "196.0644951",
+                "sign": "Libra",
+                "sign_no": 7,
+                "longitude": "16:3:52"
+              },
+              "orb": 3.66,
+              "aspect": "Square",
+              "aspect_type": "Hard",
+              "reading": [
+                {
+                  "title": "Emotional Intensity",
+                  "description": "There may be intense emotional reactions between Daniel Anderson and James Wilson as Daniel Anderson's Moon forms a square aspect with James Wilson's Ascendant. This may result in each person's emotions being more impactful on the other, with their feelings often clashing more dramatically."
+                },
+                {
+                  "title": "Emotional Understanding",
+                  "description": "Even though the aspect may lead to tension, it also encourages awareness and empathy. Daniel Anderson and James Wilson could develop a deeper understanding of each other's emotional makeup and will be challenged to understand their partner's perspectives."
+                },
+                {
+                  "title": "Learning Opportunities",
+                  "description": "This aspect empowers both Daniel Anderson and James Wilson to learn how to manage their emotional responses constructively. By understanding their emotional differences, they can find a way to make their relationship more harmonious and balanced over time."
+                }
+              ]
+            },
+            {
+              "p1": {
+                "planet": "Mars",
+                "full_degree": "102.4089556",
+                "sign": "Cancer",
+                "sign_no": 4,
+                "longitude": "12:24:32"
+              },
+              "p2": {
+                "planet": "Moon",
+                "full_degree": "102.6506394",
+                "sign": "Cancer",
+                "sign_no": 4,
+                "longitude": "12:39:2"
+              },
+              "orb": 0.24,
+              "aspect": "Conjunction",
+              "aspect_type": "Intense",
+              "reading": [
+                {
+                  "title": "Emotional Intensity",
+                  "description": "Mars' influence on Daniel Anderson's Moon increases their emotional reactions, often resulting in passion and intensity. There might be a tendency for fights, as Mars also represents aggression. However, it can also lead to an enhanced emotional attachment."
+                },
+                {
+                  "title": "Emotional Turbulence",
+                  "description": "The conjunction of Mars with the Moon may introduce emotional turbulence. Daniel Anderson may experience an extreme range of feelings, and their reactions can be explosive. James Wilson will need to show plenty of understanding and patience."
+                },
+                {
+                  "title": "Energetic Bonding",
+                  "description": "James Wilson's Mars adds an aspect of energy and courage to Daniel Anderson's emotional self. This astral combination can make for a strong, dynamic relationship where both parties are motivated to face any challenges head-on collectively."
+                }
+              ]
+            },
+            {
+              "p1": {
+                "planet": "Venus",
+                "full_degree": "102.4089556",
+                "sign": "Cancer",
+                "sign_no": 4,
+                "longitude": "12:24:32"
+              },
+              "p2": {
+                "planet": "Moon",
+                "full_degree": "160.9066968",
+                "sign": "Virgo",
+                "sign_no": 6,
+                "longitude": "10:54:24"
+              },
+              "orb": 1.5,
+              "aspect": "Sextile",
+              "aspect_type": "Mildly Easy",
+              "reading": [
+                {
+                  "title": "Emotional Sensitivity",
+                  "description": "In this relationship, Daniel Anderson's moon aspect contributes to sensitivity and empathy towards James Wilson's emotions. They easily resonate with each other's moods, creating a deep connection."
+                },
+                {
+                  "title": "Romantic Interactions",
+                  "description": "James Wilson's Venus adds a layer of affection and beauty to the relationship. This induces romantic and caring sentiments in James Wilson for Daniel Anderson, boosting emotional compatibility."
+                },
+                {
+                  "title": "Balanced Harmony",
+                  "description": "The sextile aspect suggests harmony and balance in their relationship. Their emotional worlds align well, promoting understanding and comfort between Daniel Anderson and James Wilson when expressing their feelings."
+                }
+              ]
+            }
+          ],
+          "message": []
+        }
+      }
     }
   ],
-  "generated": "2025-05-16T18:46:48.973Z",
-  "total_entries": 5
+  "generated": "2025-05-19T22:02:56.843Z",
+  "total_entries": 2
 }

@@ -42,3 +42,12 @@ michelleZ -- 2025-05-16 11:10
 
 michelleZ -- 2025-05-18 2:30
 - tried building training dataset
+
+michelleZ -- 2025-05-19 11:20
+- tried requesting data & debugged
+- got compatibility working
+
+michelleZ -- 2025-05-20 17:00
+- fixed major bugs in requesting api calls
+- successfully resolved issues
+- still need to merge the data in app/dataset

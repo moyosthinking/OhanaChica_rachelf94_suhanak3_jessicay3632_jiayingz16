@@ -20,17 +20,47 @@ const names = [
 
 // Different locations with lat/long
 const locations = [
-  { place: 'New York, USA', lat: '40.7128', lon: '-74.0060', tzone: '-5.0' },
-  { place: 'Los Angeles, USA', lat: '34.0522', lon: '-118.2437', tzone: '-8.0' },
-  { place: 'Chicago, USA', lat: '41.8781', lon: '-87.6298', tzone: '-6.0' },
-  { place: 'London, UK', lat: '51.5074', lon: '-0.1278', tzone: '0.0' },
-  { place: 'Tokyo, Japan', lat: '35.6762', lon: '139.6503', tzone: '9.0' },
-  { place: 'Sydney, Australia', lat: '-33.8688', lon: '151.2093', tzone: '10.0' },
-  { place: 'Paris, France', lat: '48.8566', lon: '2.3522', tzone: '1.0' },
-  { place: 'Berlin, Germany', lat: '52.5200', lon: '13.4050', tzone: '1.0' },
-  { place: 'Mumbai, India', lat: '19.0760', lon: '72.8777', tzone: '5.5' },
-  { place: 'Cairo, Egypt', lat: '30.0444', lon: '31.2357', tzone: '2.0' }
+  { place: 'Baker Island', lat: '0.1936', lon: '-176.4769', tzone: '-12' }, // UTC-12:00
+  { place: 'American Samoa', lat: '-14.2710', lon: '-170.1322', tzone: '-11' }, // UTC-11:00
+  { place: 'Honolulu', lat: '21.3069', lon: '-157.8583', tzone: '-10' }, // UTC-10:00
+  { place: 'Anchorage', lat: '61.2181', lon: '-149.9003', tzone: '-9' }, // UTC-09:00
+  { place: 'Los Angeles', lat: '34.0522', lon: '-118.2437', tzone: '-8' }, // UTC-08:00
+  { place: 'Denver', lat: '39.7392', lon: '-104.9903', tzone: '-7' }, // UTC-07:00
+  { place: 'Chicago', lat: '41.8781', lon: '-87.6298', tzone: '-6' }, // UTC-06:00
+  { place: 'New York', lat: '40.7128', lon: '-74.0060', tzone: '-5' }, // UTC-05:00
+  { place: 'Caracas', lat: '10.4806', lon: '-66.9036', tzone: '-4' }, // UTC-04:00
+  { place: 'Rio de Janeiro', lat: '-22.9068', lon: '-43.1729', tzone: '-3' }, // UTC-03:00
+  { place: 'Azores', lat: '37.7412', lon: '-25.6756', tzone: '-1' }, // UTC-01:00
+  { place: 'London', lat: '51.5074', lon: '-0.1278', tzone: '0' }, // UTC+00:00
+  { place: 'Berlin', lat: '52.5200', lon: '13.4050', tzone: '1' }, // UTC+01:00
+  { place: 'Cairo', lat: '30.0444', lon: '31.2357', tzone: '2' }, // UTC+02:00
+  { place: 'Moscow', lat: '55.7558', lon: '37.6173', tzone: '3' }, // UTC+03:00
+  { place: 'Tehran', lat: '35.6892', lon: '51.3890', tzone: '3.5' }, // UTC+03:30
+  { place: 'Dubai', lat: '25.2048', lon: '55.2708', tzone: '4' }, // UTC+04:00
+  { place: 'Kabul', lat: '34.5553', lon: '69.2075', tzone: '4.5' }, // UTC+04:30
+  { place: 'Karachi', lat: '24.8607', lon: '67.0011', tzone: '5' }, // UTC+05:00
+  { place: 'New Delhi', lat: '28.6139', lon: '77.2090', tzone: '5.5' }, // UTC+05:30
+  { place: 'Kathmandu', lat: '27.7172', lon: '85.3240', tzone: '5.75' }, // UTC+05:45
+  { place: 'Dhaka', lat: '23.8103', lon: '90.4125', tzone: '6' }, // UTC+06:00
+  { place: 'Yangon', lat: '16.8409', lon: '96.1735', tzone: '6.5' }, // UTC+06:30
+  { place: 'Bangkok', lat: '13.7563', lon: '100.5018', tzone: '7' }, // UTC+07:00
+  { place: 'Beijing', lat: '39.9042', lon: '116.4074', tzone: '8' }, // UTC+08:00
+  { place: 'Tokyo', lat: '35.6895', lon: '139.6917', tzone: '9' }, // UTC+09:00
+  { place: 'Adelaide', lat: '-34.9285', lon: '138.6007', tzone: '9.5' }, // UTC+09:30
+  { place: 'Sydney', lat: '-33.8688', lon: '151.2093', tzone: '10' }, // UTC+10:00
+  { place: 'Magadan', lat: '59.5616', lon: '150.8000', tzone: '11' }, // UTC+11:00
+  { place: 'Fiji', lat: '-17.7134', lon: '178.0650', tzone: '12' }, // UTC+12:00
+  { place: 'Nuku\'alofa', lat: '-21.1394', lon: '-175.2044', tzone: '13' }, // UTC+13:00
+  { place: 'Kiritimati', lat: '1.8721', lon: '-157.4278', tzone: '14' } // UTC+14:00
 ];
+
+function getRandomName() {
+    return names[Math.floor(Math.random() * names.length)];
+}
+
+function getRandomGender() {
+    return Math.random() > 0.5 ? 'male' : 'female';
+}
 
 // Variety of birth years (1950-2010)
 function getRandomYear() {
@@ -57,19 +87,22 @@ function getRandomMinute() {
   return Math.floor(Math.random() * 60);
 }
 
+function getRandomLocation() {
+    return locations[Math.floor(Math.random() * locations.length)];
+}
+
 // Astrological aspects to query (sun, moon, rising, etc.)
 const aspects = [
-  'sun', 'moon', 'rising'
+  'sun', 'moon'
 //   'mercury', 'venus', 'mars', 'jupiter', 'saturn', 'uranus', 'neptune', 'pluto'
 ];
 
 // Generate a random profile
 function generateRandomProfile() {
-  const location = locations[Math.floor(Math.random() * locations.length)];
-  const gender = Math.random() > 0.5 ? 'male' : 'female';
-  
+    const location = getRandomLocation();
+    const gender = getRandomGender();
   return {
-    full_name: names[Math.floor(Math.random() * names.length)],
+    full_name: getRandomName().toString(),
     day: getRandomDay().toString().padStart(2, '0'),
     month: getRandomMonth().toString().padStart(2, '0'),
     year: getRandomYear().toString(),
@@ -78,9 +111,9 @@ function generateRandomProfile() {
     sec: '00',
     gender: gender,
     place: location.place,
-    lat: location.lat,
-    lon: location.lon,
-    tzone: location.tzone,
+    lat: parseFloat(location.lat).toString(),
+    lon: parseFloat(location.lon).toString(),
+    tzone: parseFloat(location.tzone).toString(),
     lan: 'en',
     house_system: 'P'
   };
@@ -91,56 +124,43 @@ function makeAstrologyRequest(profile, aspect) {
   return new Promise((resolve, reject) => {
     const options = {
       'method': 'POST',
+      // For debugging, use a hardcoded aspect (e.g., 'moon') to match the working sample
       'url': `https://astroapi-4.divineapi.com/western-api/v1/general-sign-report/${aspect}`,
       'headers': {
         'Authorization': `Bearer ${keys.AUTH_TOKEN}`
       },
       formData: {
         'api_key': keys.API_KEY,
-        ...profile
+        'full_name': profile.full_name.toString(),
+        'day': profile.day.toString(),
+        'month': profile.month.toString(),
+        'year': profile.year.toString(),
+        'hour': profile.hour.toString(),
+        'min': profile.min.toString(),
+        'sec': profile.sec.toString(),
+        'gender': profile.gender.toString(),
+        // For debugging, allow place to include city and country if needed
+        'place': profile.place.toString(),
+        'lat': profile.lat.toString(),
+        'lon': profile.lon.toString(),
+        'tzone': profile.tzone.toString(),
+        'lan': 'en',
+        'house_system': 'P'
       }
     };
     
     request(options, function(error, response) {
-      if (error) {
-        return reject(error);
-      }
-      
+      if (error) return reject(error);
+      console.log(response.body);
       try {
         const data = JSON.parse(response.body);
-        resolve(data);
+        if (data.success === 1 && data.data) {
+          resolve(data.data);
+        } else {
+          reject(new Error(`API Error: ${data.message || 'Unknown error'}`));
+        }
       } catch (parseError) {
-        reject(parseError);
-      }
-    });
-  });
-}
-
-// Function to make API request for general sign report (without aspect)
-function makeGeneralSignReportRequest(profile) {
-  return new Promise((resolve, reject) => {
-    const options = {
-      'method': 'POST',
-      'url': 'https://astroapi-4.divineapi.com/western-api/v1/general-sign-report/',
-      'headers': {
-        'Authorization': `Bearer ${keys.AUTH_TOKEN}`
-      },
-      formData: {
-        'api_key': keys.API_KEY,
-        ...profile
-      }
-    };
-    
-    request(options, function(error, response) {
-      if (error) {
-        return reject(error);
-      }
-      
-      try {
-        const data = JSON.parse(response.body);
-        resolve(data);
-      } catch (parseError) {
-        reject(parseError);
+        reject(new Error(`Parse error: ${parseError.message}. Response body: ${response.body}`));
       }
     });
   });
@@ -157,44 +177,43 @@ function makePhysicalCompatibilityRequest(profile1, profile2) {
       },
       formData: {
         'api_key': keys.API_KEY,
-        'p1_full_name': profile1.full_name,
-        'p1_day': profile1.day,
-        'p1_month': profile1.month,
-        'p1_year': profile1.year,
-        'p1_hour': profile1.hour,
-        'p1_min': profile1.min,
-        'p1_sec': profile1.sec,
-        'p1_gender': profile1.gender,
-        'p1_place': profile1.place,
-        'p1_lat': profile1.lat,
-        'p1_lon': profile1.lon,
-        'p1_tzone': profile1.tzone,
-        'p2_full_name': profile2.full_name,
-        'p2_day': profile2.day,
-        'p2_month': profile2.month,
-        'p2_year': profile2.year,
-        'p2_hour': profile2.hour,
-        'p2_min': profile2.min,
-        'p2_sec': profile2.sec,
-        'p2_gender': profile2.gender,
-        'p2_place': profile2.place,
-        'p2_lat': profile2.lat,
-        'p2_lon': profile2.lon,
-        'p2_tzone': profile2.tzone,
-        'lan': 'en'
+        'p1_full_name': profile1.full_name.toString(),
+        'p1_day': profile1.day.toString(),
+        'p1_month': profile1.month.toString(),
+        'p1_year': profile1.year.toString(),
+        'p1_hour': profile1.hour.toString(),
+        'p1_min': profile1.min.toString(),
+        'p1_sec': profile1.sec.toString(),
+        'p1_gender': profile1.gender.toString(),
+        'p1_place': profile1.place.toString(),
+        'p1_lat': profile1.lat.toString(),
+        'p1_lon': profile1.lon.toString(),
+        'p1_tzone': profile1.tzone.toString(),
+        'p2_full_name': profile2.full_name.toString(),
+        'p2_day': profile2.day.toString(),
+        'p2_month': profile2.month.toString(),
+        'p2_year': profile2.year.toString(),
+        'p2_hour': profile2.hour.toString(),
+        'p2_min': profile2.min.toString(),
+        'p2_sec': profile2.sec.toString(),
+        'p2_gender': profile2.gender.toString(),
+        'p2_place': profile2.place.toString(),
+        'p2_lat': profile2.lat.toString(),
+        'p2_lon': profile2.lon.toString(),
+        'p2_tzone': profile2.tzone.toString(),
+        'lan': 'en',
+        'house_system': 'P'
       }
     };
-    
-    request(options, function(error, response) {
-      if (error) {
-        return reject(error);
-      }
-      
+
+    request(options, function (error, response) {
+      if (error) return reject(error);
+      console.log(response.body);
       try {
         const data = JSON.parse(response.body);
         resolve(data);
       } catch (parseError) {
-        reject(parseError);
+        reject(new Error(`Parse error: ${parseError.message}. Response body: ${response.body}`));
       }
     });
   });
@@ -211,44 +230,96 @@ function makeSexualCompatibilityRequest(profile1, profile2) {
       },
       formData: {
         'api_key': keys.API_KEY,
-        'p1_full_name': profile1.full_name,
-        'p1_day': profile1.day,
-        'p1_month': profile1.month,
-        'p1_year': profile1.year,
-        'p1_hour': profile1.hour,
-        'p1_min': profile1.min,
-        'p1_sec': profile1.sec,
-        'p1_gender': profile1.gender,
-        'p1_place': profile1.place,
-        'p1_lat': profile1.lat,
-        'p1_lon': profile1.lon,
-        'p1_tzone': profile1.tzone,
-        'p2_full_name': profile2.full_name,
-        'p2_day': profile2.day,
-        'p2_month': profile2.month,
-        'p2_year': profile2.year,
-        'p2_hour': profile2.hour,
-        'p2_min': profile2.min,
-        'p2_sec': profile2.sec,
-        'p2_gender': profile2.gender,
-        'p2_place': profile2.place,
-        'p2_lat': profile2.lat,
-        'p2_lon': profile2.lon,
-        'p2_tzone': profile2.tzone,
-        'lan': 'en'
+        'p1_full_name': profile1.full_name.toString(),
+        'p1_day': profile1.day.toString(),
+        'p1_month': profile1.month.toString(),
+        'p1_year': profile1.year.toString(),
+        'p1_hour': profile1.hour.toString(),
+        'p1_min': profile1.min.toString(),
+        'p1_sec': profile1.sec.toString(),
+        'p1_gender': profile1.gender.toString(),
+        'p1_place': profile1.place.toString(),
+        'p1_lat': profile1.lat.toString(),
+        'p1_lon': profile1.lon.toString(),
+        'p1_tzone': profile1.tzone.toString(),
+        'p2_full_name': profile2.full_name.toString(),
+        'p2_day': profile2.day.toString(),
+        'p2_month': profile2.month.toString(),
+        'p2_year': profile2.year.toString(),
+        'p2_hour': profile2.hour.toString(),
+        'p2_min': profile2.min.toString(),
+        'p2_sec': profile2.sec.toString(),
+        'p2_gender': profile2.gender.toString(),
+        'p2_place': profile2.place.toString(),
+        'p2_lat': profile2.lat.toString(),
+        'p2_lon': profile2.lon.toString(),
+        'p2_tzone': profile2.tzone.toString(),
+        'lan': 'en',
+        'house_system': 'P'
       }
     };
-    
-    request(options, function(error, response) {
-      if (error) {
-        return reject(error);
-      }
-      
+
+    request(options, function (error, response) {
+      if (error) return reject(error);
+      console.log(response.body);
       try {
         const data = JSON.parse(response.body);
         resolve(data);
       } catch (parseError) {
-        reject(parseError);
+        reject(new Error(`Parse error: ${parseError.message}. Response body: ${response.body}`));
+      }
+    });
+  });
+}
+
+// Function to make API request for emotional compatibility between two profiles
+function makeEmotionalCompatibilityRequest(profile1, profile2) {
+  return new Promise((resolve, reject) => {
+    const options = {
+      'method': 'POST',
+      'url': 'https://astroapi-4.divineapi.com/western-api/v2/synastry/emotional-compatibility',
+      'headers': {
+        'Authorization': `Bearer ${keys.AUTH_TOKEN}`
+      },
+      formData: {
+        'api_key': keys.API_KEY,
+        'p1_full_name': profile1.full_name.toString(),
+        'p1_day': profile1.day.toString(),
+        'p1_month': profile1.month.toString(),
+        'p1_year': profile1.year.toString(),
+        'p1_hour': profile1.hour.toString(),
+        'p1_min': profile1.min.toString(),
+        'p1_sec': profile1.sec.toString(),
+        'p1_gender': profile1.gender.toString(),
+        'p1_place': profile1.place.toString(),
+        'p1_lat': profile1.lat.toString(),
+        'p1_lon': profile1.lon.toString(),
+        'p1_tzone': profile1.tzone.toString(),
+        'p2_full_name': profile2.full_name.toString(),
+        'p2_day': profile2.day.toString(),
+        'p2_month': profile2.month.toString(),
+        'p2_year': profile2.year.toString(),
+        'p2_hour': profile2.hour.toString(),
+        'p2_min': profile2.min.toString(),
+        'p2_sec': profile2.sec.toString(),
+        'p2_gender': profile2.gender.toString(),
+        'p2_place': profile2.place.toString(),
+        'p2_lat': profile2.lat.toString(),
+        'p2_lon': profile2.lon.toString(),
+        'p2_tzone': profile2.tzone.toString(),
+        'lan': 'en',
+        'house_system': 'P'
+      }
+    };
+
+    request(options, function (error, response) {
+      if (error) return reject(error);
+      console.log(response.body);
+      try {
+        const data = JSON.parse(response.body);
+        resolve(data);
+      } catch (parseError) {
+        reject(new Error(`Parse error: ${parseError.message}. Response body: ${response.body}`));
       }
     });
   });
@@ -259,7 +330,7 @@ async function generateDataset() {
   console.log('Starting dataset generation...');
   
   // Number of profiles to generate
-  const numProfiles = 5;
+  const numProfiles = 2;
   
   // Generate all profiles first
   const profiles = [];
@@ -292,51 +363,24 @@ async function generateDataset() {
       general_report: {}
     };
     
-    // 1. Get general sign report (without aspect)
-    try {
-      console.log(`  Fetching general sign report...`);
-      const generalData = await makeGeneralSignReportRequest(profile);
-      
-      if (generalData && generalData.status === 'success') {
-        profileData.general_report = generalData;
-        
-        // Save general report file
-        const generalFileName = `${profile.full_name.replace(/\s+/g, '_')}_general_report.json`;
-        fs.writeFileSync(
-          path.join(datasetDir, generalFileName),
-          JSON.stringify(generalData, null, 2)
-        );
-      } else {
-        console.log(`  ❌ Error fetching general sign report:`, generalData.message || 'Unknown error');
-      }
-      
-      // Add a delay to avoid rate limiting
-      await new Promise(resolve => setTimeout(resolve, 2000));
-    } catch (error) {
-      console.error(`  ❌ Error with general sign report request:`, error.message);
-    }
-    
-    // 2. Get aspect-specific reports
+    // 1. Get all aspect-specific reports
     for (const aspect of aspects) {
       try {
         console.log(`  Fetching ${aspect} data...`);
-        const data = await makeAstrologyRequest(profile, aspect);
-        
-        if (data && data.status === 'success') {
-          profileData.aspects[aspect] = data;
-          
+        const aspectData = await makeAstrologyRequest(profile, aspect);
+        if (aspectData) {
+          profileData.aspects[aspect] = aspectData;
           // Save individual aspect file
-          const aspectFileName = `${profile.full_name.replace(/\s+/g, '_')}_${aspect}.json`;
+          const aspectFileName = `${profile.full_name.replace(/\\s+/g, '_')}_${aspect}.json`;
           fs.writeFileSync(
             path.join(datasetDir, aspectFileName),
-            JSON.stringify(data, null, 2)
+            JSON.stringify(aspectData, null, 2)
           );
         } else {
-          console.log(`  ❌ Error fetching ${aspect} data:`, data.message || 'Unknown error');
+          console.log(`  ❌ Error fetching ${aspect} data:`, aspectData.message || 'Unknown error');
         }
-        
         // Add a delay to avoid rate limiting
-        await new Promise(resolve => setTimeout(resolve, 2000));
+        await new Promise(resolve => setTimeout(resolve, 5000));
       } catch (error) {
         console.error(`  ❌ Error with ${aspect} request:`, error.message);
       }
@@ -380,7 +424,8 @@ async function generateDataset() {
           gender: profile2.gender
         },
         physical_compatibility: {},
-        sexual_compatibility: {}
+        sexual_compatibility: {},
+        emotional_compatibility: {}
       };
       
       // Physical compatibility
@@ -388,21 +433,14 @@ async function generateDataset() {
         console.log(`  Fetching physical compatibility data...`);
         const physicalData = await makePhysicalCompatibilityRequest(profile1, profile2);
         
-        if (physicalData && physicalData.status === 'success') {
-          compatibilityData.physical_compatibility = physicalData;
-          
-          // Save physical compatibility file
-          const physicalFileName = `${profile1.full_name.replace(/\s+/g, '_')}_${profile2.full_name.replace(/\s+/g, '_')}_physical.json`;
-          fs.writeFileSync(
-            path.join(datasetDir, physicalFileName),
-            JSON.stringify(physicalData, null, 2)
-          );
-        } else {
-          console.log(`  ❌ Error fetching physical compatibility data:`, physicalData.message || 'Unknown error');
-        }
+        compatibilityData.physical_compatibility = physicalData;
         
-        // Add a delay to avoid rate limiting
-        await new Promise(resolve => setTimeout(resolve, 2000));
+        // Save physical compatibility file
+        const physicalFileName = `${profile1.full_name.replace(/\s+/g, '_')}_${profile2.full_name.replace(/\s+/g, '_')}_physical.json`;
+        fs.writeFileSync(
+          path.join(datasetDir, physicalFileName),
+          JSON.stringify(physicalData, null, 2)
+        );
       } catch (error) {
         console.error(`  ❌ Error with physical compatibility request:`, error.message);
       }
@@ -412,23 +450,39 @@ async function generateDataset() {
         console.log(`  Fetching sexual compatibility data...`);
         const sexualData = await makeSexualCompatibilityRequest(profile1, profile2);
         
-        if (sexualData && sexualData.status === 'success') {
-          compatibilityData.sexual_compatibility = sexualData;
-          
-          // Save sexual compatibility file
-          const sexualFileName = `${profile1.full_name.replace(/\s+/g, '_')}_${profile2.full_name.replace(/\s+/g, '_')}_sexual.json`;
-          fs.writeFileSync(
-            path.join(datasetDir, sexualFileName),
-            JSON.stringify(sexualData, null, 2)
-          );
-        } else {
-          console.log(`  ❌ Error fetching sexual compatibility data:`, sexualData.message || 'Unknown error');
-        }
+        compatibilityData.sexual_compatibility = sexualData;
+        
+        // Save sexual compatibility file
+        const sexualFileName = `${profile1.full_name.replace(/\s+/g, '_')}_${profile2.full_name.replace(/\s+/g, '_')}_sexual.json`;
+        fs.writeFileSync(
+          path.join(datasetDir, sexualFileName),
+          JSON.stringify(sexualData, null, 2)
+        );
         
         // Add a delay to avoid rate limiting
-        await new Promise(resolve => setTimeout(resolve, 2000));
+        await new Promise(resolve => setTimeout(resolve, 5000));
       } catch (error) {
         console.error(`  ❌ Error with sexual compatibility request:`, error.message);
+      }
+      
+      // Emotional compatibility
+      try {
+        console.log(`  Fetching emotional compatibility data...`);
+        const emotionalData = await makeEmotionalCompatibilityRequest(profile1, profile2);
+        
+        compatibilityData.emotional_compatibility = emotionalData;
+        
+        // Save emotional compatibility file
+        const emotionalFileName = `${profile1.full_name.replace(/\s+/g, '_')}_${profile2.full_name.replace(/\s+/g, '_')}_emotional.json`;
+        fs.writeFileSync(
+          path.join(datasetDir, emotionalFileName),
+          JSON.stringify(emotionalData, null, 2)
+        );
+        
+        // Add a delay to avoid rate limiting
+        await new Promise(resolve => setTimeout(resolve, 5000));
+      } catch (error) {
+        console.error(`  ❌ Error with emotional compatibility request:`, error.message);
       }
       
       dataset.compatibility.push(compatibilityData);
