@@ -47,7 +47,12 @@ michelleZ -- 2025-05-19 11:20
 - tried requesting data & debugged
 - got compatibility working
 
-michelleZ -- 2025-05-20 17:00
+michelleZ -- 2025-05-19 17:00
 - fixed major bugs in requesting api calls
 - successfully resolved issues
 - still need to merge the data in app/dataset
+
+michelleZ -- 2025-05-20 11:20
+- figured out AI fine tuning details
+- created API key card
+- figured out data generating details

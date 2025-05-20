@@ -2,10 +2,32 @@
   "profiles": [
     {
       "person": {
-        "name": "Daniel Anderson",
-        "birthdate": "1960-08-18",
-        "birthtime": "05:50:00",
-        "location": "Chicago",
+        "name": "Joseph Martin",
+        "birthdate": "1956-05-06",
+        "birthtime": "07:18:00",
+        "location": "Moscow",
+        "gender": "male"
+      },
+      "aspects": {
+        "sun": {
+          "planet_name": "Sun",
+          "sign_name": "Taurus",
+          "report": "When the Sun is in Taurus, it means that the Sun was in the constellation of Taurus at the time of your birth. This placement influences your core essence, ego, and the qualities you exhibit in your personality. With the Sun in Taurus, you possess a stable, practical, and grounded nature. You have a strong sense of self-worth and a steady approach to life. You value security, stability, and the tangible aspects of existence. You have a natural inclination to build a solid foundation in all areas of your life. You are reliable, patient, and persistent in pursuing your goals. Once you set your sights on something, you have the determination and stamina to see it through to completion. You have a strong work ethic and are willing to put in the necessary effort to achieve your desired outcomes. Taurus is ruled by Venus, the planet of beauty and pleasure, so you have an appreciation for the finer things in life. You enjoy comfort, luxury, and the sensual pleasures that the physical world has to offer. You may have a good eye for aesthetics and may be drawn to art, music, or other forms of sensory enjoyment. You are also deeply connected to nature and the earth. You have a nurturing and practical approach to taking care of yourself and those around you. You appreciate the simple pleasures in life and find solace in natural environments. In relationships, you are loyal, devoted, and committed. You seek stability and security in your partnerships, and you are willing to invest time and effort into building a solid connection. You value trust, dependability, and loyalty in your relationships, and you are likely to be a steadfast and supportive partner. However, it's important to be mindful of stubbornness or resistance to change. Taurus energy can sometimes lead to a reluctance to let go of the familiar or to venture into the unknown. Embracing flexibility and adaptability will help you navigate life's changes with greater ease. Overall, with the Sun in Taurus, you embody qualities of stability, reliability, and a practical mindset. Your strong sense of self-worth and determination enable you to create a solid foundation for success in various areas of your life. Embracing your connection to nature and finding pleasure in the present moment will enhance your overall sense of fulfillment."
+        },
+        "moon": {
+          "planet_name": "Moon",
+          "sign_name": "Pisces",
+          "report": "If you have the Moon in Pisces in your astrological chart, it means that the Moon, which represents your emotions, instincts, and inner self, was located in the zodiac sign of Pisces at the time of your birth. Having the Moon in Pisces indicates that you have a deeply empathetic and compassionate nature. You are highly attuned to the emotions and needs of others, often absorbing their feelings as if they were your own. You possess a gentle and caring demeanor, and your intuitive insights allow you to understand others on a profound level. Your emotional world is rich and vivid, filled with a wide range of emotions and a heightened sensitivity to the subtleties of the world around you. You may have a vivid imagination and a tendency to daydream or escape into a world of fantasy to process and express your emotions. Creativity is a natural outlet for your emotional energy, and you may find solace in artistic pursuits or other forms of self-expression. The Moon in Pisces suggests that you have a strong connection to the spiritual realm. You may have vivid dreams, intuitive insights, or a deep interest in mystical and metaphysical subjects. Your emotional well-being is often tied to your spiritual connection, and finding ways to nourish your soul and connect with higher realms is essential for your overall happiness. However, it's important to be mindful of the potential challenges associated with the Moon in Pisces. Your heightened sensitivity and empathetic nature may sometimes make you vulnerable to emotional overwhelm or a loss of boundaries. It's important to find healthy ways to protect your emotional well-being and establish boundaries to prevent yourself from being drained by the emotions of others. In relationships, you are loving, compassionate, and understanding. You have a natural ability to provide emotional support and create a safe and nurturing space for your loved ones. However, you may need to be mindful of maintaining your individuality within your relationships and avoid becoming overly self-sacrificing or losing yourself in the needs of others. Career-wise, you may be drawn to professions that involve helping others, such as counseling, healing, or creative fields. Your deep empathy and intuitive understanding make you a natural healer and a source of comfort for those in need. You may also excel in artistic endeavors, as your emotional depth and vivid imagination can bring a unique and inspiring perspective to your creative work."
+        }
+      },
+      "general_report": {}
+    },
+    {
+      "person": {
+        "name": "Mia Harris",
+        "birthdate": "1950-07-28",
+        "birthtime": "10:19:00",
+        "location": "Anchorage",
         "gender": "female"
       },
       "aspects": {
@@ -16,30 +38,8 @@
         },
         "moon": {
           "planet_name": "Moon",
-          "sign_name": "Cancer",
-          "report": "When the Moon is in Cancer, it means that the Moon was in the zodiac sign of Cancer at the time of your birth. The placement of the Moon represents your emotions, instincts, subconscious mind, and how you respond to the world around you. With the Moon in Cancer, you have a deeply sensitive and nurturing nature. You are highly attuned to your emotions and the emotions of others, often experiencing a strong empathetic connection. Your intuition is powerful, and you rely on your gut feelings and instincts when navigating life's challenges. Your emotions play a significant role in your decision-making process. You may make choices based on how they align with your emotional well-being and the well-being of those you care about. Creating a sense of security and emotional stability is essential to you, and you may actively seek out environments and relationships that provide a nurturing and safe space. Family and home hold great importance in your life. You have a strong attachment to your roots and may have a close-knit relationship with your family members. You derive comfort and a sense of belonging from your home and often invest considerable time and energy in creating a warm and harmonious domestic environment. Your caring and nurturing qualities are evident in your relationships. You are deeply devoted to your loved ones and seek to provide emotional support and care. You are attentive and intuitive, able to sense the needs of others and offer comfort and understanding. Your empathy and compassion make you a natural caretaker and someone others often turn to for emotional support. However, the influence of the Moon in Cancer can also bring emotional challenges. You may be prone to mood swings or experiencing heightened sensitivity to criticism or perceived rejection. Your strong emotional connection to others may sometimes lead to an excessive need for validation and approval. Learning to balance your emotional needs with independence and self-care is important for your well-being. In creative pursuits, you are often drawn to outlets that allow you to express your emotions and tap into your intuition. Artistic endeavors, writing, music, or any form of creative self-expression can serve as a means of emotional release and personal exploration. Your nurturing qualities and empathetic nature also make you well-suited for careers that involve caregiving, counseling, social work, or any field that allows you to support and uplift others. Overall, with the Moon in Cancer, your emotional depth, intuition, and nurturing qualities are prominent aspects of your personality. Embracing and understanding your emotions, practicing self-care, and creating a loving and supportive environment for yourself and others will help you navigate life's challenges and cultivate deep and meaningful connections."
-        }
-      },
-      "general_report": {}
-    },
-    {
-      "person": {
-        "name": "James Wilson",
-        "birthdate": "1951-07-22",
-        "birthtime": "12:46:00",
-        "location": "Anchorage",
-        "gender": "female"
-      },
-      "aspects": {
-        "sun": {
-          "planet_name": "Sun",
-          "sign_name": "Cancer",
-          "report": "When the Sun is in Cancer, it means that the Sun was in the zodiac sign of Cancer at the time of your birth. This placement influences your core identity, ego, and self-expression, highlighting the traits associated with the Cancer sign. With the Sun in Cancer, you possess a deep sense of empathy, emotional sensitivity, and nurturing qualities. You are strongly connected to your emotions and have a natural instinct to care for and protect others. Your compassionate nature is often evident in your relationships, where you strive to create a sense of emotional security and comfort for your loved ones. Family and home hold great importance to you. You have a strong attachment to your roots and a desire to create a nurturing environment for yourself and those close to you. You may have a strong connection with your mother or a maternal figure in your life, and you may possess nurturing qualities that extend beyond traditional family structures. Your intuition is heightened with the Sun in Cancer, and you often rely on your gut feelings and instincts when making decisions. You have a keen sense of emotional intelligence and are able to understand the needs and feelings of others, making you a supportive and empathetic friend or partner. Security is essential for your well-being, and you are motivated to create stability and protect what you hold dear. You may have a natural talent for managing finances and ensuring the emotional well-being of yourself and those around you. Your ability to create a safe and nurturing environment provides a strong foundation for growth and personal development. However, the influence of the Sun in Cancer can also bring challenges. You may sometimes find it difficult to express your own needs and assert yourself, as you tend to prioritize the needs of others. It's important for you to find a balance between caring for others and taking care of yourself. Learning to establish healthy boundaries and communicate your own emotions and desires will contribute to your personal growth. In career and creative pursuits, you are often drawn to fields that allow you to express your nurturing qualities and emotional depth. Careers involving caregiving, counseling, teaching, or artistic expression may resonate with you. Your ability to connect with others on an emotional level can be a valuable asset in your professional endeavors. Overall, with the Sun in Cancer, you possess a caring, nurturing, and emotionally sensitive nature. Your deep empathy and strong connection to family and home are defining characteristics of your personality. Embracing your intuitive wisdom, finding a balance between self-care and caring for others, and utilizing your nurturing qualities in meaningful ways will allow you to shine brightly and create a positive impact in the lives of those around you."
-        },
-        "moon": {
-          "planet_name": "Moon",
-          "sign_name": "Pisces",
-          "report": "If you have the Moon in Pisces in your astrological chart, it means that the Moon, which represents your emotions, instincts, and inner self, was located in the zodiac sign of Pisces at the time of your birth. Having the Moon in Pisces indicates that you have a deeply empathetic and compassionate nature. You are highly attuned to the emotions and needs of others, often absorbing their feelings as if they were your own. You possess a gentle and caring demeanor, and your intuitive insights allow you to understand others on a profound level. Your emotional world is rich and vivid, filled with a wide range of emotions and a heightened sensitivity to the subtleties of the world around you. You may have a vivid imagination and a tendency to daydream or escape into a world of fantasy to process and express your emotions. Creativity is a natural outlet for your emotional energy, and you may find solace in artistic pursuits or other forms of self-expression. The Moon in Pisces suggests that you have a strong connection to the spiritual realm. You may have vivid dreams, intuitive insights, or a deep interest in mystical and metaphysical subjects. Your emotional well-being is often tied to your spiritual connection, and finding ways to nourish your soul and connect with higher realms is essential for your overall happiness. However, it's important to be mindful of the potential challenges associated with the Moon in Pisces. Your heightened sensitivity and empathetic nature may sometimes make you vulnerable to emotional overwhelm or a loss of boundaries. It's important to find healthy ways to protect your emotional well-being and establish boundaries to prevent yourself from being drained by the emotions of others. In relationships, you are loving, compassionate, and understanding. You have a natural ability to provide emotional support and create a safe and nurturing space for your loved ones. However, you may need to be mindful of maintaining your individuality within your relationships and avoid becoming overly self-sacrificing or losing yourself in the needs of others. Career-wise, you may be drawn to professions that involve helping others, such as counseling, healing, or creative fields. Your deep empathy and intuitive understanding make you a natural healer and a source of comfort for those in need. You may also excel in artistic endeavors, as your emotional depth and vivid imagination can bring a unique and inspiring perspective to your creative work."
+          "sign_name": "Aquarius",
+          "report": "If you have the Moon in Aquarius in your astrological chart, it means that the Moon was located in the zodiac sign of Aquarius at the time of your birth. Having the Moon in Aquarius indicates that your emotions are strongly influenced by your need for freedom, independence, and intellectual stimulation. You tend to have a detached and objective approach to your feelings, and you may value logic and reason over pure emotion. You have a natural inclination towards innovation and unconventional thinking, and this reflects in how you process and express your emotions. You may have a unique perspective on life and tend to detach yourself emotionally in order to gain a broader understanding of situations. You have a humanitarian and egalitarian nature, and you may feel a strong sense of empathy towards humanity as a whole. You value fairness, equality, and social justice, and you may actively engage in causes that promote these principles. In relationships, you appreciate friendships and partnerships that offer mental stimulation and a strong sense of camaraderie. You value intellectual compatibility and enjoy engaging in stimulating conversations with your loved ones. Emotional intimacy may take time for you to establish, as you may initially prioritize a mental connection before fully opening up emotionally. While you may appear cool and detached on the surface, you have a genuine care and concern for others. You may have a wide social circle and enjoy being part of groups or communities that share similar values and interests. Your emotions can be unpredictable at times, as the Moon in Aquarius can bring sudden changes in your emotional state. You may experience a need for personal space and independence to recharge and process your feelings. Taking time for introspection and self-reflection can help you understand and navigate these emotional shifts. In career and life pursuits, you thrive in environments that allow you to express your unique ideas and contribute to the greater good. You are attracted to professions that involve innovation, technology, scientific research, or social activism. Your ability to think outside the box and offer fresh perspectives can be an asset in your chosen field. It's important to balance your need for independence and intellectual stimulation with emotional connection and intimacy. Finding a healthy equilibrium between your intellectual pursuits and emotional well-being will contribute to your overall happiness and fulfillment."
         }
       },
       "general_report": {}
@@ -48,16 +48,16 @@
   "compatibility": [
     {
       "person1": {
-        "name": "Daniel Anderson",
-        "birthdate": "1960-08-18",
-        "birthtime": "05:50:00",
-        "location": "Chicago",
-        "gender": "female"
+        "name": "Joseph Martin",
+        "birthdate": "1956-05-06",
+        "birthtime": "07:18:00",
+        "location": "Moscow",
+        "gender": "male"
       },
       "person2": {
-        "name": "James Wilson",
-        "birthdate": "1951-07-22",
-        "birthtime": "12:46:00",
+        "name": "Mia Harris",
+        "birthdate": "1950-07-28",
+        "birthtime": "10:19:00",
         "location": "Anchorage",
         "gender": "female"
       },
@@ -67,67 +67,67 @@
           "content": [
             {
               "p1": {
-                "planet": "Venus",
-                "full_degree": "70.5540991",
+                "planet": "Mars",
+                "full_degree": "88.6731986",
                 "sign": "Gemini",
                 "sign_no": 3,
-                "longitude": "10:33:15"
+                "longitude": "28:40:24"
               },
               "p2": {
-                "planet": "Mars",
-                "full_degree": "160.9066968",
-                "sign": "Virgo",
-                "sign_no": 6,
-                "longitude": "10:54:24"
+                "planet": "Venus",
+                "full_degree": "202.4760085",
+                "sign": "Libra",
+                "sign_no": 7,
+                "longitude": "22:28:34"
               },
-              "orb": 0.35,
-              "aspect": "Square",
-              "aspect_type": "Hard",
+              "orb": 6.2,
+              "aspect": "Trine",
+              "aspect_type": "Easy",
               "reading": [
                 {
-                  "title": "Passionate Attraction",
-                  "description": "Mars symbolizes the passion and desire of Daniel Anderson and under Venus's influence, it intensifies. Daniel Anderson may feel a strong, almost magnetic, attraction towards James Wilson. The physical desires may be heightened, resulting in a passionate, fiery relationship."
+                  "title": "Physical Attraction",
+                  "description": "With Venus of Joseph Martin trine Mars of Mia Harris, there is an undeniable physical attraction between the two. This aspect tends to make two people almost irresistible to each other and they might often feel like magnets drawn to each other."
                 },
                 {
-                  "title": "Harmony and Balance",
-                  "description": "Venus, representing love and values of James Wilson, forming a square aspect with Mars of Daniel Anderson may indicate harmony and balance. James Wilson may offer affection, beauty, and comfort that can make Daniel Anderson feel appreciated and valued, creating an appealing balance in their physical relationship."
+                  "title": "Passionate Intensity",
+                  "description": "This trine aspect fuels a strong passionate intensity. Joseph Martin and Mia Harris will enjoy a heightened sense of physical intimacy and chemistry, and find pleasure in one another's company. This connection can lead to an intense and satisfying physical relationship."
                 },
                 {
-                  "title": "Dynamic Tensions",
-                  "description": "The square aspect between Mars and Venus may also introduce dynamic tensions. Daniel Anderson's aggressive energies might conflict with James Wilson's harmony-seeking tendencies. This tension, if managed well, can lead to a stimulating relationship that keeps both parties on their toes."
+                  "title": "Balanced Dynamics",
+                  "description": "The Venus-Mars trine aspect indicates well-balanced masculine and feminine energies between Joseph Martin and Mia Harris. This harmony lends comfort and understanding to their physical interactions, making them more compatible in terms of physical intimacy."
                 }
               ]
             },
             {
               "p1": {
-                "planet": "Saturn",
-                "full_degree": "282.4575860",
-                "sign": "Capricorn",
-                "sign_no": 10,
-                "longitude": "12:27:27"
+                "planet": "Venus",
+                "full_degree": "95.0249109",
+                "sign": "Cancer",
+                "sign_no": 4,
+                "longitude": "5:1:30"
               },
               "p2": {
                 "planet": "Ascendant",
-                "full_degree": "196.0644951",
-                "sign": "Libra",
-                "sign_no": 7,
-                "longitude": "16:3:52"
+                "full_degree": "97.2699974",
+                "sign": "Cancer",
+                "sign_no": 4,
+                "longitude": "7:16:12"
               },
-              "orb": 3.61,
-              "aspect": "Square",
-              "aspect_type": "Hard",
+              "orb": 2.25,
+              "aspect": "Conjunction",
+              "aspect_type": "Intense",
               "reading": [
                 {
-                  "title": "Initial Attraction",
-                  "description": "Daniel Anderson and James Wilson might have an initial attraction due to Daniel Anderson's Ascendent square Saturn aspect of James Wilson. This aspect represents challenge and growth which might bring the two closer initially."
+                  "title": "Physical Attraction",
+                  "description": "Joseph Martin and Mia Harris may experience a strong physical attraction. Venus of Mia Harris conjuncting with the ascendant of Joseph Martin intensifies this magnetism. It makes Joseph Martin look aesthetically appealing to Mia Harris, encouraging physical affinity."
                 },
                 {
-                  "title": "Physical Challenges",
-                  "description": "However, over time, the physical compatibility might be a challenge. Saturn's influence may restrict or delay physical intimacy. James Wilson might appear as a taskmaster to Daniel Anderson, offering lessons in patience and restraint."
+                  "title": "Shared Aesthetics",
+                  "description": "This conjunction aspect from Venus also highlights a shared sense of aesthetics. Joseph Martin and Mia Harris find each other's physical features and style attractive, resulting in a high compatibility in terms of appearance and fashion sense."
                 },
                 {
-                  "title": "Long-Term Compatibility",
-                  "description": "Long-term physical compatibility would depend on how much Daniel Anderson can adapt to the physical limitations imposed by James Wilson's Saturn. If Daniel Anderson could view these challenges as growth opportunities, physical compatibility can still be achieved."
+                  "title": "Sense of Comfort",
+                  "description": "Because of Venus' influence, Joseph Martin and Mia Harris can feel comfortable and at ease in each other's presence. This planetary aspect boosts their physical compatibility by fostering a warm and cosy connection between them."
                 }
               ]
             }
@@ -141,34 +141,67 @@
           "content": [
             {
               "p1": {
-                "planet": "Venus",
-                "full_degree": "70.5540991",
+                "planet": "Mars",
+                "full_degree": "88.6731986",
                 "sign": "Gemini",
                 "sign_no": 3,
-                "longitude": "10:33:15"
+                "longitude": "28:40:24"
+              },
+              "p2": {
+                "planet": "Venus",
+                "full_degree": "202.4760085",
+                "sign": "Libra",
+                "sign_no": 7,
+                "longitude": "22:28:34"
+              },
+              "orb": 6.2,
+              "aspect": "Trine",
+              "aspect_type": "Easy",
+              "reading": [
+                {
+                  "title": "Physical Attraction",
+                  "description": "The Trine aspect between Venus of Joseph Martin and Mars of Mia Harris indicates a strong physical attraction. Their sexuality and romantic nature are in sync, resulting in a passionate relationship."
+                },
+                {
+                  "title": "Empathetic Bond",
+                  "description": "This aspect promotes an empathetic understanding between Joseph Martin and Mia Harris, enhancing their emotional bond. Their feelings and needs in love and intimacy align to create deep emotional attachments."
+                },
+                {
+                  "title": "Energizing Influence",
+                  "description": "Mars of Mia Harris provides an energizing influence to Venus of Joseph Martin, leading to a dynamic and stimulating relationship. This positive interaction fosters a satisfying and harmonious sexual compatibility between the two."
+                }
+              ]
+            },
+            {
+              "p1": {
+                "planet": "Pluto",
+                "full_degree": "313.3493189",
+                "sign": "Aquarius",
+                "sign_no": 11,
+                "longitude": "13:20:58"
               },
               "p2": {
                 "planet": "Mars",
-                "full_degree": "160.9066968",
-                "sign": "Virgo",
-                "sign_no": 6,
-                "longitude": "10:54:24"
+                "full_degree": "137.4199217",
+                "sign": "Leo",
+                "sign_no": 5,
+                "longitude": "17:25:12"
               },
-              "orb": 0.35,
-              "aspect": "Square",
+              "orb": 4.07,
+              "aspect": "Opposition",
               "aspect_type": "Hard",
               "reading": [
                 {
-                  "title": "Strong Attraction",
-                  "description": "In astrology, a square aspect between Daniel Anderson's Mars and James Wilson's Venus often indicates a strong magnetic pull. This can result in intense sexual attraction and a passionate connection that can be quite energizing for both parties."
+                  "title": "Sexual Intensity",
+                  "description": "In astrology, Mars and Pluto have a highly intensified sexual compatibility. Joseph Martin's Mars in opposition to Mia Harris's Pluto promises a dynamic and potent sexual attraction, generating a virtually irresistible pull towards each other."
                 },
                 {
-                  "title": "Dynamic Tension",
-                  "description": "However, this aspect also infers dynamic tension. It can create friction, which can manifest itself in arguments. Yet, this also enhances their sexual drive, as that tension converts into explosive passion for Daniel Anderson and James Wilson."
+                  "title": "Dominance Struggle",
+                  "description": "However, there can be power struggles. With Joseph Martin's Mars opposing Mia Harris's Pluto, there may be episodes of control, dominance and even manipulation within the sexual relationship. This could create tension and conflicts."
                 },
                 {
-                  "title": "Balance Needed",
-                  "description": "Daniel Anderson and James Wilson need to strike a balance. While the chemistry is intense, their relationship might be volatile and stuffed with pressure. They would need to manage this energy responsibly, focusing on open communication and understanding for maintaining longevity in their relationship."
+                  "title": "Deep Connection",
+                  "description": "Despite the struggles, there will be a deep, almost psychic connection between Joseph Martin and Mia Harris. This aspect can spark transformative collective experiences, often leading to profound growth, as long as both parties are willing to navigate through their intensity with sensitivity."
                 }
               ]
             }
@@ -183,99 +216,99 @@
             {
               "p1": {
                 "planet": "Ascendant",
-                "full_degree": "102.4089556",
-                "sign": "Cancer",
-                "sign_no": 4,
-                "longitude": "12:24:32"
+                "full_degree": "350.4028001",
+                "sign": "Pisces",
+                "sign_no": 12,
+                "longitude": "20:24:10"
               },
               "p2": {
                 "planet": "Moon",
-                "full_degree": "196.0644951",
-                "sign": "Libra",
-                "sign_no": 7,
-                "longitude": "16:3:52"
+                "full_degree": "177.4015554",
+                "sign": "Virgo",
+                "sign_no": 6,
+                "longitude": "27:24:6"
               },
-              "orb": 3.66,
-              "aspect": "Square",
+              "orb": 7,
+              "aspect": "Opposition",
               "aspect_type": "Hard",
               "reading": [
                 {
-                  "title": "Emotional Intensity",
-                  "description": "There may be intense emotional reactions between Daniel Anderson and James Wilson as Daniel Anderson's Moon forms a square aspect with James Wilson's Ascendant. This may result in each person's emotions being more impactful on the other, with their feelings often clashing more dramatically."
+                  "title": "High Sensitivity",
+                  "description": "Joseph Martin's emotions, symbolized by the Moon, are directly opposing Mia Harris's personality, reflected in the Ascendant. It suggests a high level of sensitivity between the two, with Joseph Martin often feeling emotionally impacted by Mia Harris's actions or expressions."
                 },
                 {
-                  "title": "Emotional Understanding",
-                  "description": "Even though the aspect may lead to tension, it also encourages awareness and empathy. Daniel Anderson and James Wilson could develop a deeper understanding of each other's emotional makeup and will be challenged to understand their partner's perspectives."
+                  "title": "Potential Misunderstandings",
+                  "description": "The opposition aspect can generate misunderstanding and conflicts. Joseph Martin may interpret Mia Harris's behavior more emotionally than intended, leading to potential misinterpretations."
                 },
                 {
-                  "title": "Learning Opportunities",
-                  "description": "This aspect empowers both Daniel Anderson and James Wilson to learn how to manage their emotional responses constructively. By understanding their emotional differences, they can find a way to make their relationship more harmonious and balanced over time."
+                  "title": "Strong Connection",
+                  "description": "Despite potential conflicts, a powerful emotional and psychological connection is indicated. Both Joseph Martin and Mia Harris will be compelled to understand each other better, ultimately leading to deeper emotional understanding and growth in their relationship."
                 }
               ]
             },
             {
               "p1": {
-                "planet": "Mars",
-                "full_degree": "102.4089556",
-                "sign": "Cancer",
-                "sign_no": 4,
-                "longitude": "12:24:32"
+                "planet": "Mercury",
+                "full_degree": "65.9624007",
+                "sign": "Gemini",
+                "sign_no": 3,
+                "longitude": "5:57:45"
               },
               "p2": {
                 "planet": "Moon",
-                "full_degree": "102.6506394",
-                "sign": "Cancer",
-                "sign_no": 4,
-                "longitude": "12:39:2"
+                "full_degree": "300.2328043",
+                "sign": "Aquarius",
+                "sign_no": 11,
+                "longitude": "0:13:58"
               },
-              "orb": 0.24,
-              "aspect": "Conjunction",
-              "aspect_type": "Intense",
+              "orb": 5.73,
+              "aspect": "Trine",
+              "aspect_type": "Easy",
               "reading": [
                 {
-                  "title": "Emotional Intensity",
-                  "description": "Mars' influence on Daniel Anderson's Moon increases their emotional reactions, often resulting in passion and intensity. There might be a tendency for fights, as Mars also represents aggression. However, it can also lead to an enhanced emotional attachment."
+                  "title": "Positive Understanding",
+                  "description": "With Joseph Martin's Moon having a Trine aspect from Mia Harris's Mercury, there exists a natural understanding between the two. They can 'get' where the other person is coming from and can often anticipate the other's emotional needs."
                 },
                 {
-                  "title": "Emotional Turbulence",
-                  "description": "The conjunction of Mars with the Moon may introduce emotional turbulence. Daniel Anderson may experience an extreme range of feelings, and their reactions can be explosive. James Wilson will need to show plenty of understanding and patience."
+                  "title": "Honest Communication",
+                  "description": "Mia Harris's Mercury interacts positively with Joseph Martin's Moon, enhancing the overall communication style. Mia Harris can articulate their thoughts clearly to Joseph Martin, who, in turn, reciprocates with an empathetic response, leading to much less likelihood for misinterpretations or arguments"
                 },
                 {
-                  "title": "Energetic Bonding",
-                  "description": "James Wilson's Mars adds an aspect of energy and courage to Daniel Anderson's emotional self. This astral combination can make for a strong, dynamic relationship where both parties are motivated to face any challenges head-on collectively."
+                  "title": "Emotional Coherence",
+                  "description": "Mercury's Trine to the Moon means Mia Harris has a mindful awareness of Joseph Martin's emotional state. This adds depth to their relationship as they can intuitively align their emotional responses and reactions. Differences are settled with empathy, further solidifying their emotional bond."
                 }
               ]
             },
             {
               "p1": {
-                "planet": "Venus",
-                "full_degree": "102.4089556",
-                "sign": "Cancer",
-                "sign_no": 4,
-                "longitude": "12:24:32"
+                "planet": "Saturn",
+                "full_degree": "350.4028001",
+                "sign": "Pisces",
+                "sign_no": 12,
+                "longitude": "20:24:10"
               },
               "p2": {
                 "planet": "Moon",
-                "full_degree": "160.9066968",
+                "full_degree": "166.8731304",
                 "sign": "Virgo",
                 "sign_no": 6,
-                "longitude": "10:54:24"
+                "longitude": "16:52:23"
               },
-              "orb": 1.5,
-              "aspect": "Sextile",
-              "aspect_type": "Mildly Easy",
+              "orb": 3.53,
+              "aspect": "Opposition",
+              "aspect_type": "Hard",
               "reading": [
                 {
-                  "title": "Emotional Sensitivity",
-                  "description": "In this relationship, Daniel Anderson's moon aspect contributes to sensitivity and empathy towards James Wilson's emotions. They easily resonate with each other's moods, creating a deep connection."
+                  "title": "Emotional Discord",
+                  "description": "The opposition aspect from Mia Harris's Saturn can result in emotional tension between Joseph Martin and Mia Harris. Joseph Martin may feel emotionally repressed due to Saturn’s disciplinary influence."
                 },
                 {
-                  "title": "Romantic Interactions",
-                  "description": "James Wilson's Venus adds a layer of affection and beauty to the relationship. This induces romantic and caring sentiments in James Wilson for Daniel Anderson, boosting emotional compatibility."
+                  "title": "Stability Struggles",
+                  "description": "Mia Harris's Saturn may create barriers and sternness to Joseph Martin's emotions, creating a sense of restriction. The subtle influence of Saturn might bring too much seriousness which can be overwhelming for Joseph Martin."
                 },
                 {
-                  "title": "Balanced Harmony",
-                  "description": "The sextile aspect suggests harmony and balance in their relationship. Their emotional worlds align well, promoting understanding and comfort between Daniel Anderson and James Wilson when expressing their feelings."
+                  "title": "Supportive Healing",
+                  "description": "Despite the tension, this aspect can also contribute to a deep level of psychological understanding permitting Mia Harris to assist Joseph Martin in their emotional growth, even though it may be tough at times. "
                 }
               ]
             }
@@ -285,6 +318,6 @@
       }
     }
   ],
-  "generated": "2025-05-19T22:02:56.843Z",
+  "generated": "2025-05-20T15:16:02.826Z",
   "total_entries": 2
 }
