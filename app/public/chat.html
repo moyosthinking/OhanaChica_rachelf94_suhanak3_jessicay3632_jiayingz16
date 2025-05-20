@@ -27,6 +27,29 @@
       <center>
       <div>
         <h1 class="text-4xl font-medium text-gray-700"> Chat </h1>
+        <div id="messages"></div>
+        <input id="messageInput" placeholder="Type a message..." />
+        <button onclick="send()">Send</button>
+
+        <script>
+          const socket = new WebSocket('ws://' + window.location.host);
+
+          socket.onmessage = (event) => {
+            const msgDiv = document.createElement('div');
+            msgDiv.textContent = event.data;
+            document.getElementById('messages').appendChild(msgDiv);
+          };
+
+          function send() {
+            const input = document.getElementById('messageInput');
+            const message = input.value;
+            if (message) {
+              socket.send(message);
+              input.value = '';
+            }
+          }
+        </script>
+
       </div>
     </center>
     </body>

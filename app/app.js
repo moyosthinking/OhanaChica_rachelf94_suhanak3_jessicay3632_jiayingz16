@@ -11,6 +11,8 @@ const path = require('path');
 const session = require('express-session');
 const bodyParser = require('body-parser');
 const user = require('./user');
+const http =  require('http');
+const WebSocket =  require('ws');
 const app = express();
 const port = 3000;
 
@@ -62,7 +64,7 @@ app.post('/login', (req, res) => {
 });
 
 app.get('/', (req,res) => {
-  res.sendFile(path.join(__dirname, 'public', 'home.html'));
+  res.sendFile(path.join(__dirname, 'public', 'chat.html'));
 });
 
 app.get('/logout', (req, res) => {
@@ -74,6 +76,29 @@ app.get('/logout', (req, res) => {
   res.redirect('/');
 });
 
-app.listen(port, () => {
-  console.log(`Server is running on port ${port}`);
+//chattting
+const server = http.createServer(app);
+const wss =  new WebSocket.Server({ server });
+
+wss.on('connection', (ws) => {
+  console.log('Websocket: new user connection');
+  ws.on('message', (message) => {
+    wss.clients.forEach(client =>
+    {
+      if (client.readyState === WebSocket.OPEN) {
+        client.send(message);
+      }
+    }
+    );
+  });
+  ws.on('close', () =>
+  {
+    console.log('Websocket : user disconneted');
+  });
+});
+
+
+//starts server
+server.listen(port, () => {
+  console.log(`Server is running on http://localhost:${port}`);
 });
