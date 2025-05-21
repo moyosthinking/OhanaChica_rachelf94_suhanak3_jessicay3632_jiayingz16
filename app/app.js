@@ -79,14 +79,22 @@ app.get('/logout', (req, res) => {
 //chattting
 const server = http.createServer(app);
 const wss =  new WebSocket.Server({ server });
+let id = 0;
 
 wss.on('connection', (ws) => {
   console.log('Websocket: new user connection');
+  ws.username = `Astrlogist${id++}`;
+
   ws.on('message', (message) => {
+    const msgStr = message.toString();
+    const full = JSON.stringify({
+      user: ws.username,
+      message: msgStr
+    });
     wss.clients.forEach(client =>
     {
       if (client.readyState === WebSocket.OPEN) {
-        client.send(message);
+        client.send(full);
       }
     }
     );

@@ -27,18 +27,21 @@
       <center>
       <div>
         <h1 class="text-4xl font-medium text-gray-700"> Chat </h1>
-        <div id="messages"></div>
-        <input id="messageInput" placeholder="Type a message..." />
-        <button onclick="send()">Send</button>
+        <div class="justify-center min-h-screen flex bottom-0">
+          <div id="messages"></div>
+          <input id="messageInput" placeholder="Type a message..." />
+          <button onclick="send()">Send</button>
+        </div>
 
         <script>
-          const socket = new WebSocket('ws://' + window.location.host);
-
+          const socket = new WebSocket('ws://' + window.location.host + '?user');
+          
           socket.onmessage = (event) => {
+            const data = JSON.parse(event.data);
             const msgDiv = document.createElement('div');
-            msgDiv.textContent = event.data;
+            msgDiv.textContent = `${data.user}: ${data.message}`;
             document.getElementById('messages').appendChild(msgDiv);
-          };
+            };  
 
           function send() {
             const input = document.getElementById('messageInput');
