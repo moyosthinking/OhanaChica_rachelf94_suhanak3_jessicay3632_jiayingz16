@@ -83,7 +83,7 @@ let id = 0;
 
 wss.on('connection', (ws) => {
   console.log('Websocket: new user connection');
-  ws.username = `Astrlogist${id++}`;
+  ws.username = `Astrologist${id++}`;
 
   ws.on('message', (message) => {
     const msgStr = message.toString();
