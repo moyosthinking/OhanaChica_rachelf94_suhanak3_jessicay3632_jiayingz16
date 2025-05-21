@@ -69,3 +69,22 @@ michelleZ -- 2025-05-20 11:20
 moyoF -- 2025-05-18 21:10
 - no longer receiveing blobs
 - temp user id for differentiaing
+
+=========================================================
+Aspects Most Applicable to Our Codebase:
+- Adopting snake_case for functions and variables, and CamelCase for class names
+- Organizing imports into standard library, third-party, and local modules, each separated by a blank line
+- Limiting lines to 79 characters ensures better readability
+- Using 4 spaces per indentation level
+
+Aspects Most Useful/Appreciated by Devos:
+- Proper spacing around operators and after commas makes the code more readable
+- Maintain uniform indentation
+- Refrain from using wildcard imports (e.g., from module import *)
+
+File and Line Reference:
+- In utils/data_processing.py, line 42 is updated from:
+**def processData(data):**
+to:
+**def process_data(data):**
+This change aligns with PEP 8's recommendation for function names to be in snake_case, enhancing consistency and readability.
