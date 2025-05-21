@@ -36,9 +36,15 @@ michelleZ -- 2025-05-15 11:10
 - revised README
 - figured out approach to train AI model
 
+moyoF -- 2025-05-15 11:47
+- made an untested zodaic finder func
+
 michelleZ -- 2025-05-16 11:10
 - implemented API calls
 - tested API calls
+
+moyoF -- 2025-05-16 11:47
+- tried to make html for effecient/ez
 
 michelleZ -- 2025-05-18 2:30
 - tried building training dataset
@@ -52,7 +58,14 @@ michelleZ -- 2025-05-19 17:00
 - successfully resolved issues
 - still need to merge the data in app/dataset
 
+moyoF -- 2025-05-18 22:10
+- WebSocket is has a conneection but only receiving blobs
+
 michelleZ -- 2025-05-20 11:20
 - figured out AI fine tuning details
 - created API key card
 - figured out data generating details
+
+moyoF -- 2025-05-18 21:10
+- no longer receiveing blobs
+- temp user id for differentiaing
