@@ -94,7 +94,6 @@ function getRandomLocation() {
 // Astrological aspects to query (sun, moon, rising, etc.)
 const aspects = [
   'sun', 'moon'
-//   'mercury', 'venus', 'mars', 'jupiter', 'saturn', 'uranus', 'neptune', 'pluto'
 ];
 
 // Generate a random profile
@@ -139,7 +138,6 @@ function makeAstrologyRequest(profile, aspect) {
         'min': profile.min.toString(),
         'sec': profile.sec.toString(),
         'gender': profile.gender.toString(),
-        // For debugging, allow place to include city and country if needed
         'place': profile.place.toString(),
         'lat': profile.lat.toString(),
         'lon': profile.lon.toString(),
