@@ -75,7 +75,6 @@ Aspects Most Applicable to Our Codebase:
 - Adopting snake_case for functions and variables, and CamelCase for class names
 - Organizing imports into standard library, third-party, and local modules, each separated by a blank line
 - Limiting lines to 79 characters ensures better readability
-- Using 4 spaces per indentation level
 
 Aspects Most Useful/Appreciated by Devos:
 - Proper spacing around operators and after commas makes the code more readable
