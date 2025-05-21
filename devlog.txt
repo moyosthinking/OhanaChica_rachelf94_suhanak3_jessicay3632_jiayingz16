@@ -70,7 +70,7 @@ moyoF -- 2025-05-18 21:10
 - no longer receiveing blobs
 - temp user id for differentiaing
 
-=========================================================
+=================================================================
 Aspects Most Applicable to Our Codebase:
 - Adopting snake_case for functions and variables, and CamelCase for class names
 - Organizing imports into standard library, third-party, and local modules, each separated by a blank line
@@ -87,3 +87,8 @@ File and Line Reference:
 to:
 **def process_data(data):**
 This change aligns with PEP 8's recommendation for function names to be in snake_case, enhancing consistency and readability.
+=================================================================
+
+michelleZ -- 2025-05-21 11:00
+- finished checkpoint assignment about code format
+- debugging & reorganizing dataset
