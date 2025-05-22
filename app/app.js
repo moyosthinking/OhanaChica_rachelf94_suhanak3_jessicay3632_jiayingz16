@@ -43,7 +43,7 @@ app.post('/register', (req, res) => {
       res.send('<p>Registration failed. Username may already exist.</p><a href="/register.html">Try again</a>');
     } else {
       console.log(`User registered successfully with ID: ${userId}`);
-      res.send('<p>Registration successful! <a href="/login.html">Login here</a></p>');
+      res.redirect('/login');
     }
   });
 });
@@ -57,6 +57,7 @@ app.post('/login', (req, res) => {
     } else if (userObj) {
       req.session.user = userObj.username;
       res.redirect('/');
+      console.log(`User logged in successfully with username: ${username}`);
     } else {
       res.send('<p>Invalid credentials.</p><a href="/login.html">Try again</a>');
     }
@@ -64,7 +65,7 @@ app.post('/login', (req, res) => {
 });
 
 app.get('/', (req,res) => {
-  res.sendFile(path.join(__dirname, 'public', 'chat.html'));
+  res.sendFile(path.join(__dirname, 'public', 'home.html'));
 });
 
 app.get('/logout', (req, res) => {
@@ -77,6 +78,17 @@ app.get('/logout', (req, res) => {
 });
 
 //chattting
+
+app.get('/chat', (req, res) => {
+  if (req.isAuthenticated())
+    {
+      res.sendFile(path.join(__dirname, 'public', 'chat.html'));
+    }
+  else{
+    res.sendFile(path.join(__dirname, 'public', 'home.html'));
+  }
+});
+
 const server = http.createServer(app);
 const wss =  new WebSocket.Server({ server });
 let id = 0;

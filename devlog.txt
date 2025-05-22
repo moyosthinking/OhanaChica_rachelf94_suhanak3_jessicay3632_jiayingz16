@@ -92,3 +92,7 @@ This change aligns with PEP 8's recommendation for function names to be in snake
 michelleZ -- 2025-05-21 11:00
 - finished checkpoint assignment about code format
 - debugging & reorganizing dataset
+
+moyoF -- 2025-05-22 11:47
+- login and reg is acc connected with HTML
+- started erm checking for auth
