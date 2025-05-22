@@ -27,6 +27,9 @@ michelleZ -- 2025-05-13 11:20
 - fixed version mismatch issue
 - researched how to train ai model
 
+jessicaY -- 2025-05-13 11:47
+- added navbar to every page
+
 moyoF -- 2025-05-13 22:06
 - install guides
 - devlog
@@ -35,6 +38,9 @@ moyoF -- 2025-05-13 22:06
 michelleZ -- 2025-05-15 11:10
 - revised README
 - figured out approach to train AI model
+
+jessicaY -- 2025-05-15 11:41
+- changed formatting of login page
 
 moyoF -- 2025-05-15 11:47
 - made an untested zodaic finder func
@@ -49,9 +55,16 @@ moyoF -- 2025-05-16 11:47
 michelleZ -- 2025-05-18 2:30
 - tried building training dataset
 
+jessicaY -- 2025-05-18 18:38
+- changed formatting of register page to match login page
+
 michelleZ -- 2025-05-19 11:20
 - tried requesting data & debugged
 - got compatibility working
+
+jessicaY -- 2025-05-19 11:45
+- created compatibility.html, horoscopes.html, selfimprov.html, and chat.html
+- added basic css to them 
 
 michelleZ -- 2025-05-19 17:00
 - fixed major bugs in requesting api calls

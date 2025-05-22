@@ -64,7 +64,7 @@ app.post('/login', (req, res) => {
 });
 
 app.get('/', (req,res) => {
-  res.sendFile(path.join(__dirname, 'public', 'chat.html'));
+  res.sendFile(path.join(__dirname, 'public', 'home.html'));
 });
 
 app.get('/logout', (req, res) => {
