@@ -26,15 +26,7 @@ app.use('/static', express.static(path.join(__dirname, 'public')));
 
 // Serve login and register HTML
 app.get('/login', (req, res) => {
-  const { username, password } = req.body;
-  user.authenticateUser(username, password, (err, userObj) => {
-    if (!req.session.user) {
-      res.sendFile(path.join(__dirname, 'public', 'login.html'));
-    } else {
-      res.sendFile(path.join(__dirname, 'public', 'home.html'));
-      console.log(`user already logged in`);
-    }
-  });
+  res.sendFile(path.join(__dirname, 'public', 'login.html'));
 });
 app.get('/register', (req, res) => {
   res.sendFile(path.join(__dirname, 'public', 'register.html'));
@@ -48,7 +40,8 @@ app.post('/register', (req, res) => {
   user.createUser(username, password, birthday, (err, userId) => {
     if (err) {
       console.error('Registration error:', err.message);
-      res.send('<p>Registration failed. Username may already exist.</p><a href="/register.html">Try again</a>');
+      res.redirect('/register');
+      res.send('<p>Registration failed. Username may already exist. Try again</p>');
     } else {
       console.log(`User registered successfully with ID: ${userId}`);
       res.redirect('/login');
@@ -74,74 +67,22 @@ app.post('/login', (req, res) => {
 
 app.get('/', (req,res) => {
   res.sendFile(path.join(__dirname, 'public', 'home.html'));
-    if (username) {
-      res.send(<p class="font-medium text-gray-800"> Welcome { username } </p>);
-    }
-    else if {
-      res.send(<p class="font-medium text-gray-800">Please <a href="/login.html" class="no-underline hover:underline">login</a> or <a href="/register.html" class="no-underline hover:underline">register</a> to access your personalized astrology readings.</p>);
-    }
-  }
-});
-
-
-app.get('/compat', (req,res) => {
-  const { username, password } = req.body;
-  user.authenticateUser(username, password, (err, userObj) => {
-    if (req.session.user) {
-      res.sendFile(path.join(__dirname, 'public', 'compatibility.html'));
-    } else {
-      res.sendFile(path.join(__dirname, 'public', 'home.html'));
-      console.log(`no compatibility! user not logged in`);
-    }
-  });
-});
-
-app.get('/self', (req,res) => {
-  const { username, password } = req.body;
-  user.authenticateUser(username, password, (err, userObj) => {
-    if (req.session.user) {
-      res.sendFile(path.join(__dirname, 'public', 'selfimprov.html'));
-    } else {
-      res.sendFile(path.join(__dirname, 'public', 'home.html'));
-      console.log(`no selfimprovment! user not logged in`);
-    }
-  });
-});
-
-app.get('/horoscope', (req,res) => {
-  const { username, password } = req.body;
-  user.authenticateUser(username, password, (err, userObj) => {
-    if (req.session.user) {
-      res.sendFile(path.join(__dirname, 'public', 'horoscopes.html'));
-    } else {
-      res.sendFile(path.join(__dirname, 'public', 'home.html'));
-      console.log(`no horoscope! user not logged in`);
-    }
-  });
 });
 
 app.get('/logout', (req, res) => {
-  req.session.destroy((err) => {
-    if (err) {
-      console.error('Error destroying session:', err);
-    }
-  });
   res.redirect('/');
 });
 
 //chattting
 
 app.get('/chat', (req, res) => {
-  const { username, password } = req.body;
-  user.authenticateUser(username, password, (err, userObj) => {
-    if (req.session.user) {
+  if (req.isAuthenticated())
+    {
       res.sendFile(path.join(__dirname, 'public', 'chat.html'));
-      console.log(`logged in user can chat`);
-    } else {
-      res.sendFile(path.join(__dirname, 'public', 'home.html'));
-      console.log(`no chatting! user not logged in`);
     }
-  });
+  else{
+    res.sendFile(path.join(__dirname, 'public', 'home.html'));
+  }
 });
 
 const server = http.createServer(app);
