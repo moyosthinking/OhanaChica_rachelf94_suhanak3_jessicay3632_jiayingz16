@@ -109,3 +109,12 @@ michelleZ -- 2025-05-21 11:00
 moyoF -- 2025-05-22 11:47
 - login and reg is acc connected with HTML
 - started erm checking for auth
+
+michelleZ -- 2025-05-23 11:00
+- revised dependency list to ensure compatibility with node v12.22.9
+- worked on generating incomplete dataset
+
+moyoF -- 2025-05-23 11:35
+- only logged in users can ascces chat page
+- logged in users and non-logged in have different
+- ascceses to the current pages

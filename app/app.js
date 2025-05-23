@@ -26,7 +26,15 @@ app.use('/static', express.static(path.join(__dirname, 'public')));
 
 // Serve login and register HTML
 app.get('/login', (req, res) => {
-  res.sendFile(path.join(__dirname, 'public', 'login.html'));
+  const { username, password } = req.body;
+  user.authenticateUser(username, password, (err, userObj) => {
+    if (!req.session.user) {
+      res.sendFile(path.join(__dirname, 'public', 'login.html'));
+    } else {
+      res.sendFile(path.join(__dirname, 'public', 'home.html'));
+      console.log(`user already logged in`);
+    }
+  });
 });
 app.get('/register', (req, res) => {
   res.sendFile(path.join(__dirname, 'public', 'register.html'));
@@ -87,13 +95,16 @@ app.get('/logout', (req, res) => {
 //chattting
 
 app.get('/chat', (req, res) => {
-  if (req.isAuthenticated())
-    {
+  const { username, password } = req.body;
+  user.authenticateUser(username, password, (err, userObj) => {
+    if (req.session.user) {
       res.sendFile(path.join(__dirname, 'public', 'chat.html'));
+      console.log(`logged in user can chat`);
+    } else {
+      res.sendFile(path.join(__dirname, 'public', 'home.html'));
+      console.log(`user not logged in`);
     }
-  else{
-    res.sendFile(path.join(__dirname, 'public', 'home.html'));
-  }
+  });
 });
 
 const server = http.createServer(app);
