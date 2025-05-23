@@ -6,13 +6,14 @@ const keys = require('./keys/api_keys');
 // Create dataset directory if it doesn't exist
 const datasetDir = path.join(__dirname, 'dataset');
 
+// Create dataset file if it doesn't exist
+if (!fs.existsSync(datasetDir)) {
+  fs.mkdirSync(datasetDir, { recursive: true });
+}
+
 // Sample names for dataset generation
-const names = [
-  'Emma Thompson', 'James Wilson', 'Sophia Martinez', 'Michael Johnson',
-  'Olivia Lee', 'William Davis', 'Ava Rodriguez', 'Alexander Brown',
-  'Isabella Taylor', 'Daniel Anderson', 'Charlotte Thomas', 'David White',
-  'Mia Harris', 'Joseph Martin', 'Amelia Garcia', 'John Jackson',
-  'Harper Lewis', 'Christopher Clark', 'Evelyn Walker', 'Matthew Hall'
+const names = [ 
+  'Michelle Zhu', 'Andrew Choi', 'Suhana Khan', 'Moyo Fakudze', 'Jessica Yoo',
 ];
 
 // Different locations with lat/long
@@ -331,13 +332,11 @@ async function generateDataset() {
   // Initialize data structures for consolidated files
   const signReportsData = {
     profiles: [],
-    generated: new Date().toISOString(),
     total_entries: 0
   };
 
   const compatibilityData = {
     pairs: [],
-    generated: new Date().toISOString(),
     total_entries: 0
   };
   
@@ -421,7 +420,6 @@ async function generateDataset() {
       try {
         const sexualData = await makeSexualCompatibilityRequest(profile1, profile2);
         pairData.sexual_compatibility = sexualData;
-        await new Promise(resolve => setTimeout(resolve, 5000));
       } catch (error) {
         console.error(`Error fetching sexual compatibility: ${error.message}`);
       }
