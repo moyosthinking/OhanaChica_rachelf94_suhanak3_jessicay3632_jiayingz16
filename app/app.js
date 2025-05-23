@@ -40,11 +40,12 @@ app.post('/register', (req, res) => {
   user.createUser(username, password, birthday, (err, userId) => {
     if (err) {
       console.error('Registration error:', err.message);
-      res.redirect('/register');
-      res.send('<p>Registration failed. Username may already exist. Try again</p>');
+      const errorMessage = encodeURIComponent('Username already exists. Please try a different username.');
+      res.redirect(`/register?error=${errorMessage}`);
     } else {
       console.log(`User registered successfully with ID: ${userId}`);
-      res.redirect('/login');
+      const successMessage = encodeURIComponent('Registration successful! Please log in.');
+      res.redirect(`/login?success=${successMessage}`);
     }
   });
 });
@@ -54,13 +55,15 @@ app.post('/login', (req, res) => {
   const { username, password } = req.body;
   user.authenticateUser(username, password, (err, userObj) => {
     if (err) {
-      res.send('<p>Login error occurred.</p><a href="/login.html">Try again</a>');
+      const errorMessage = encodeURIComponent('Login error occurred.');
+      res.redirect(`/login?error=${errorMessage}`);
     } else if (userObj) {
       req.session.user = userObj.username;
       res.redirect('/');
       console.log(`User logged in successfully with username: ${username}`);
     } else {
-      res.send('<p>Invalid credentials.</p><a href="/login.html">Try again</a>');
+      const errorMessage = encodeURIComponent('Invalid credentials.');
+      res.redirect(`/login?error=${errorMessage}`);
     }
   });
 });
