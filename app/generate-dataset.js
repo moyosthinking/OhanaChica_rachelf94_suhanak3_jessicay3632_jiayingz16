@@ -120,7 +120,6 @@ function makeAstrologyRequest(profile, aspect) {
   return new Promise((resolve, reject) => {
     const options = {
       'method': 'POST',
-      // For debugging, use a hardcoded aspect (e.g., 'moon') to match the working sample
       'url': `https://astroapi-4.divineapi.com/western-api/v1/general-sign-report/${aspect}`,
       'headers': {
         'Authorization': `Bearer ${keys.AUTH_TOKEN}`
@@ -146,7 +145,6 @@ function makeAstrologyRequest(profile, aspect) {
     
     request(options, function(error, response) {
       if (error) return reject(error);
-      console.log(response.body);
       try {
         const data = JSON.parse(response.body);
         if (data.success === 1 && data.data) {
@@ -155,7 +153,7 @@ function makeAstrologyRequest(profile, aspect) {
           reject(new Error(`API Error: ${data.message || 'Unknown error'}`));
         }
       } catch (parseError) {
-        reject(new Error(`Parse error: ${parseError.message}. Response body: ${response.body}`));
+        reject(new Error(`Parse error: ${parseError.message}`));
       }
     });
   });
@@ -203,12 +201,11 @@ function makePhysicalCompatibilityRequest(profile1, profile2) {
 
     request(options, function (error, response) {
       if (error) return reject(error);
-      console.log(response.body);
       try {
         const data = JSON.parse(response.body);
         resolve(data);
       } catch (parseError) {
-        reject(new Error(`Parse error: ${parseError.message}. Response body: ${response.body}`));
+        reject(new Error(`Parse error: ${parseError.message}`));
       }
     });
   });
@@ -256,12 +253,11 @@ function makeSexualCompatibilityRequest(profile1, profile2) {
 
     request(options, function (error, response) {
       if (error) return reject(error);
-      console.log(response.body);
       try {
         const data = JSON.parse(response.body);
         resolve(data);
       } catch (parseError) {
-        reject(new Error(`Parse error: ${parseError.message}. Response body: ${response.body}`));
+        reject(new Error(`Parse error: ${parseError.message}`));
       }
     });
   });
@@ -309,12 +305,11 @@ function makeEmotionalCompatibilityRequest(profile1, profile2) {
 
     request(options, function (error, response) {
       if (error) return reject(error);
-      console.log(response.body);
       try {
         const data = JSON.parse(response.body);
         resolve(data);
       } catch (parseError) {
-        reject(new Error(`Parse error: ${parseError.message}. Response body: ${response.body}`));
+        reject(new Error(`Parse error: ${parseError.message}`));
       }
     });
   });
@@ -349,7 +344,7 @@ async function generateDataset() {
   // For each profile, query all aspects and general report
   for (let i = 0; i < profiles.length; i++) {
     const profile = profiles[i];
-    console.log(`Generating data for profile ${i+1}/${numProfiles}: ${profile.full_name}`);
+    console.log(`Processing profile ${i+1}/${numProfiles}: ${profile.full_name}`);
     
     const profileData = {
       person: {
@@ -359,23 +354,20 @@ async function generateDataset() {
         location: profile.place,
         gender: profile.gender
       },
-      aspects: {},
+      aspects: {}
     };
     
     // 1. Get all aspect-specific reports
     for (const aspect of aspects) {
       try {
-        console.log(`  Fetching ${aspect} data...`);
         const aspectData = await makeAstrologyRequest(profile, aspect);
         if (aspectData) {
           profileData.aspects[aspect] = aspectData;
-        } else {
-          console.log(`  ❌ Error fetching ${aspect} data:`, aspectData.message || 'Unknown error');
         }
         // Add a delay to avoid rate limiting
         await new Promise(resolve => setTimeout(resolve, 5000));
       } catch (error) {
-        console.error(`  ❌ Error with ${aspect} request:`, error.message);
+        console.error(`Error fetching ${aspect} data for ${profile.full_name}: ${error.message}`);
       }
     }
     
@@ -387,11 +379,9 @@ async function generateDataset() {
       path.join(datasetDir, 'sign-reports.json'),
       JSON.stringify(signReportsData, null, 2)
     );
-    
-    console.log(`Completed profile ${i+1}/${numProfiles}`);
   }
   
-  // 3. Generate compatibility data between profiles
+  // Generate compatibility data between profiles
   console.log('\nGenerating compatibility data between profiles...');
   
   for (let i = 0; i < profiles.length; i++) {
@@ -399,7 +389,7 @@ async function generateDataset() {
       const profile1 = profiles[i];
       const profile2 = profiles[j];
       
-      console.log(`Generating compatibility data between ${profile1.full_name} and ${profile2.full_name}`);
+      console.log(`Processing compatibility between ${profile1.full_name} and ${profile2.full_name}`);
       
       const pairData = {
         person1: {
@@ -421,35 +411,27 @@ async function generateDataset() {
         emotional_compatibility: {}
       };
       
-      // Physical compatibility
       try {
-        console.log(`  Fetching physical compatibility data...`);
         const physicalData = await makePhysicalCompatibilityRequest(profile1, profile2);
         pairData.physical_compatibility = physicalData;
       } catch (error) {
-        console.error(`  ❌ Error with physical compatibility request:`, error.message);
+        console.error(`Error fetching physical compatibility: ${error.message}`);
       }
       
-      // Sexual compatibility
       try {
-        console.log(`  Fetching sexual compatibility data...`);
         const sexualData = await makeSexualCompatibilityRequest(profile1, profile2);
         pairData.sexual_compatibility = sexualData;
-        // Add a delay to avoid rate limiting
         await new Promise(resolve => setTimeout(resolve, 5000));
       } catch (error) {
-        console.error(`  ❌ Error with sexual compatibility request:`, error.message);
+        console.error(`Error fetching sexual compatibility: ${error.message}`);
       }
       
-      // Emotional compatibility
       try {
-        console.log(`  Fetching emotional compatibility data...`);
         const emotionalData = await makeEmotionalCompatibilityRequest(profile1, profile2);
         pairData.emotional_compatibility = emotionalData;
-        // Add a delay to avoid rate limiting
         await new Promise(resolve => setTimeout(resolve, 5000));
       } catch (error) {
-        console.error(`  ❌ Error with emotional compatibility request:`, error.message);
+        console.error(`Error fetching emotional compatibility: ${error.message}`);
       }
       
       compatibilityData.pairs.push(pairData);
