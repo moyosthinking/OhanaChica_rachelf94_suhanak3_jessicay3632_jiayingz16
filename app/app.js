@@ -66,6 +66,13 @@ app.post('/login', (req, res) => {
 
 app.get('/', (req,res) => {
   res.sendFile(path.join(__dirname, 'public', 'home.html'));
+    if (username) {
+      res.send(<p class="font-medium text-gray-800"> Welcome { username } </p>);
+    }
+    else if {
+      res.send(<p class="font-medium text-gray-800">Please <a href="/login.html" class="no-underline hover:underline">login</a> or <a href="/register.html" class="no-underline hover:underline">register</a> to access your personalized astrology readings.</p>);
+    }
+  }
 });
 
 app.get('/logout', (req, res) => {
