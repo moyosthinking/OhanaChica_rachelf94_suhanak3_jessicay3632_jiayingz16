@@ -76,6 +76,43 @@ app.get('/', (req,res) => {
   res.sendFile(path.join(__dirname, 'public', 'home.html'));
 });
 
+
+app.get('/compat', (req,res) => {
+  const { username, password } = req.body;
+  user.authenticateUser(username, password, (err, userObj) => {
+    if (req.session.user) {
+      res.sendFile(path.join(__dirname, 'public', 'compatibility.html'));
+    } else {
+      res.sendFile(path.join(__dirname, 'public', 'home.html'));
+      console.log(`no compatibility! user not logged in`);
+    }
+  });
+});
+
+app.get('/self', (req,res) => {
+  const { username, password } = req.body;
+  user.authenticateUser(username, password, (err, userObj) => {
+    if (req.session.user) {
+      res.sendFile(path.join(__dirname, 'public', 'selfimprov.html'));
+    } else {
+      res.sendFile(path.join(__dirname, 'public', 'home.html'));
+      console.log(`no selfimprovment! user not logged in`);
+    }
+  });
+});
+
+app.get('/horoscope', (req,res) => {
+  const { username, password } = req.body;
+  user.authenticateUser(username, password, (err, userObj) => {
+    if (req.session.user) {
+      res.sendFile(path.join(__dirname, 'public', 'horoscopes.html'));
+    } else {
+      res.sendFile(path.join(__dirname, 'public', 'home.html'));
+      console.log(`no horoscope! user not logged in`);
+    }
+  });
+});
+
 app.get('/logout', (req, res) => {
   req.session.destroy((err) => {
     if (err) {
@@ -95,7 +132,7 @@ app.get('/chat', (req, res) => {
       console.log(`logged in user can chat`);
     } else {
       res.sendFile(path.join(__dirname, 'public', 'home.html'));
-      console.log(`user not logged in`);
+      console.log(`no chatting! user not logged in`);
     }
   });
 });

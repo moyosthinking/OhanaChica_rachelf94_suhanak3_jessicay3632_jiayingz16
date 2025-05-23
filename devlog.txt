@@ -118,3 +118,7 @@ moyoF -- 2025-05-23 11:35
 - only logged in users can ascces chat page
 - logged in users and non-logged in have different
 - ascceses to the current pages
+
+moyoF -- 2025-05-23 11:45
+- all current pages have a route and check
+- for being logged in
