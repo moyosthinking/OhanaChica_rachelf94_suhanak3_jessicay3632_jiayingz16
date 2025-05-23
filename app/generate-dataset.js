@@ -5,9 +5,6 @@ const keys = require('./keys/api_keys');
 
 // Create dataset directory if it doesn't exist
 const datasetDir = path.join(__dirname, 'dataset');
-if (!fs.existsSync(datasetDir)) {
-  fs.mkdirSync(datasetDir, { recursive: true });
-}
 
 // Sample names for dataset generation
 const names = [
@@ -336,10 +333,15 @@ async function generateDataset() {
     profiles.push(generateRandomProfile());
   }
   
-  // Final dataset
-  const dataset = {
+  // Initialize data structures for consolidated files
+  const signReportsData = {
     profiles: [],
-    compatibility: [],
+    generated: new Date().toISOString(),
+    total_entries: 0
+  };
+
+  const compatibilityData = {
+    pairs: [],
     generated: new Date().toISOString(),
     total_entries: 0
   };
@@ -358,7 +360,6 @@ async function generateDataset() {
         gender: profile.gender
       },
       aspects: {},
-      general_report: {}
     };
     
     // 1. Get all aspect-specific reports
@@ -368,12 +369,6 @@ async function generateDataset() {
         const aspectData = await makeAstrologyRequest(profile, aspect);
         if (aspectData) {
           profileData.aspects[aspect] = aspectData;
-          // Save individual aspect file
-          const aspectFileName = `${profile.full_name.replace(/\\s+/g, '_')}_${aspect}.json`;
-          fs.writeFileSync(
-            path.join(datasetDir, aspectFileName),
-            JSON.stringify(aspectData, null, 2)
-          );
         } else {
           console.log(`  ❌ Error fetching ${aspect} data:`, aspectData.message || 'Unknown error');
         }
@@ -384,13 +379,13 @@ async function generateDataset() {
       }
     }
     
-    dataset.profiles.push(profileData);
-    dataset.total_entries++;
+    signReportsData.profiles.push(profileData);
+    signReportsData.total_entries++;
     
     // Save progress after each profile
     fs.writeFileSync(
-      path.join(__dirname, 'astrology-data.json'),
-      JSON.stringify(dataset, null, 2)
+      path.join(datasetDir, 'sign-reports.json'),
+      JSON.stringify(signReportsData, null, 2)
     );
     
     console.log(`Completed profile ${i+1}/${numProfiles}`);
@@ -406,7 +401,7 @@ async function generateDataset() {
       
       console.log(`Generating compatibility data between ${profile1.full_name} and ${profile2.full_name}`);
       
-      const compatibilityData = {
+      const pairData = {
         person1: {
           name: profile1.full_name,
           birthdate: `${profile1.year}-${profile1.month}-${profile1.day}`,
@@ -430,15 +425,7 @@ async function generateDataset() {
       try {
         console.log(`  Fetching physical compatibility data...`);
         const physicalData = await makePhysicalCompatibilityRequest(profile1, profile2);
-        
-        compatibilityData.physical_compatibility = physicalData;
-        
-        // Save physical compatibility file
-        const physicalFileName = `${profile1.full_name.replace(/\s+/g, '_')}_${profile2.full_name.replace(/\s+/g, '_')}_physical.json`;
-        fs.writeFileSync(
-          path.join(datasetDir, physicalFileName),
-          JSON.stringify(physicalData, null, 2)
-        );
+        pairData.physical_compatibility = physicalData;
       } catch (error) {
         console.error(`  ❌ Error with physical compatibility request:`, error.message);
       }
@@ -447,16 +434,7 @@ async function generateDataset() {
       try {
         console.log(`  Fetching sexual compatibility data...`);
         const sexualData = await makeSexualCompatibilityRequest(profile1, profile2);
-        
-        compatibilityData.sexual_compatibility = sexualData;
-        
-        // Save sexual compatibility file
-        const sexualFileName = `${profile1.full_name.replace(/\s+/g, '_')}_${profile2.full_name.replace(/\s+/g, '_')}_sexual.json`;
-        fs.writeFileSync(
-          path.join(datasetDir, sexualFileName),
-          JSON.stringify(sexualData, null, 2)
-        );
-        
+        pairData.sexual_compatibility = sexualData;
         // Add a delay to avoid rate limiting
         await new Promise(resolve => setTimeout(resolve, 5000));
       } catch (error) {
@@ -467,40 +445,30 @@ async function generateDataset() {
       try {
         console.log(`  Fetching emotional compatibility data...`);
         const emotionalData = await makeEmotionalCompatibilityRequest(profile1, profile2);
-        
-        compatibilityData.emotional_compatibility = emotionalData;
-        
-        // Save emotional compatibility file
-        const emotionalFileName = `${profile1.full_name.replace(/\s+/g, '_')}_${profile2.full_name.replace(/\s+/g, '_')}_emotional.json`;
-        fs.writeFileSync(
-          path.join(datasetDir, emotionalFileName),
-          JSON.stringify(emotionalData, null, 2)
-        );
-        
+        pairData.emotional_compatibility = emotionalData;
         // Add a delay to avoid rate limiting
         await new Promise(resolve => setTimeout(resolve, 5000));
       } catch (error) {
         console.error(`  ❌ Error with emotional compatibility request:`, error.message);
       }
       
-      dataset.compatibility.push(compatibilityData);
+      compatibilityData.pairs.push(pairData);
+      compatibilityData.total_entries++;
       
       // Save progress after each compatibility pair
       fs.writeFileSync(
-        path.join(__dirname, 'astrology-data.json'),
-        JSON.stringify(dataset, null, 2)
+        path.join(datasetDir, 'compatibility-data.json'),
+        JSON.stringify(compatibilityData, null, 2)
       );
     }
   }
   
   console.log('\nDataset generation complete!');
-  console.log(`Generated data for ${dataset.total_entries} profiles across ${aspects.length} astrological aspects`);
-  console.log(`Generated compatibility data for ${dataset.compatibility.length} profile pairs`);
-  console.log(`Full dataset saved to ${path.join(__dirname, 'astrology-data.json')}`);
-  console.log(`Individual files saved in ${datasetDir}`);
+  console.log(`Generated data for ${signReportsData.total_entries} profiles across ${aspects.length} astrological aspects`);
+  console.log(`Generated compatibility data for ${compatibilityData.total_entries} profile pairs`);
+  console.log(`Sign reports saved to ${path.join(datasetDir, 'sign-reports.json')}`);
+  console.log(`Compatibility data saved to ${path.join(datasetDir, 'compatibility-data.json')}`);
 }
 
 // Run the dataset generation
-generateDataset().catch(error => {
-  console.error('Error generating dataset:', error);
-}); 
+generateDataset()

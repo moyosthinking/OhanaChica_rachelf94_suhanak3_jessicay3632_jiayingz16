@@ -1,0 +1,114 @@
+{
+  "pairs": [
+    {
+      "person1": {
+        "name": "Alexander Brown",
+        "birthdate": "1992-11-12",
+        "birthtime": "07:57:00",
+        "location": "Los Angeles",
+        "gender": "female"
+      },
+      "person2": {
+        "name": "Sophia Martinez",
+        "birthdate": "1972-02-11",
+        "birthtime": "00:55:00",
+        "location": "London",
+        "gender": "male"
+      },
+      "physical_compatibility": {
+        "success": 1,
+        "data": {
+          "content": [
+            {
+              "p1": {
+                "planet": "Moon",
+                "full_degree": "78.4665136",
+                "sign": "Gemini",
+                "sign_no": 3,
+                "longitude": "18:27:59"
+              },
+              "p2": {
+                "planet": "Sun",
+                "full_degree": "321.3985313",
+                "sign": "Aquarius",
+                "sign_no": 11,
+                "longitude": "21:23:55"
+              },
+              "orb": 2.93,
+              "aspect": "Trine",
+              "aspect_type": "Easy",
+              "reading": [
+                {
+                  "title": "Harmonious Connection",
+                  "description": "With Alexander Brown's Sun trine Sophia Martinez's Moon, there's a harmonious emotional link between them. Alexander Brown and Sophia Martinez naturally understand and empathize with each other's feelings, which enhances their physical compatibility."
+                },
+                {
+                  "title": "Mutual Attraction",
+                  "description": "A Sun-Moon trine enhances mutual attraction. Alexander Brown and Sophia Martinez will likely feel a strong magnetic pull towards each other, making their physical interaction passionate and intense."
+                },
+                {
+                  "title": "Stability and Comfort",
+                  "description": "This aspect promotes comfort and stability in the relationship. Alexander Brown and Sophia Martinez may find each other physically comforting, providing a sense of stability that further enhances their physical chemistry and compatibility."
+                }
+              ]
+            },
+            {
+              "p1": {
+                "planet": "Saturn",
+                "full_degree": "312.4603031",
+                "sign": "Aquarius",
+                "sign_no": 11,
+                "longitude": "12:27:37"
+              },
+              "p2": {
+                "planet": "Ascendant",
+                "full_degree": "224.7615539",
+                "sign": "Scorpio",
+                "sign_no": 8,
+                "longitude": "14:45:42"
+              },
+              "orb": 2.3,
+              "aspect": "Square",
+              "aspect_type": "Hard",
+              "reading": [
+                {
+                  "title": "Initial Attraction",
+                  "description": "Alexander Brown and Sophia Martinez might have an initial attraction due to Alexander Brown's Ascendent square Saturn aspect of Sophia Martinez. This aspect represents challenge and growth which might bring the two closer initially."
+                },
+                {
+                  "title": "Physical Challenges",
+                  "description": "However, over time, the physical compatibility might be a challenge. Saturn's influence may restrict or delay physical intimacy. Sophia Martinez might appear as a taskmaster to Alexander Brown, offering lessons in patience and restraint."
+                },
+                {
+                  "title": "Long-Term Compatibility",
+                  "description": "Long-term physical compatibility would depend on how much Alexander Brown can adapt to the physical limitations imposed by Sophia Martinez's Saturn. If Alexander Brown could view these challenges as growth opportunities, physical compatibility can still be achieved."
+                }
+              ]
+            }
+          ],
+          "message": []
+        }
+      },
+      "sexual_compatibility": {
+        "success": 1,
+        "data": {
+          "content": [],
+          "message": [
+            "Mars aspects on Venus , 5th house or Pluto have been missing in the synastry chart of Alexander Brown and Sophia Martinez. The intimacy and sexual union between the couple is below the optimum level. It could be drwan from the given match between Alexander Brown and Sophia Martinez that the sexual chemistry and compatibility is something that is lacking between them and they need to understand each other's sexual needs and desires. Given the patience and understanding that they must show to each other, they can certainly improve this aspect and strengthen their relationship."
+          ]
+        }
+      },
+      "emotional_compatibility": {
+        "success": 1,
+        "data": {
+          "content": [],
+          "message": [
+            "Emotional Compatibility was tested between Alexander Brown and Sophia Martinez on the factors of Moon Aspects and Sun-Moon Midpoint. There are no mutual aspects between the Moons in the Synastry chart as well as no planetary influence on the Sun-Moon Midpoint. This leads to the conclusion that the emotional connect between Alexander Brown and Sophia Martinez is absent although not poor. Showing empathy and compassion to each other will certainly initiate the emotional compatibility between the couple in the relationship."
+          ]
+        }
+      }
+    }
+  ],
+  "generated": "2025-05-23T15:36:10.537Z",
+  "total_entries": 1
+}
