@@ -118,3 +118,4 @@ michelleZ -- 2025-05-23 11:00
 michelleZ -- 2025-05-23 12:00
 - fixed registration error
 - added more variety (locations) for generating dataset
+- started python script to format data
