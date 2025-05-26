@@ -18,39 +18,51 @@ const names = [
 
 // Different locations with lat/long
 const locations = [
-  { place: 'Baker Island', lat: '0.1936', lon: '-176.4769', tzone: '-12' }, // UTC-12:00
-  { place: 'American Samoa', lat: '-14.2710', lon: '-170.1322', tzone: '-11' }, // UTC-11:00
-  { place: 'Honolulu', lat: '21.3069', lon: '-157.8583', tzone: '-10' }, // UTC-10:00
-  { place: 'Anchorage', lat: '61.2181', lon: '-149.9003', tzone: '-9' }, // UTC-09:00
-  { place: 'Los Angeles', lat: '34.0522', lon: '-118.2437', tzone: '-8' }, // UTC-08:00
-  { place: 'Denver', lat: '39.7392', lon: '-104.9903', tzone: '-7' }, // UTC-07:00
-  { place: 'Chicago', lat: '41.8781', lon: '-87.6298', tzone: '-6' }, // UTC-06:00
-  { place: 'New York', lat: '40.7128', lon: '-74.0060', tzone: '-5' }, // UTC-05:00
-  { place: 'Caracas', lat: '10.4806', lon: '-66.9036', tzone: '-4' }, // UTC-04:00
-  { place: 'Rio de Janeiro', lat: '-22.9068', lon: '-43.1729', tzone: '-3' }, // UTC-03:00
-  { place: 'Azores', lat: '37.7412', lon: '-25.6756', tzone: '-1' }, // UTC-01:00
-  { place: 'London', lat: '51.5074', lon: '-0.1278', tzone: '0' }, // UTC+00:00
-  { place: 'Berlin', lat: '52.5200', lon: '13.4050', tzone: '1' }, // UTC+01:00
-  { place: 'Cairo', lat: '30.0444', lon: '31.2357', tzone: '2' }, // UTC+02:00
-  { place: 'Moscow', lat: '55.7558', lon: '37.6173', tzone: '3' }, // UTC+03:00
-  { place: 'Tehran', lat: '35.6892', lon: '51.3890', tzone: '3.5' }, // UTC+03:30
-  { place: 'Dubai', lat: '25.2048', lon: '55.2708', tzone: '4' }, // UTC+04:00
-  { place: 'Kabul', lat: '34.5553', lon: '69.2075', tzone: '4.5' }, // UTC+04:30
-  { place: 'Karachi', lat: '24.8607', lon: '67.0011', tzone: '5' }, // UTC+05:00
-  { place: 'New Delhi', lat: '28.6139', lon: '77.2090', tzone: '5.5' }, // UTC+05:30
-  { place: 'Kathmandu', lat: '27.7172', lon: '85.3240', tzone: '5.75' }, // UTC+05:45
-  { place: 'Dhaka', lat: '23.8103', lon: '90.4125', tzone: '6' }, // UTC+06:00
-  { place: 'Yangon', lat: '16.8409', lon: '96.1735', tzone: '6.5' }, // UTC+06:30
-  { place: 'Bangkok', lat: '13.7563', lon: '100.5018', tzone: '7' }, // UTC+07:00
-  { place: 'Beijing', lat: '39.9042', lon: '116.4074', tzone: '8' }, // UTC+08:00
-  { place: 'Tokyo', lat: '35.6895', lon: '139.6917', tzone: '9' }, // UTC+09:00
-  { place: 'Adelaide', lat: '-34.9285', lon: '138.6007', tzone: '9.5' }, // UTC+09:30
-  { place: 'Sydney', lat: '-33.8688', lon: '151.2093', tzone: '10' }, // UTC+10:00
-  { place: 'Magadan', lat: '59.5616', lon: '150.8000', tzone: '11' }, // UTC+11:00
-  { place: 'Fiji', lat: '-17.7134', lon: '178.0650', tzone: '12' }, // UTC+12:00
-  { place: 'Nuku\'alofa', lat: '-21.1394', lon: '-175.2044', tzone: '13' }, // UTC+13:00
-  { place: 'Kiritimati', lat: '1.8721', lon: '-157.4278', tzone: '14' } // UTC+14:00
-];
+    { place: 'Baker Island',        lat: '0.1936',    lon: '-176.4769',  tzone: '-12'  }, // UTC-12:00
+    { place: 'American Samoa',      lat: '-14.2710',  lon: '-170.1322',  tzone: '-11'  }, // UTC-11:00
+    { place: 'Honolulu',            lat: '21.3069',   lon: '-157.8583',  tzone: '-10'  }, // UTC-10:00
+    { place: 'Anchorage',           lat: '61.2181',   lon: '-149.9003',  tzone: '-9'   }, // UTC-09:00
+    { place: 'Los Angeles',         lat: '34.0522',   lon: '-118.2437',  tzone: '-8'   }, // UTC-08:00
+    { place: 'Denver',              lat: '39.7392',   lon: '-104.9903',  tzone: '-7'   }, // UTC-07:00
+    { place: 'Chicago',             lat: '41.8781',   lon: '-87.6298',   tzone: '-6'   }, // UTC-06:00
+    { place: 'New York',            lat: '40.7128',   lon: '-74.0060',   tzone: '-5'   }, // UTC-05:00
+    { place: 'Caracas',             lat: '10.4806',   lon: '-66.9036',   tzone: '-4'   }, // UTC-04:00
+    { place: 'Rio de Janeiro',      lat: '-22.9068',  lon: '-43.1729',   tzone: '-3'   }, // UTC-03:00
+    { place: 'Azores',              lat: '37.7412',   lon: '-25.6756',   tzone: '-1'   }, // UTC-01:00
+    { place: 'London',              lat: '51.5074',   lon: '-0.1278',    tzone: '0'    }, // UTC+00:00
+    { place: 'Berlin',              lat: '52.5200',   lon: '13.4050',     tzone: '1'    }, // UTC+01:00
+    { place: 'Cairo',               lat: '30.0444',   lon: '31.2357',     tzone: '2'    }, // UTC+02:00
+    { place: 'Moscow',              lat: '55.7558',   lon: '37.6173',     tzone: '3'    }, // UTC+03:00
+    { place: 'Tehran',              lat: '35.6892',   lon: '51.3890',     tzone: '3.5'  }, // UTC+03:30
+    { place: 'Dubai',               lat: '25.2048',   lon: '55.2708',     tzone: '4'    }, // UTC+04:00
+    { place: 'Kabul',               lat: '34.5553',   lon: '69.2075',     tzone: '4.5'  }, // UTC+04:30
+    { place: 'Karachi',             lat: '24.8607',   lon: '67.0011',     tzone: '5'    }, // UTC+05:00
+    { place: 'New Delhi',           lat: '28.6139',   lon: '77.2090',     tzone: '5.5'  }, // UTC+05:30
+    { place: 'Kathmandu',           lat: '27.7172',   lon: '85.3240',     tzone: '5.75' }, // UTC+05:45
+    { place: 'Dhaka',               lat: '23.8103',   lon: '90.4125',     tzone: '6'    }, // UTC+06:00
+    { place: 'Yangon',              lat: '16.8409',   lon: '96.1735',     tzone: '6.5'  }, // UTC+06:30
+    { place: 'Bangkok',             lat: '13.7563',   lon: '100.5018',    tzone: '7'    }, // UTC+07:00
+    { place: 'Beijing',             lat: '39.9042',   lon: '116.4074',    tzone: '8'    }, // UTC+08:00
+    { place: 'Tokyo',               lat: '35.6895',   lon: '139.6917',    tzone: '9'    }, // UTC+09:00
+    { place: 'Adelaide',            lat: '-34.9285',  lon: '138.6007',    tzone: '9.5'  }, // UTC+09:30
+    { place: 'Sydney',              lat: '-33.8688',  lon: '151.2093',    tzone: '10'   }, // UTC+10:00
+    { place: 'Magadan',             lat: '59.5616',   lon: '150.8000',    tzone: '11'   }, // UTC+11:00
+    { place: 'Fiji',                lat: '-17.7134',  lon: '178.0650',    tzone: '12'   }, // UTC+12:00
+    { place: "Nuku'alofa",          lat: '-21.1394',  lon: '-175.2044',   tzone: '13'   }, // UTC+13:00
+    { place: 'Kiritimati',          lat: '1.8721',    lon: '-157.4278',   tzone: '14'   }, // UTC+14:00
+    { place: 'Reykjavik',          lat: '64.1466',   lon: '-21.9426',    tzone: '0'    }, // UTC+00:00
+    { place: 'Accra',              lat: '5.6037',    lon: '-0.1870',     tzone: '0'    }, // UTC+00:00
+    { place: 'Lisbon',             lat: '38.7223',   lon: '-9.1393',     tzone: '0'    }, // UTC+00:00
+    { place: 'Madrid',             lat: '40.4168',   lon: '-3.7038',     tzone: '1'    }, // UTC+01:00
+    { place: 'Cape Town',          lat: '-33.9249',  lon: '18.4241',     tzone: '2'    }, // UTC+02:00
+    { place: 'Nairobi',            lat: '-1.2921',   lon: '36.8219',     tzone: '3'    }, // UTC+03:00
+    { place: 'Baghdad',            lat: '33.3152',   lon: '44.3661',     tzone: '3'    }, // UTC+03:00
+    { place: 'Ulaanbaatar',        lat: '47.8864',   lon: '106.9057',    tzone: '8'    }, // UTC+08:00
+    { place: 'Vladivostok',        lat: '43.1198',   lon: '131.8869',    tzone: '10'   }, // UTC+10:00
+    { place: 'Nouméa',             lat: '-22.2558',  lon: '166.4505',    tzone: '11'   }, // UTC+11:00
+    { place: 'Chatham Islands',    lat: '-43.9587',  lon: '-176.5601',   tzone: '12.75'}, // UTC+12:45
+    { place: 'Marquesas Islands',  lat: '-9.9000',   lon: '-139.0333',   tzone: '-9.5' }  // UTC-09:30
+  ];  
 
 function getRandomName() {
     return names[Math.floor(Math.random() * names.length)];
@@ -60,9 +72,9 @@ function getRandomGender() {
     return Math.random() > 0.5 ? 'male' : 'female';
 }
 
-// Variety of birth years (1950-2010)
+// Variety of birth years (1950-2020)
 function getRandomYear() {
-  return Math.floor(Math.random() * (2010 - 1950 + 1)) + 1950;
+  return Math.floor(Math.random() * (2020 - 1950 + 1)) + 1950;
 }
 
 // Random month (1-12)
@@ -70,9 +82,9 @@ function getRandomMonth() {
   return Math.floor(Math.random() * 12) + 1;
 }
 
-// Random day (1-28 to keep it simple)
+// Random day (1-31 to keep it simple)
 function getRandomDay() {
-  return Math.floor(Math.random() * 28) + 1;
+  return Math.floor(Math.random() * 31) + 1;
 }
 
 // Random hour (0-23)
@@ -89,7 +101,7 @@ function getRandomLocation() {
     return locations[Math.floor(Math.random() * locations.length)];
 }
 
-// Astrological aspects to query (sun, moon, rising, etc.)
+// Astrological aspects to query
 const aspects = [
   'sun', 'moon'
 ];
@@ -145,17 +157,8 @@ function makeAstrologyRequest(profile, aspect) {
     };
     
     request(options, function(error, response) {
-      if (error) return reject(error);
-      try {
-        const data = JSON.parse(response.body);
-        if (data.success === 1 && data.data) {
-          resolve(data.data);
-        } else {
-          reject(new Error(`API Error: ${data.message || 'Unknown error'}`));
-        }
-      } catch (parseError) {
-        reject(new Error(`Parse error: ${parseError.message}`));
-      }
+      const data = JSON.parse(response.body);
+      resolve(data.data);
     });
   });
 }
@@ -201,13 +204,8 @@ function makePhysicalCompatibilityRequest(profile1, profile2) {
     };
 
     request(options, function (error, response) {
-      if (error) return reject(error);
-      try {
-        const data = JSON.parse(response.body);
-        resolve(data);
-      } catch (parseError) {
-        reject(new Error(`Parse error: ${parseError.message}`));
-      }
+      const data = JSON.parse(response.body);
+      resolve(data);
     });
   });
 }
@@ -253,13 +251,8 @@ function makeSexualCompatibilityRequest(profile1, profile2) {
     };
 
     request(options, function (error, response) {
-      if (error) return reject(error);
-      try {
-        const data = JSON.parse(response.body);
-        resolve(data);
-      } catch (parseError) {
-        reject(new Error(`Parse error: ${parseError.message}`));
-      }
+      const data = JSON.parse(response.body);
+      resolve(data);
     });
   });
 }
@@ -305,13 +298,8 @@ function makeEmotionalCompatibilityRequest(profile1, profile2) {
     };
 
     request(options, function (error, response) {
-      if (error) return reject(error);
-      try {
-        const data = JSON.parse(response.body);
-        resolve(data);
-      } catch (parseError) {
-        reject(new Error(`Parse error: ${parseError.message}`));
-      }
+      const data = JSON.parse(response.body);
+      resolve(data);
     });
   });
 }
@@ -358,16 +346,10 @@ async function generateDataset() {
     
     // 1. Get all aspect-specific reports
     for (const aspect of aspects) {
-      try {
-        const aspectData = await makeAstrologyRequest(profile, aspect);
-        if (aspectData) {
-          profileData.aspects[aspect] = aspectData;
-        }
-        // Add a delay to avoid rate limiting
-        await new Promise(resolve => setTimeout(resolve, 5000));
-      } catch (error) {
-        console.error(`Error fetching ${aspect} data for ${profile.full_name}: ${error.message}`);
-      }
+      const aspectData = await makeAstrologyRequest(profile, aspect);
+      profileData.aspects[aspect] = aspectData;
+      // Add a delay to avoid rate limiting
+      await new Promise(resolve => setTimeout(resolve, 5000));
     }
     
     signReportsData.profiles.push(profileData);
@@ -410,27 +392,15 @@ async function generateDataset() {
         emotional_compatibility: {}
       };
       
-      try {
-        const physicalData = await makePhysicalCompatibilityRequest(profile1, profile2);
-        pairData.physical_compatibility = physicalData;
-      } catch (error) {
-        console.error(`Error fetching physical compatibility: ${error.message}`);
-      }
+      const physicalData = await makePhysicalCompatibilityRequest(profile1, profile2);
+      pairData.physical_compatibility = physicalData;
       
-      try {
-        const sexualData = await makeSexualCompatibilityRequest(profile1, profile2);
-        pairData.sexual_compatibility = sexualData;
-      } catch (error) {
-        console.error(`Error fetching sexual compatibility: ${error.message}`);
-      }
+      const sexualData = await makeSexualCompatibilityRequest(profile1, profile2);
+      pairData.sexual_compatibility = sexualData;
       
-      try {
-        const emotionalData = await makeEmotionalCompatibilityRequest(profile1, profile2);
-        pairData.emotional_compatibility = emotionalData;
-        await new Promise(resolve => setTimeout(resolve, 5000));
-      } catch (error) {
-        console.error(`Error fetching emotional compatibility: ${error.message}`);
-      }
+      const emotionalData = await makeEmotionalCompatibilityRequest(profile1, profile2);
+      pairData.emotional_compatibility = emotionalData;
+      await new Promise(resolve => setTimeout(resolve, 5000));
       
       compatibilityData.pairs.push(pairData);
       compatibilityData.total_entries++;

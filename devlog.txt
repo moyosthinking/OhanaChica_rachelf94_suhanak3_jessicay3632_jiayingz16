@@ -119,3 +119,13 @@ michelleZ -- 2025-05-23 12:00
 - fixed registration error
 - added more variety (locations) for generating dataset
 - started python script to format data
+
+michelleZ -- 2025-05-25 17:30
+- updated DD to reflect changes
+- researched fine tuning & picked model
+
+michelleZ -- 2025-05-25 20:30
+- tested script for formatting data in preparation for ai fine tuning
+- generated JSONL file for fine tuning
+- generated 1k data points (compatibility and sign-reports)
+- streamlined data generation by removing error checking algorithms
