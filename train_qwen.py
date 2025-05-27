@@ -24,11 +24,12 @@ class AstrologyDataset(Dataset):
                     {"role": "user", "content": data["input"]},
                     {"role": "assistant", "content": data["output"]}
                 ]
-                # Convert to model input format
+                # Convert to model input format with thinking mode enabled
                 text = tokenizer.apply_chat_template(
                     messages,
                     tokenize=False,
-                    add_generation_prompt=True
+                    add_generation_prompt=True,
+                    enable_thinking=True  # Enable thinking mode
                 )
                 self.examples.append(text)
 
@@ -40,12 +41,12 @@ class AstrologyDataset(Dataset):
 
 def main():
     # Initialize model and tokenizer
-    model_name = "Qwen/Qwen3-4B"
+    model_name = "Qwen/Qwen3-0.6B"
     tokenizer = AutoTokenizer.from_pretrained(model_name)
     model = AutoModelForCausalLM.from_pretrained(
         model_name,
-        torch_dtype=torch.float16,  # Use float16 for memory efficiency
-        device_map="auto"  # This requires accelerate
+        torch_dtype="auto",
+        device_map="auto"
     )
 
     # Create dataset
@@ -59,7 +60,7 @@ def main():
 
     # Define training arguments
     training_args = TrainingArguments(
-        output_dir="./qwen3_finetuned",
+        output_dir="./qwen3_0.6B_finetuned",
         num_train_epochs=3,
         per_device_train_batch_size=4,
         gradient_accumulation_steps=4,
@@ -85,7 +86,7 @@ def main():
 
     # Save the model
     trainer.save_model()
-    tokenizer.save_pretrained("./qwen3_finetuned")
+    tokenizer.save_pretrained("./qwen3_0.6B_finetuned")
 
 if __name__ == "__main__":
     main() 
