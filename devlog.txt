@@ -129,3 +129,12 @@ michelleZ -- 2025-05-25 20:30
 - generated JSONL file for fine tuning
 - generated 1k data points (compatibility and sign-reports)
 - streamlined data generation by removing error checking algorithms
+
+michelleZ -- 2025-05-26 15:00
+- added location-specific advice that references the user's actual location
+- incorporated gender-specific considerations
+- added birth time-based recommendations
+- changed model and formatting
+
+michelleZ -- 2025-05-26 16:30
+- added required python dependencies used to train qwen

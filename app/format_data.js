@@ -5,7 +5,7 @@ const path = require('path');
 const dataDir = path.join(__dirname, 'dataset');
 const compatibilityFile = path.join(dataDir, 'compatibility-data.json');
 const signReportsFile = path.join(dataDir, 'sign-reports.json');
-const outputFile = path.join(dataDir, 'astro_formatted.jsonl');
+const outputFile = path.join(dataDir, 'qwen3_training_data.jsonl');
 
 // Load and parse JSON files
 if (!fs.existsSync(compatibilityFile) || !fs.existsSync(signReportsFile)) {
@@ -18,13 +18,18 @@ const signReportsData = JSON.parse(fs.readFileSync(signReportsFile, 'utf-8')).pr
 
 const writeStream = fs.createWriteStream(outputFile, { flags: 'w' });
 
-// Helper: create a ChatML JSONL record
-function writeRecord(messages) {
-  writeStream.write(JSON.stringify({ messages }) + '\n');
+// Helper: create a Qwen3 training record
+function writeTrainingRecord(instruction, input, output) {
+  const record = {
+    instruction,
+    input,
+    output
+  };
+  writeStream.write(JSON.stringify(record) + '\n');
 }
 
 // Helper: generate self-improvement advice based on sign report
-function generateAdvice(report, aspect) {
+function generateAdvice(report, aspect, person) {
   const advice = [];
   
   // Extract key themes from the report
@@ -79,19 +84,29 @@ function generateAdvice(report, aspect) {
     ]
   };
 
-  // Generate specific advice based on the aspect and themes
+  // Generate personalized advice based on the aspect, themes, and person's details
   const sign = aspect.sign_name;
   if (themes[sign]) {
     themes[sign].forEach(theme => {
+      // Create personalized advice based on location and other factors
+      const locationBasedAdvice = person.location ? 
+        `- Explore local opportunities in ${person.location} to develop your ${theme}\n` : '';
+      
+      const genderBasedAdvice = person.gender ?
+        `- Consider how your ${theme} development aligns with your personal identity\n` : '';
+      
+      const birthTimeAdvice = person.birthtime ?
+        `- Your birth time suggests optimal periods for ${theme} development\n` : '';
+
       advice.push(`**${theme.charAt(0).toUpperCase() + theme.slice(1)} Development**:\n` +
-        `- Set specific goals to enhance your ${theme} abilities\n` +
-        `- Practice daily exercises to strengthen your ${theme} skills\n` +
-        `- Seek opportunities that challenge your ${theme} potential\n` +
-        `- Track your progress in developing ${theme} over time\n` +
-        `- Identify role models who excel in ${theme} for inspiration\n` +
-        `- Create a support system to help you develop ${theme}\n` +
-        `- Reflect on how ${theme} contributes to your overall growth\n` +
-        `- Celebrate your progress in developing ${theme}`);
+        `- Create a personalized ${theme} development plan based on your unique circumstances\n` +
+        locationBasedAdvice +
+        genderBasedAdvice +
+        birthTimeAdvice +
+        `- Identify specific challenges in your environment that can help strengthen your ${theme}\n` +
+        `- Connect with local mentors or groups that can support your ${theme} growth\n` +
+        `- Document your personal journey in developing ${theme}\n` +
+        `- Adapt general ${theme} practices to fit your individual lifestyle and needs`);
     });
   }
 
@@ -109,27 +124,27 @@ signReportsData.forEach(profile => {
   
   Object.values(aspects).forEach(info => {
     reportParts.push(`**${info.planet_name} in ${info.sign_name} Report**:\n${info.report}`);
-    adviceParts.push(generateAdvice(info.report, info));
+    adviceParts.push(generateAdvice(info.report, info, p));
   });
   
   const reportText = reportParts.join('\n\n');
   const adviceText = adviceParts.join('\n\n');
 
   // Add self-improvement focused prompts
-  writeRecord([
-    { role: 'system', content: 'You are an insightful astrology coach focused on personal growth and self-improvement.' },
-    { role: 'user', content: `Birthday: ${p.birthdate} ${p.birthtime}, ${p.location} (${p.gender})\nProvide a detailed sign report with specific self-improvement advice.` },
-    { role: 'assistant', content: `${reportText}\n\n**Self-Improvement Action Plan**:\n${adviceText}` }
-  ]);
+  writeTrainingRecord(
+    "You are an insightful astrology coach focused on personal growth and self-improvement. Provide detailed sign reports with specific self-improvement advice.",
+    `Birthday: ${p.birthdate} ${p.birthtime}, ${p.location} (${p.gender})`,
+    `${reportText}\n\n**Self-Improvement Action Plan**:\n${adviceText}`
+  );
 
   // Add specific self-improvement prompts for each aspect
   Object.values(aspects).forEach(info => {
-    const aspectAdvice = generateAdvice(info.report, info);
-    writeRecord([
-      { role: 'system', content: 'You are an astrology coach specializing in personal development.' },
-      { role: 'user', content: `Birthday: ${p.birthdate} ${p.birthtime}, ${p.location} (${p.gender})\nWhat specific self-improvement advice would you give based on their ${info.planet_name} in ${info.sign_name}?` },
-      { role: 'assistant', content: `${info.report}\n\n**Actionable Steps**:\n${aspectAdvice}` }
-    ]);
+    const aspectAdvice = generateAdvice(info.report, info, p);
+    writeTrainingRecord(
+      "You are an astrology coach specializing in personal development. Provide specific self-improvement advice based on planetary positions.",
+      `Birthday: ${p.birthdate} ${p.birthtime}, ${p.location} (${p.gender})\nWhat specific self-improvement advice would you give based on their ${info.planet_name} in ${info.sign_name}?`,
+      `${info.report}\n\n**Actionable Steps**:\n${aspectAdvice}`
+    );
   });
 });
 
@@ -147,7 +162,6 @@ compatibilityData.forEach(pair => {
     block.forEach(item => {
       item.reading.forEach(rd => {
         descriptions.push(`${rd.title}: ${rd.description}`);
-        // Generate relationship advice based on the reading
         advice.push(`**${rd.title} Improvement**:\n` +
           `- Practice open communication about ${rd.title.toLowerCase()}\n` +
           `- Set mutual goals for enhancing ${rd.title.toLowerCase()}\n` +
@@ -160,14 +174,14 @@ compatibilityData.forEach(pair => {
     const adviceText = advice.join('\n\n');
 
     // Add relationship advice focused prompts
-    writeRecord([
-      { role: 'system', content: 'You are an astrology relationship advisor focused on helping couples improve their connection.' },
-      { role: 'user', content: `Compare: ${p1.birthdate} ${p1.birthtime} ${p1.location} vs ${p2.birthdate} ${p2.birthtime} ${p2.location}\nWhat specific advice would you give to improve their ${compType.replace(/_/g, ' ')}?` },
-      { role: 'assistant', content: `**${compType.replace(/_/g, ' ')} Analysis**:\n${answerText}\n\n**Relationship Improvement Plan**:\n${adviceText}` }
-    ]);
+    writeTrainingRecord(
+      "You are an astrology relationship advisor focused on helping couples improve their connection. Provide specific advice to enhance their relationship.",
+      `Compare: ${p1.birthdate} ${p1.birthtime} ${p1.location} vs ${p2.birthdate} ${p2.birthtime} ${p2.location}\nWhat specific advice would you give to improve their ${compType.replace(/_/g, ' ')}?`,
+      `**${compType.replace(/_/g, ' ')} Analysis**:\n${answerText}\n\n**Relationship Improvement Plan**:\n${adviceText}`
+    );
   });
 });
 
 writeStream.end(() => {
-  console.log(`Formatted JSONL saved to ${outputFile}`);
+  console.log(`Qwen3 training data saved to ${outputFile}`);
 });

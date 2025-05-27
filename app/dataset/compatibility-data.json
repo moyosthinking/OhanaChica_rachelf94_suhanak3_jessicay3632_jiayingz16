@@ -1,0 +1,211 @@
+{
+  "pairs": [
+    {
+      "person1": {
+        "name": "Suhana Khan",
+        "birthdate": "1957-03-17",
+        "birthtime": "12:51:00",
+        "location": "Vladivostok",
+        "gender": "male"
+      },
+      "person2": {
+        "name": "Jessica Yoo",
+        "birthdate": "1991-07-31",
+        "birthtime": "19:26:00",
+        "location": "Dubai",
+        "gender": "female"
+      },
+      "physical_compatibility": {
+        "success": 1,
+        "data": {
+          "content": [
+            {
+              "p1": {
+                "planet": "Moon",
+                "full_degree": "190.4510964",
+                "sign": "Libra",
+                "sign_no": 7,
+                "longitude": "10:27:4"
+              },
+              "p2": {
+                "planet": "Sun",
+                "full_degree": "127.9309516",
+                "sign": "Leo",
+                "sign_no": 5,
+                "longitude": "7:55:51"
+              },
+              "orb": 2.52,
+              "aspect": "Sextile",
+              "aspect_type": "Mildly Easy",
+              "reading": [
+                {
+                  "title": "Harmonious Connection",
+                  "description": "The Sextile aspect between Suhana Khan's Sun and Jessica Yoo's Moon suggests a harmonious connection. This aspect creates a natural flow of energy, resulting in physical attraction and comfort with each other."
+                },
+                {
+                  "title": "Understanding Ease",
+                  "description": "Emotionally, there’s an ease of understanding between Suhana Khan and Jessica Yoo. Jessica Yoo’s emotional nature complements Suhana Khan’s core identity, leading to an overall sense of emotional compatibility."
+                },
+                {
+                  "title": "Energetic Exchange",
+                  "description": "The energetic exchange between Suhana Khan and Jessica Yoo supports give-and-take, helping both to maintain balance in their physical exchanges. This aspect facilitates physical compatibility, from intimacy to activities they do together."
+                }
+              ]
+            },
+            {
+              "p1": {
+                "planet": "Mars",
+                "full_degree": "101.4238193",
+                "sign": "Cancer",
+                "sign_no": 4,
+                "longitude": "11:25:26"
+              },
+              "p2": {
+                "planet": "Ascendant",
+                "full_degree": "159.9733960",
+                "sign": "Virgo",
+                "sign_no": 6,
+                "longitude": "9:58:24"
+              },
+              "orb": 1.45,
+              "aspect": "Sextile",
+              "aspect_type": "Mildly Easy",
+              "reading": [
+                {
+                  "title": "Physical Attraction",
+                  "description": "Mars sextile Ascendant often signifies a strong physical attraction between Suhana Khan and Jessica Yoo. Jessica Yoo's restlessness, energy, and competitiveness are appealing to Suhana Khan, creating a magnetic connection that extends to physical compatibility."
+                },
+                {
+                  "title": "Active Lifestyle",
+                  "description": "As Jessica Yoo has Mars sextile with Suhana Khan's Ascendant, there can be a shared interest in sports or physically active hobbies. This shared enthusiasm for physical activities can solidify their bond and improve their physical compatibility."
+                },
+                {
+                  "title": "Passion Expression",
+                  "description": "The aspect can also influence how Suhana Khan perceives and reacts to Jessica Yoo's expressions of passion and desire. It signifies that Suhana Khan is not only accepting but also reciprocating Jessica Yoo's physical passions which enhances their physical compatibility."
+                }
+              ]
+            },
+            {
+              "p1": {
+                "planet": "Venus",
+                "full_degree": "101.4238193",
+                "sign": "Cancer",
+                "sign_no": 4,
+                "longitude": "11:25:26"
+              },
+              "p2": {
+                "planet": "Ascendant",
+                "full_degree": "157.3116758",
+                "sign": "Virgo",
+                "sign_no": 6,
+                "longitude": "7:18:42"
+              },
+              "orb": 4.11,
+              "aspect": "Sextile",
+              "aspect_type": "Mildly Easy",
+              "reading": [
+                {
+                  "title": "Attractive Force",
+                  "description": "The sextile aspect from Venus of Jessica Yoo draws a physical appeal towards Suhana Khan. This harmonious aspect enhances the physical attraction between them, making Suhana Khan appear more attractive in the eyes of Jessica Yoo."
+                },
+                {
+                  "title": "Sensual Compatibility",
+                  "description": "Venus is a planet that rules sensuality and desire. Its influence on Jessica Yoo's ascendant suggests a strong sensual connection with Suhana Khan. This could lead to satisfying physical intimacy and shared pleasure."
+                },
+                {
+                  "title": "Balanced Energy",
+                  "description": "The Venus sextile indicates a balanced level of energy between Suhana Khan and Jessica Yoo which enhances their physical compatibility. They may find comfort and satisfaction in each other's physical presence, developing a deeper bond between them."
+                }
+              ]
+            }
+          ],
+          "message": []
+        }
+      },
+      "sexual_compatibility": {
+        "success": 1,
+        "data": {
+          "content": [],
+          "message": [
+            "Mars aspects on Venus , 5th house or Pluto have been missing in the synastry chart of Suhana Khan and Jessica Yoo. The intimacy and sexual union between the couple is below the optimum level. It could be drwan from the given match between Suhana Khan and Jessica Yoo that the sexual chemistry and compatibility is something that is lacking between them and they need to understand each other's sexual needs and desires. Given the patience and understanding that they must show to each other, they can certainly improve this aspect and strengthen their relationship."
+          ]
+        }
+      },
+      "emotional_compatibility": {
+        "success": 1,
+        "data": {
+          "content": [
+            {
+              "p1": {
+                "planet": "Ascendant",
+                "full_degree": "190.4510964",
+                "sign": "Libra",
+                "sign_no": 7,
+                "longitude": "10:27:4"
+              },
+              "p2": {
+                "planet": "Moon",
+                "full_degree": "315.1548734",
+                "sign": "Aquarius",
+                "sign_no": 11,
+                "longitude": "15:9:18"
+              },
+              "orb": 4.7,
+              "aspect": "Trine",
+              "aspect_type": "Easy",
+              "reading": [
+                {
+                  "title": "Emotional Synergy",
+                  "description": "When Suhana Khan's moon forms a trine with Jessica Yoo's ascendant, it signifies a strong emotional bond between the two. There is inherent understanding which translates to a comfortable connection where feelings can flow freely."
+                },
+                {
+                  "title": "Harmony and Balance",
+                  "description": "The trine aspect promotes harmony and flow in the relationship. It indicates that Suhana Khan and Jessica Yoo possess a naturally balanced emotional dynamic, allowing them to relate to one another with ease, nurturing a healthy emotional give and take."
+                },
+                {
+                  "title": "Intuitive Understanding",
+                  "description": "Suhana Khan and Jessica Yoo are able to intuitively understand each other's emotional states. This emotional intelligence fosters a deep level of trust that can help in resolving conflicts effectively and enhancing the overall quality of the relationship."
+                }
+              ]
+            },
+            {
+              "p1": {
+                "planet": "Saturn",
+                "full_degree": "190.4510964",
+                "sign": "Libra",
+                "sign_no": 7,
+                "longitude": "10:27:4"
+              },
+              "p2": {
+                "planet": "Moon",
+                "full_degree": "303.1642560",
+                "sign": "Aquarius",
+                "sign_no": 11,
+                "longitude": "3:9:51"
+              },
+              "orb": 7.29,
+              "aspect": "Trine",
+              "aspect_type": "Easy",
+              "reading": [
+                {
+                  "title": "Emotional Stability",
+                  "description": "The Trine aspect of Saturn from Jessica Yoo's side to Suhana Khan's Moon might provide emotional stability to Suhana Khan. Saturn's influence tends to bring maturity, wisdom and responsibility, which can strongly influence Suhana Khan's emotional state."
+                },
+                {
+                  "title": "Seriousness Influence",
+                  "description": "Saturn's grounding effect on Suhana Khan's emotional Moon may inspire a severity and seriousness in Suhana Khan's feelings and emotional reactions, requiring Jessica Yoo to adjust and understand this intensity. This could cultivate a deeper emotional bond."
+                },
+                {
+                  "title": "Patience & Understanding",
+                  "description": "This combination requires patience and understanding from Jessica Yoo, as Saturn's effect on Suhana Khan's Moon can often lead to emotional cooling. However, if dealt with empathy, this can strengthen their emotional connection and ensure compatibility."
+                }
+              ]
+            }
+          ],
+          "message": []
+        }
+      }
+    }
+  ],
+  "total_entries": 1
+}
