@@ -88,6 +88,36 @@ app.get('/chat', (req, res) => {
   }
 });
 
+app.get('/compat', (req, res) => {
+  if (req.isAuthenticated())
+    {
+      res.sendFile(path.join(__dirname, 'public', 'compatibility.html'));
+    }
+  else{
+    res.sendFile(path.join(__dirname, 'public', 'home.html'));
+  }
+});
+
+app.get('/horoscope', (req, res) => {
+  if (req.isAuthenticated())
+    {
+      res.sendFile(path.join(__dirname, 'public', 'horoscope.html'));
+    }
+  else{
+    res.sendFile(path.join(__dirname, 'public', 'home.html'));
+  }
+});
+
+app.get('/self', (req, res) => {
+  if (req.isAuthenticated())
+    {
+      res.sendFile(path.join(__dirname, 'public', 'selfimprov.html'));
+    }
+  else{
+    res.sendFile(path.join(__dirname, 'public', 'home.html'));
+  }
+});
+
 const server = http.createServer(app);
 const wss =  new WebSocket.Server({ server });
 let id = 0;
