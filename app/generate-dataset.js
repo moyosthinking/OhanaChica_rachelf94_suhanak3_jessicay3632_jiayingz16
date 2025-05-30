@@ -102,9 +102,11 @@ function getRandomLocation() {
 }
 
 // Astrological aspects to query
+/*
 const aspects = [
   'sun', 'moon'
 ];
+*/
 
 // Generate a random profile
 function generateRandomProfile() {
@@ -309,7 +311,7 @@ async function generateDataset() {
   console.log('Starting dataset generation...');
   
   // Number of profiles to generate
-  const numProfiles = 2;
+  const numProfiles = 1000;
   
   // Generate all profiles first
   const profiles = [];
@@ -318,11 +320,12 @@ async function generateDataset() {
   }
   
   // Initialize data structures for consolidated files
+  /*
   const signReportsData = {
     profiles: [],
     total_entries: 0
   };
-
+  */
   const compatibilityData = {
     pairs: [],
     total_entries: 0
@@ -333,6 +336,7 @@ async function generateDataset() {
     const profile = profiles[i];
     console.log(`Processing profile ${i+1}/${numProfiles}: ${profile.full_name}`);
     
+    /*
     const profileData = {
       person: {
         name: profile.full_name,
@@ -360,6 +364,7 @@ async function generateDataset() {
       path.join(datasetDir, 'sign-reports.json'),
       JSON.stringify(signReportsData, null, 2)
     );
+    */
   }
   
   // Generate compatibility data between profiles
@@ -414,9 +419,9 @@ async function generateDataset() {
   }
   
   console.log('\nDataset generation complete!');
-  console.log(`Generated data for ${signReportsData.total_entries} profiles across ${aspects.length} astrological aspects`);
+  // console.log(`Generated data for ${signReportsData.total_entries} profiles across ${aspects.length} astrological aspects`);
   console.log(`Generated compatibility data for ${compatibilityData.total_entries} profile pairs`);
-  console.log(`Sign reports saved to ${path.join(datasetDir, 'sign-reports.json')}`);
+  // console.log(`Sign reports saved to ${path.join(datasetDir, 'sign-reports.json')}`);
   console.log(`Compatibility data saved to ${path.join(datasetDir, 'compatibility-data.json')}`);
 }
 
