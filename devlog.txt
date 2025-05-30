@@ -147,3 +147,7 @@ michelleZ -- 2025-05-28 11:00
 
 michelleZ -- 2025-05-29 19:30
 - successfully fine tuned
+
+michelleZ -- 2025-05-30 10:00
+- mass generated profiles (1000)
+- researched remote serving
