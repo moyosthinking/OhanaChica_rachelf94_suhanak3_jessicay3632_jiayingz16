@@ -312,21 +312,36 @@ async function generateDataset() {
   // Number of profiles to generate
   const numProfiles = 1000;
   
+  // Load existing data if available
+  let signReportsData = {
+    profiles: [],
+    total_entries: 0
+  };
+  let compatibilityData = {
+    pairs: [],
+    total_entries: 0
+  };
+
+  const signReportsPath = path.join(datasetDir, 'sign-reports.json');
+  const compatibilityDataPath = path.join(datasetDir, 'compatibility-data.json');
+
+  if (fs.existsSync(signReportsPath)) {
+    const existingSignReports = JSON.parse(fs.readFileSync(signReportsPath, 'utf8'));
+    signReportsData = existingSignReports;
+    console.log(`Loaded ${signReportsData.total_entries} existing profiles`);
+  }
+
+  if (fs.existsSync(compatibilityDataPath)) {
+    const existingCompatibility = JSON.parse(fs.readFileSync(compatibilityDataPath, 'utf8'));
+    compatibilityData = existingCompatibility;
+    console.log(`Loaded ${compatibilityData.total_entries} existing compatibility pairs`);
+  }
+  
   // Generate all profiles first
   const profiles = [];
   for (let i = 0; i < numProfiles; i++) {
     profiles.push(generateRandomProfile());
   }
-  
-  // Initialize data structures for consolidated files
-  const signReportsData = {
-    profiles: [],
-    total_entries: 0
-  };
-  const compatibilityData = {
-    pairs: [],
-    total_entries: 0
-  };
   
   // For each profile, query all aspects and general report
   for (let i = 0; i < profiles.length; i++) {
@@ -357,7 +372,7 @@ async function generateDataset() {
     
     // Save progress after each profile
     fs.writeFileSync(
-      path.join(datasetDir, 'sign-reports.json'),
+      signReportsPath,
       JSON.stringify(signReportsData, null, 2)
     );
   }
@@ -407,17 +422,17 @@ async function generateDataset() {
       
       // Save progress after each compatibility pair
       fs.writeFileSync(
-        path.join(datasetDir, 'compatibility-data.json'),
+        compatibilityDataPath,
         JSON.stringify(compatibilityData, null, 2)
       );
     }
   }
   
   console.log('\nDataset generation complete!');
-  // console.log(`Generated data for ${signReportsData.total_entries} profiles across ${aspects.length} astrological aspects`);
-  console.log(`Generated compatibility data for ${compatibilityData.total_entries} profile pairs`);
-  // console.log(`Sign reports saved to ${path.join(datasetDir, 'sign-reports.json')}`);
-  console.log(`Compatibility data saved to ${path.join(datasetDir, 'compatibility-data.json')}`);
+  console.log(`Total profiles in dataset: ${signReportsData.total_entries}`);
+  console.log(`Total compatibility pairs in dataset: ${compatibilityData.total_entries}`);
+  console.log(`Sign reports saved to ${signReportsPath}`);
+  console.log(`Compatibility data saved to ${compatibilityDataPath}`);
 }
 
 // Run the dataset generation
