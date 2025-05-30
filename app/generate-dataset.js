@@ -102,11 +102,10 @@ function getRandomLocation() {
 }
 
 // Astrological aspects to query
-/*
+
 const aspects = [
   'sun', 'moon'
 ];
-*/
 
 // Generate a random profile
 function generateRandomProfile() {
@@ -320,12 +319,10 @@ async function generateDataset() {
   }
   
   // Initialize data structures for consolidated files
-  /*
   const signReportsData = {
     profiles: [],
     total_entries: 0
   };
-  */
   const compatibilityData = {
     pairs: [],
     total_entries: 0
@@ -336,7 +333,6 @@ async function generateDataset() {
     const profile = profiles[i];
     console.log(`Processing profile ${i+1}/${numProfiles}: ${profile.full_name}`);
     
-    /*
     const profileData = {
       person: {
         name: profile.full_name,
@@ -364,7 +360,6 @@ async function generateDataset() {
       path.join(datasetDir, 'sign-reports.json'),
       JSON.stringify(signReportsData, null, 2)
     );
-    */
   }
   
   // Generate compatibility data between profiles
