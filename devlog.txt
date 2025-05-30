@@ -138,3 +138,12 @@ michelleZ -- 2025-05-26 15:00
 
 michelleZ -- 2025-05-26 16:30
 - added required python dependencies used to train qwen
+
+michelleZ -- 2025-05-27 11:00
+- tried to figure out how to trian qwen model
+
+michelleZ -- 2025-05-28 11:00
+- tried to figure out how to trian qwen model
+
+michelleZ -- 2025-05-29 19:30
+- successfully fine tuned
