@@ -33,23 +33,106 @@
         <h2 class="font-medium text-gray-700 text-3xl"> Choose your Sign </h2>
         <br><br>
         <div class="flex justify-center space-x-5">
-          <button type="submit" class="justify-center rounded-md bg-gray-700 px-2 py-2 text-sm/6 font-semibold text-white shadow-xs hover:bg-gray-500 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gray-700"> Aries </button>
-          <button type="submit" class="justify-center rounded-md bg-gray-700 px-2 py-2 text-sm/6 font-semibold text-white shadow-xs hover:bg-gray-500 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gray-700"> Taurus </button>
-          <button type="submit" class="justify-center rounded-md bg-gray-700 px-2 py-2 text-sm/6 font-semibold text-white shadow-xs hover:bg-gray-500 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gray-700"> Gemini </button>
-          <button type="submit" class="justify-center rounded-md bg-gray-700 px-2 py-2 text-sm/6 font-semibold text-white shadow-xs hover:bg-gray-500 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gray-700"> Cancer </button>
-          <button type="submit" class="justify-center rounded-md bg-gray-700 px-2 py-2 text-sm/6 font-semibold text-white shadow-xs hover:bg-gray-500 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gray-700"> Leo </button>
-          <button type="submit" class="justify-center rounded-md bg-gray-700 px-2 py-2 text-sm/6 font-semibold text-white shadow-xs hover:bg-gray-500 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gray-700"> Virgo </button>
+          <button type="submit" id="aries" class="justify-center rounded-md bg-gray-700 px-2 py-2 text-sm/6 font-semibold text-white shadow-xs hover:bg-gray-500 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gray-700"> Aries </button>
+          <button type="submit" id="taurus" class="justify-center rounded-md bg-gray-700 px-2 py-2 text-sm/6 font-semibold text-white shadow-xs hover:bg-gray-500 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gray-700"> Taurus </button>
+          <button type="submit" id="gemini" class="justify-center rounded-md bg-gray-700 px-2 py-2 text-sm/6 font-semibold text-white shadow-xs hover:bg-gray-500 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gray-700"> Gemini </button>
+          <button type="submit" id="cancer" class="justify-center rounded-md bg-gray-700 px-2 py-2 text-sm/6 font-semibold text-white shadow-xs hover:bg-gray-500 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gray-700"> Cancer </button>
+          <button type="submit" id="leo" class="justify-center rounded-md bg-gray-700 px-2 py-2 text-sm/6 font-semibold text-white shadow-xs hover:bg-gray-500 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gray-700"> Leo </button>
+          <button type="submit" id="virgo" class="justify-center rounded-md bg-gray-700 px-2 py-2 text-sm/6 font-semibold text-white shadow-xs hover:bg-gray-500 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gray-700"> Virgo </button>
         </div>
         <br> <br>
         <div class="flex justify-center space-x-5">
-          <button type="submit" class="justify-center rounded-md bg-gray-700 px-2 py-2 text-sm/6 font-semibold text-white shadow-xs hover:bg-gray-500 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gray-700"> Libra </button>
-          <button type="submit" class="justify-center rounded-md bg-gray-700 px-2 py-2 text-sm/6 font-semibold text-white shadow-xs hover:bg-gray-500 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gray-700"> Scorpio </button>
-          <button type="submit" class="justify-center rounded-md bg-gray-700 px-2 py-2 text-sm/6 font-semibold text-white shadow-xs hover:bg-gray-500 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gray-700"> Saggitarius </button>
-          <button type="submit" class="justify-center rounded-md bg-gray-700 px-2 py-2 text-sm/6 font-semibold text-white shadow-xs hover:bg-gray-500 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gray-700"> Capricorn </button>
-          <button type="submit" class="justify-center rounded-md bg-gray-700 px-2 py-2 text-sm/6 font-semibold text-white shadow-xs hover:bg-gray-500 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gray-700"> Aquarius </button>
-          <button type="submit" class="justify-center rounded-md bg-gray-700 px-2 py-2 text-sm/6 font-semibold text-white shadow-xs hover:bg-gray-500 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gray-700"> Pisces </button>
+          <button type="submit" id="libra" class="justify-center rounded-md bg-gray-700 px-2 py-2 text-sm/6 font-semibold text-white shadow-xs hover:bg-gray-500 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gray-700"> Libra </button>
+          <button type="submit" id="scorpio" class="justify-center rounded-md bg-gray-700 px-2 py-2 text-sm/6 font-semibold text-white shadow-xs hover:bg-gray-500 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gray-700"> Scorpio </button>
+          <button type="submit" id="sagittarius" class="justify-center rounded-md bg-gray-700 px-2 py-2 text-sm/6 font-semibold text-white shadow-xs hover:bg-gray-500 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gray-700"> Sagittarius </button>
+          <button type="submit" id="capricorn" class="justify-center rounded-md bg-gray-700 px-2 py-2 text-sm/6 font-semibold text-white shadow-xs hover:bg-gray-500 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gray-700"> Capricorn </button>
+          <button type="submit" id="aquarius" class="justify-center rounded-md bg-gray-700 px-2 py-2 text-sm/6 font-semibold text-white shadow-xs hover:bg-gray-500 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gray-700"> Aquarius </button>
+          <button type="submit" id="pisces" class="justify-center rounded-md bg-gray-700 px-2 py-2 text-sm/6 font-semibold text-white shadow-xs hover:bg-gray-500 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gray-700"> Pisces </button>
         </div>
+        <br> <br>
+        <br><br>
+        <div class="container mx-auto p-4">
+          <div id="horo" class="hidden border-4 border-black-600 rounded-full p-6 shadow-lg max-w-sm mx-auto">
+            <h2 id="t" class="text-3xl font-medium text-gray-700"> </h2>
+          </div>
+          <br> <br>
+          <p id="h" class=" text-xl font-medium text-gray-700 break-words"> </p>
+        </div>
+        <br> <br>
       </div>
+      <script>
+        document.getElementById('aries').addEventListener('click', function() {
+        document.getElementById('horo').classList.toggle('hidden');
+        document.getElementById('t').textContent = 'Aries Horoscope';
+        document.getElementById('h').textContent = '';
+        });
+
+        document.getElementById('taurus').addEventListener('click', function() {
+        document.getElementById('horo').classList.toggle('hidden');
+        document.getElementById('t').textContent = 'Taurus Horoscope';
+        document.getElementById('h').textContent = '';
+        });
+
+        document.getElementById('gemini').addEventListener('click', function() {
+        document.getElementById('horo').classList.toggle('hidden');
+        document.getElementById('t').textContent = 'Gemini Horoscope';
+        document.getElementById('h').textContent = '';
+        });
+
+        document.getElementById('cancer').addEventListener('click', function() {
+        document.getElementById('horo').classList.toggle('hidden');
+        document.getElementById('t').textContent = 'Cancer Horoscope';
+        document.getElementById('h').textContent = '';
+        });
+
+        document.getElementById('leo').addEventListener('click', function() {
+        document.getElementById('horo').classList.toggle('hidden');
+        document.getElementById('t').textContent = 'Leo Horoscope';
+        document.getElementById('h').textContent = '';
+        });
+
+        document.getElementById('virgo').addEventListener('click', function() {
+        document.getElementById('horo').classList.toggle('hidden');
+        document.getElementById('t').textContent = 'Virgo Horoscope';
+        document.getElementById('h').textContent = '';
+        });
+
+        document.getElementById('libra').addEventListener('click', function() {
+        document.getElementById('horo').classList.toggle('hidden');
+        document.getElementById('t').textContent = 'Libra Horoscope';
+        document.getElementById('h').textContent = '';
+        });
+
+        document.getElementById('scorpio').addEventListener('click', function() {
+        document.getElementById('horo').classList.toggle('hidden');
+        document.getElementById('t').textContent = 'Scorpio Horoscope';
+        document.getElementById('h').textContent = '';
+        });
+
+        document.getElementById('sagittarius').addEventListener('click', function() {
+        document.getElementById('horo').classList.toggle('hidden');
+        document.getElementById('t').textContent = 'Sagittarius Horoscope';
+        document.getElementById('h').textContent = '';
+        });
+
+        document.getElementById('capricorn').addEventListener('click', function() {
+        document.getElementById('horo').classList.toggle('hidden');
+        document.getElementById('t').textContent = 'Capricorn Horoscope';
+        document.getElementById('h').textContent = '';
+        });
+
+        document.getElementById('aquarius').addEventListener('click', function() {
+        document.getElementById('horo').classList.toggle('hidden');
+        document.getElementById('t').textContent = 'Aquarius Horoscope';
+        document.getElementById('h').textContent = '';
+        });
+
+        document.getElementById('pisces').addEventListener('click', function() {
+        document.getElementById('horo').classList.toggle('hidden');
+        document.getElementById('t').textContent = 'Pisces Horoscope';
+        document.getElementById('h').textContent = '';
+        });
+      </script>
       <br> <br>
       <br> <br>
     </center>
