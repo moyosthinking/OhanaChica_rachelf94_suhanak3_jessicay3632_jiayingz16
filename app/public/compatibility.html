@@ -52,7 +52,7 @@
             <option value="aquarius">Aquarius</option>
             <option value="pisces">Pisces</option>
           </select>
-        <button type="submit" class="justify-center rounded-md bg-gray-700 px-2 py-2 text-sm/6 font-semibold text-white shadow-xs hover:bg-gray-500 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gray-700"> Check Compatibility </button>
+        <button id="check" type="submit" class="justify-center rounded-md bg-gray-700 px-2 py-2 text-sm/6 font-semibold text-white shadow-xs hover:bg-gray-500 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gray-700"> Check Compatibility </button>
           <select id="signs1">
               <option value="">--Choose a sign--</option>
               <option value="aries">Aries</option>
@@ -70,6 +70,17 @@
             </select>
       </div>
       <br><br>
+      <br><br>
+      <div class="container mx-auto p-4">
+        <div id="horo" class="hidden border-4 border-black-600 rounded-full p-6 shadow-lg max-w-sm mx-auto">
+          <h2 id="t" class="text-3xl font-medium text-gray-700"> </h2>
+        </div>
+        <br><br>
+        <br><br>
+        <p id="h" class=" text-xl font-medium text-gray-700 break-words"> </p>
+      </div>
+      <br><br>
+
         <script>
           const select = document.getElementById("signs");
           const select2 = document.getElementById("signs1");
@@ -78,6 +89,12 @@
 
           select.addEventListener("change", setSign);
           select2.addEventListener("change", setSign2);
+
+          document.getElementById('check').addEventListener('click', function() {
+          document.getElementById('horo').classList.toggle('hidden');
+          document.getElementById('t').textContent = 'Compatibility';
+          document.getElementById('h').textContent = '';
+          });
 
           function setSign() {
             const choice = select.value;
