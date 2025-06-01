@@ -29,25 +29,31 @@
       <br><br>
       <br><br>
         <h1 class="text-4xl font-medium text-gray-800">Welcome to Astrology App</h1>
-        <div id = "notLogged">
+        <div id = "loggedOut" class="">
           <p class="font-medium text-gray-800">Please <a href="/login.html" class="no-underline hover:underline">login</a> or <a href="/register.html" class="no-underline hover:underline">register</a> to access your personalized astrology readings.</p>
           <img class="rounded-full max-w-sm animate-pulse" src="https://static.vecteezy.com/system/resources/previews/021/448/500/non_2x/planet-icon-physics-illustration-sign-astronomy-symbol-science-logo-vector.jpg">
         </div>
-        <div id="logged">
+        <div id="loggedIn" class="hidden">
           <p class="font-medium text-gray-800"> Welcome { username }! </p>
           <img class="h-auto max-full" src="https://img.freepik.com/premium-vector/horoscope-12-signs-zodiac_651102-509.jpg">
         </div>
+        <script src="../app.js" defer> </script>
+        <script type="module">
+          import { loggedIn } from '../app.js';
 
-        <!-- <script>
-          function loggedDisplay() {
-            document.getElementById("notLogged").style.visibility = "hidden";
-            document.getElementById("logged").style.visibility = "visible";
-        }
-          function notLoggedDisplay() {
-            document.getElementById("notLogged").style.visibility = "visble";
-            document.getElementById("logged").style.visibility = "hidden";
-        } -->
-      <!-- </script> -->
+          const message = loggedIn;
+
+            const in = document.getElementById("loggedIn");
+            const out = document.getElementById("loggedOut");
+
+            if (message) {
+              in.classList.remove("hidden");
+              out.classList.add("hidden");
+            } else {
+              out.classList.remove("hidden");
+              in.classList.add("hidden");
+          }
+      </script>
         <br> <br>
       </center>
   </body>
