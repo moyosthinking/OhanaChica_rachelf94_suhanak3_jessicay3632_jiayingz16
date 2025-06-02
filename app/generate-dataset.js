@@ -310,7 +310,7 @@ async function generateDataset() {
   console.log('Starting dataset generation...');
   
   // Number of profiles to generate
-  const numProfiles = 1000;
+  const numProfiles = 10000;
   
   // Load existing data if available
   let signReportsData = {

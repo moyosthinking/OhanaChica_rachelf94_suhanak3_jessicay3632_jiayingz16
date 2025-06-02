@@ -152,3 +152,7 @@ michelleZ -- 2025-05-30 10:00
 - mass generated profiles (1000)
 - researched remote serving
 - revised generate-dataset.js so that it builds off of existing data rather than erasing it
+
+michelleZ -- 2025-06-02 11:00
+- incorporated general zodiac info in horoscope.html
+- generated more data for training
