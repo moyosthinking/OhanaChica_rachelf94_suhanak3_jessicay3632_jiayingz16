@@ -103,11 +103,9 @@ app.get('/self', (req,res) => {
   });
 });
 
-app.get('/horoscopes', (req,res) => {
-    if (req.session.user) {
-      res.sendFile(path.join(__dirname, 'public', 'horoscopes.html'));
-    }
-  });
+app.get('/horoscope', (req,res) => {
+  res.sendFile(path.join(__dirname, 'public', 'horoscopes.html'));
+});
 
 app.get('/logout', (req, res) => {
   req.session.destroy((err) => {
