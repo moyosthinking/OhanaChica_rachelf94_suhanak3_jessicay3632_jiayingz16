@@ -22,18 +22,21 @@
         <a href="/chat" class="text-lg font-medium rounded-lg px-3 py-2 text-gray-700 hover:bg-gray-100 hover:text-gray-900"> Chat </a>
         <a href="/login" class="text-lg font-medium rounded-lg px-3 py-2 text-gray-700 hover:bg-gray-100 hover:text-gray-900"> Login </a>
         <a href="/register" class="text-lg font-medium rounded-lg px-3 py-2 text-gray-700 hover:bg-gray-100 hover:text-gray-900"> Register </a>
-      </nav>
+        <a href="/logout" class="text-lg font-medium rounded-lg px-3 py-2 text-gray-700 hover:bg-gray-100 hover:text-gray-900"> Logout </a>
+    </nav>
       <br> <br> <br>
       <center>
       <h1 class="shadow-lg w-full max-w-3xl text-4xl font-medium bg-gray-700 text-white"> Chat </h1>
       <div class="w-full max-w-3xl bg-gray-100 h-screen flex flex-col max-w-lg mx-auto">
         <div class="bg-gray-100 p-4 text-white flex justify-between items-center">
-      <!-- <div class="shadow-lg w-full max-w-3xl h-screen">
-        <div class="pt-4" id="messages"> -->
-        </div>
-        <div class="justify-center h-screen flex bottom-0 items-center pt-16">
-          <input id="messageInput" class="border-4 block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-800 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6"placeholder="Type a message..." />
-          <button onclick="send()" class="justify-center rounded-md bg-gray-700 px-5 py-1.5 text-sm/6 font-semibold text-white shadow-xs hover:bg-gray-500 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gray-700">Send</button>
+          <div class="shadow-lg w-full max-w-3xl h-screen">
+            <div class="pt-4 text-left text-black" id="messages">
+            </div>
+            <div class="justify-center h-screen flex bottom-0 items-center pt-16">
+              <input id="messageInput" class="border-4 block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-800 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6"placeholder="Type a message..." />
+              <button onclick="send()" class="justify-center rounded-md bg-gray-700 px-5 py-1.5 text-sm/6 font-semibold text-white shadow-xs hover:bg-gray-500 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gray-700">Send</button>
+            </div>
+          </div>
         </div>
       </div>
 

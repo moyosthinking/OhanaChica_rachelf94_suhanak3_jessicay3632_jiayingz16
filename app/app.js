@@ -32,8 +32,7 @@ app.get('/login', (req, res) => {
     if (!req.session.user) {
       res.sendFile(path.join(__dirname, 'public', 'login.html'));
     } else {
-      res.sendFile(path.join(__dirname, 'public', 'home.html'));
-      loggedIn = true;
+      res.redirect('/');
       console.log(`user already logged in`);
     }
   });
@@ -85,7 +84,7 @@ app.get('/compat', (req,res) => {
     if (req.session.user) {
       res.sendFile(path.join(__dirname, 'public', 'compatibility.html'));
     } else {
-      res.sendFile(path.join(__dirname, 'public', 'home.html'));
+      res.redirect('/');
       console.log(`no compatibility! user not logged in`);
     }
   });
@@ -97,28 +96,25 @@ app.get('/self', (req,res) => {
     if (req.session.user) {
       res.sendFile(path.join(__dirname, 'public', 'selfimprov.html'));
     } else {
-      res.sendFile(path.join(__dirname, 'public', 'home.html'));
+      res.redirect('/');
       console.log(`no selfimprovment! user not logged in`);
     }
   });
 });
 
-app.get('/horoscope', (req,res) => {
-  const { username, password } = req.body;
-  user.authenticateUser(username, password, (err, userObj) => {
+app.get('/horoscopes', (req,res) => {
     if (req.session.user) {
       res.sendFile(path.join(__dirname, 'public', 'horoscopes.html'));
-    } else {
-      res.sendFile(path.join(__dirname, 'public', 'home.html'));
-      console.log(`no horoscope! user not logged in`);
     }
   });
-});
 
 app.get('/logout', (req, res) => {
   req.session.destroy((err) => {
     if (err) {
       console.error('Error destroying session:', err);
+    }
+    else {
+      console.log('user successfully logged out');
     }
   });
   res.redirect('/');
@@ -133,7 +129,7 @@ app.get('/chat', (req, res) => {
       res.sendFile(path.join(__dirname, 'public', 'chat.html'));
       console.log(`logged in user can chat`);
     } else {
-      res.sendFile(path.join(__dirname, 'public', 'home.html'));
+      res.redirect('/');
       console.log(`no chatting! user not logged in`);
     }
   });
