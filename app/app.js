@@ -15,7 +15,7 @@ const http =  require('http');
 const WebSocket =  require('ws');
 const app = express();
 const port = 3000;
-let loggedIn = false;
+var loggedIn = false;
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(session({
@@ -33,6 +33,7 @@ app.get('/login', (req, res) => {
       res.sendFile(path.join(__dirname, 'public', 'login.html'));
     } else {
       res.sendFile(path.join(__dirname, 'public', 'home.html'));
+      loggedIn = true;
       console.log(`user already logged in`);
     }
   });
@@ -67,7 +68,6 @@ app.post('/login', (req, res) => {
       req.session.user = userObj.username;
       res.redirect('/');
       console.log(`User logged in successfully with username: ${username}`);
-      loggedIn = true;
     } else {
       res.send('<p>Invalid credentials.</p><a href="/login.html">Try again</a>');
     }
