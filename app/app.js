@@ -32,7 +32,7 @@ app.get('/login', (req, res) => {
     if (!req.session.user) {
       res.sendFile(path.join(__dirname, 'public', 'login.html'));
     } else {
-      res.sendFile(path.join(__dirname, 'public', 'home.html'));
+      res.redirect('/');
       console.log(`user already logged in`);
     }
   });
@@ -80,25 +80,39 @@ app.get('/', (req,res) => {
 
 
 app.get('/compat', (req,res) => {
-  if (req.session.user) {
-    res.sendFile(path.join(__dirname, 'public', 'compatibility.html'));
-  } else {
-    res.sendFile(path.join(__dirname, 'public', 'home.html'));
-    console.log(`no compatibility! user not logged in`);
-  }
+  const { username, password } = req.body;
+  user.authenticateUser(username, password, (err, userObj) => {
+    if (req.session.user) {
+      res.sendFile(path.join(__dirname, 'public', 'compatibility.html'));
+    } else {
+      res.redirect('/');
+      console.log(`no compatibility! user not logged in`);
+    }
+  });
 });
 
 app.get('/self', (req,res) => {
-  if (req.session.user) {
-    res.sendFile(path.join(__dirname, 'public', 'selfimprov.html'));
-  } else {
-    res.sendFile(path.join(__dirname, 'public', 'home.html'));
-    console.log(`no selfimprovment! user not logged in`);
-  }
+  const { username, password } = req.body;
+  user.authenticateUser(username, password, (err, userObj) => {
+    if (req.session.user) {
+      res.sendFile(path.join(__dirname, 'public', 'selfimprov.html'));
+    } else {
+      res.redirect('/');
+      console.log(`no selfimprovment! user not logged in`);
+    }
+  });
 });
 
 app.get('/horoscope', (req,res) => {
-  res.sendFile(path.join(__dirname, 'public', 'horoscopes.html'));
+  const { username, password } = req.body;
+  user.authenticateUser(username, password, (err, userObj) => {
+    if (req.session.user) {
+      res.sendFile(path.join(__dirname, 'public', 'horoscopes.html'));
+    } else {
+      res.redirect('/');
+      console.log(`no horoscope! user not logged in`);
+    }
+  });
 });
 
 app.get('/logout', (req, res) => {
@@ -106,20 +120,26 @@ app.get('/logout', (req, res) => {
     if (err) {
       console.error('Error destroying session:', err);
     }
+    else {
+      console.log('user successfully logged out');
+    }
   });
   res.redirect('/');
 });
 
 //chattting
 
-app.get('/chat', (req,res) => {
-  if (req.session.user) {
-    res.sendFile(path.join(__dirname, 'public', 'chat.html'));
-    console.log(`logged in user can chat`);
-  } else {
-    res.sendFile(path.join(__dirname, 'public', 'home.html'));
-    console.log(`no chatting! user not logged in`);
-  }
+app.get('/chat', (req, res) => {
+  const { username, password } = req.body;
+  user.authenticateUser(username, password, (err, userObj) => {
+    if (req.session.user) {
+      res.sendFile(path.join(__dirname, 'public', 'chat.html'));
+      console.log(`logged in user can chat`);
+    } else {
+      res.redirect('/');
+      console.log(`no chatting! user not logged in`);
+    }
+  });
 });
 
 const server = http.createServer(app);
