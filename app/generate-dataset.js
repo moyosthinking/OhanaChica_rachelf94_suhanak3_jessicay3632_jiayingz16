@@ -1,7 +1,7 @@
 const request = require('request');
 const fs = require('fs');
 const path = require('path');
-const keys = require('./keys/api_keys');
+const keys = require('./keys/api_keys'); // Assuming you have this file with AUTH_TOKEN and API_KEY
 
 // Create dataset directory if it doesn't exist
 const datasetDir = path.join(__dirname, 'dataset');
@@ -12,7 +12,7 @@ if (!fs.existsSync(datasetDir)) {
 }
 
 // Sample names for dataset generation
-const names = [ 
+const names = [
   'Michelle Zhu', 'Andrew Choi', 'Suhana Khan', 'Moyo Fakudze', 'Jessica Yoo',
 ];
 
@@ -62,7 +62,7 @@ const locations = [
     { place: 'Nouméa',             lat: '-22.2558',  lon: '166.4505',    tzone: '11'   }, // UTC+11:00
     { place: 'Chatham Islands',    lat: '-43.9587',  lon: '-176.5601',   tzone: '12.75'}, // UTC+12:45
     { place: 'Marquesas Islands',  lat: '-9.9000',   lon: '-139.0333',   tzone: '-9.5' }  // UTC-09:30
-  ];  
+  ];
 
 function getRandomName() {
     return names[Math.floor(Math.random() * names.length)];
@@ -102,9 +102,10 @@ function getRandomLocation() {
 }
 
 // Astrological aspects to query
-const aspects = [
-  'sun', 'moon'
-];
+
+// const aspects = [
+//   'sun', 'moon'
+// ];
 
 // Generate a random profile
 function generateRandomProfile() {
@@ -129,39 +130,49 @@ function generateRandomProfile() {
 }
 
 // Function to make API request for general sign report with a specific profile and aspect
-function makeAstrologyRequest(profile, aspect) {
-  return new Promise((resolve, reject) => {
-    const options = {
-      'method': 'POST',
-      'url': `https://astroapi-4.divineapi.com/western-api/v1/general-sign-report/${aspect}`,
-      'headers': {
-        'Authorization': `Bearer ${keys.AUTH_TOKEN}`
-      },
-      formData: {
-        'api_key': keys.API_KEY,
-        'full_name': profile.full_name.toString(),
-        'day': profile.day.toString(),
-        'month': profile.month.toString(),
-        'year': profile.year.toString(),
-        'hour': profile.hour.toString(),
-        'min': profile.min.toString(),
-        'sec': profile.sec.toString(),
-        'gender': profile.gender.toString(),
-        'place': profile.place.toString(),
-        'lat': profile.lat.toString(),
-        'lon': profile.lon.toString(),
-        'tzone': profile.tzone.toString(),
-        'lan': 'en',
-        'house_system': 'P'
-      }
-    };
-    
-    request(options, function(error, response) {
-      const data = JSON.parse(response.body);
-      resolve(data.data);
-    });
-  });
-}
+// function makeAstrologyRequest(profile, aspect) {
+//   return new Promise((resolve, reject) => {
+//     const options = {
+//       'method': 'POST',
+//       'url': `https://astroapi-4.divineapi.com/western-api/v1/general-sign-report/${aspect}`,
+//       'headers': {
+//         'Authorization': `Bearer ${keys.AUTH_TOKEN}`
+//       },
+//       formData: {
+//         'api_key': keys.API_KEY,
+//         'full_name': profile.full_name.toString(),
+//         'day': profile.day.toString(),
+//         'month': profile.month.toString(),
+//         'year': profile.year.toString(),
+//         'hour': profile.hour.toString(),
+//         'min': profile.min.toString(),
+//         'sec': profile.sec.toString(),
+//         'gender': profile.gender.toString(),
+//         'place': profile.place.toString(),
+//         'lat': profile.lat.toString(),
+//         'lon': profile.lon.toString(),
+//         'tzone': profile.tzone.toString(),
+//         'lan': 'en',
+//         'house_system': 'P'
+//       }
+//     };
+
+//     request(options, function(error, response) {
+//       if (error) {
+//         console.error(`Request error for general sign report (${aspect}): ${error.message}`);
+//         return reject(error);
+//       }
+//       try {
+//         const data = JSON.parse(response.body);
+//         resolve(data.data);
+//       } catch (parseError) {
+//         console.error(`JSON parse error for general sign report (${aspect}): ${parseError.message}`);
+//         console.error('Response body:', response.body);
+//         reject(parseError);
+//       }
+//     });
+//   });
+// }
 
 // Function to make API request for physical compatibility between two profiles
 function makePhysicalCompatibilityRequest(profile1, profile2) {
@@ -204,8 +215,18 @@ function makePhysicalCompatibilityRequest(profile1, profile2) {
     };
 
     request(options, function (error, response) {
-      const data = JSON.parse(response.body);
-      resolve(data);
+      if (error) {
+        console.error(`Request error for physical compatibility (${profile1.full_name} & ${profile2.full_name}): ${error.message}`);
+        return reject(error);
+      }
+      try {
+        const data = JSON.parse(response.body);
+        resolve(data);
+      } catch (parseError) {
+        console.error(`JSON parse error for physical compatibility (${profile1.full_name} & ${profile2.full_name}): ${parseError.message}`);
+        console.error('Response body:', response.body);
+        reject(parseError);
+      }
     });
   });
 }
@@ -251,8 +272,18 @@ function makeSexualCompatibilityRequest(profile1, profile2) {
     };
 
     request(options, function (error, response) {
-      const data = JSON.parse(response.body);
-      resolve(data);
+      if (error) {
+        console.error(`Request error for sexual compatibility (${profile1.full_name} & ${profile2.full_name}): ${error.message}`);
+        return reject(error);
+      }
+      try {
+        const data = JSON.parse(response.body);
+        resolve(data);
+      } catch (parseError) {
+        console.error(`JSON parse error for sexual compatibility (${profile1.full_name} & ${profile2.full_name}): ${parseError.message}`);
+        console.error('Response body:', response.body);
+        reject(parseError);
+      }
     });
   });
 }
@@ -298,8 +329,18 @@ function makeEmotionalCompatibilityRequest(profile1, profile2) {
     };
 
     request(options, function (error, response) {
-      const data = JSON.parse(response.body);
-      resolve(data);
+      if (error) {
+        console.error(`Request error for emotional compatibility (${profile1.full_name} & ${profile2.full_name}): ${error.message}`);
+        return reject(error);
+      }
+      try {
+        const data = JSON.parse(response.body);
+        resolve(data);
+      } catch (parseError) {
+        console.error(`JSON parse error for emotional compatibility (${profile1.full_name} & ${profile2.full_name}): ${parseError.message}`);
+        console.error('Response body:', response.body);
+        reject(parseError);
+      }
     });
   });
 }
@@ -307,71 +348,89 @@ function makeEmotionalCompatibilityRequest(profile1, profile2) {
 // Main function to generate the dataset
 async function generateDataset() {
   console.log('Starting dataset generation...');
-  
+
   // Number of profiles to generate
-  const numProfiles = 2;
-  
+  const numProfiles = 10000;
+
+  // Load existing data if available
+  // let signReportsData = {
+  //   profiles: [],
+  //   total_entries: 0
+  // };
+  let compatibilityData = {
+    pairs: [],
+    total_entries: 0
+  };
+
+  // const signReportsPath = path.join(datasetDir, 'sign-reports.json');
+  const compatibilityDataPath = path.join(datasetDir, 'compatibility-data.json');
+
+  // if (fs.existsSync(signReportsPath)) {
+  //   const existingSignReports = JSON.parse(fs.readFileSync(signReportsPath, 'utf8'));
+  //   signReportsData = existingSignReports;
+  //   console.log(`Loaded ${signReportsData.total_entries} existing profiles`);
+  // }
+
+  if (fs.existsSync(compatibilityDataPath)) {
+    const existingCompatibility = JSON.parse(fs.readFileSync(compatibilityDataPath, 'utf8'));
+    compatibilityData = existingCompatibility;
+    console.log(`Loaded ${compatibilityData.total_entries} existing compatibility pairs`);
+  }
+
   // Generate all profiles first
   const profiles = [];
   for (let i = 0; i < numProfiles; i++) {
     profiles.push(generateRandomProfile());
   }
-  
-  // Initialize data structures for consolidated files
-  const signReportsData = {
-    profiles: [],
-    total_entries: 0
-  };
 
-  const compatibilityData = {
-    pairs: [],
-    total_entries: 0
-  };
-  
   // For each profile, query all aspects and general report
-  for (let i = 0; i < profiles.length; i++) {
-    const profile = profiles[i];
-    console.log(`Processing profile ${i+1}/${numProfiles}: ${profile.full_name}`);
-    
-    const profileData = {
-      person: {
-        name: profile.full_name,
-        birthdate: `${profile.year}-${profile.month}-${profile.day}`,
-        birthtime: `${profile.hour}:${profile.min}:${profile.sec}`,
-        location: profile.place,
-        gender: profile.gender
-      },
-      aspects: {}
-    };
-    
-    // 1. Get all aspect-specific reports
-    for (const aspect of aspects) {
-      const aspectData = await makeAstrologyRequest(profile, aspect);
-      profileData.aspects[aspect] = aspectData;
-      // Add a delay to avoid rate limiting
-      await new Promise(resolve => setTimeout(resolve, 5000));
-    }
-    
-    signReportsData.profiles.push(profileData);
-    signReportsData.total_entries++;
-    
-    // Save progress after each profile
-    fs.writeFileSync(
-      path.join(datasetDir, 'sign-reports.json'),
-      JSON.stringify(signReportsData, null, 2)
-    );
-  }
-  
+  // for (let i = 0; i < profiles.length; i++) {
+  //   const profile = profiles[i];
+  //   console.log(`Processing profile ${i+1}/${numProfiles}: ${profile.full_name}`);
+
+  //   const profileData = {
+  //     person: {
+  //       name: profile.full_name,
+  //       birthdate: `${profile.year}-${profile.month}-${profile.day}`,
+  //       birthtime: `${profile.hour}:${profile.min}:${profile.sec}`,
+  //       location: profile.place,
+  //       gender: profile.gender
+  //     },
+  //     aspects: {}
+  //   };
+
+  //   // 1. Get all aspect-specific reports
+  //   for (const aspect of aspects) {
+  //     try {
+  //       const aspectData = await makeAstrologyRequest(profile, aspect);
+  //       profileData.aspects[aspect] = aspectData;
+  //       // Add a delay to avoid rate limiting
+  //       await new Promise(resolve => setTimeout(resolve, 5000));
+  //     } catch (error) {
+  //       console.error(`Failed to get aspect data for ${profile.full_name} (${aspect}): ${error.message}`);
+  //     }
+  //   }
+
+  //   signReportsData.profiles.push(profileData);
+  //   signReportsData.total_entries++;
+
+  //   // Save progress after each profile
+  //   fs.writeFileSync(
+  //     signReportsPath,
+  //     JSON.stringify(signReportsData, null, 2)
+  //   );
+  // }
+
   // Generate compatibility data between profiles
   console.log('\nGenerating compatibility data between profiles...');
-  
+
   for (let i = 0; i < profiles.length; i++) {
     for (let j = i + 1; j < profiles.length; j++) {
       const profile1 = profiles[i];
       const profile2 = profiles[j];
-      
+
       console.log(`Processing compatibility between ${profile1.full_name} and ${profile2.full_name}`);
-      
+
       const pairData = {
         person1: {
           name: profile1.full_name,
@@ -391,34 +450,41 @@ async function generateDataset() {
         sexual_compatibility: {},
         emotional_compatibility: {}
       };
-      
-      const physicalData = await makePhysicalCompatibilityRequest(profile1, profile2);
-      pairData.physical_compatibility = physicalData;
-      
-      const sexualData = await makeSexualCompatibilityRequest(profile1, profile2);
-      pairData.sexual_compatibility = sexualData;
-      
-      const emotionalData = await makeEmotionalCompatibilityRequest(profile1, profile2);
-      pairData.emotional_compatibility = emotionalData;
-      await new Promise(resolve => setTimeout(resolve, 5000));
-      
-      compatibilityData.pairs.push(pairData);
-      compatibilityData.total_entries++;
-      
-      // Save progress after each compatibility pair
-      fs.writeFileSync(
-        path.join(datasetDir, 'compatibility-data.json'),
-        JSON.stringify(compatibilityData, null, 2)
-      );
+
+      try {
+        const physicalData = await makePhysicalCompatibilityRequest(profile1, profile2);
+        pairData.physical_compatibility = physicalData;
+
+        const sexualData = await makeSexualCompatibilityRequest(profile1, profile2);
+        pairData.sexual_compatibility = sexualData;
+
+        const emotionalData = await makeEmotionalCompatibilityRequest(profile1, profile2);
+        pairData.emotional_compatibility = emotionalData;
+
+        compatibilityData.pairs.push(pairData);
+        compatibilityData.total_entries++;
+
+        // Save progress after each compatibility pair
+        fs.writeFileSync(
+          compatibilityDataPath,
+          JSON.stringify(compatibilityData, null, 2)
+        );
+        // Add a delay only after successful requests to prevent rate limiting
+        await new Promise(resolve => setTimeout(resolve, 5000));
+      } catch (error) {
+        console.error(`Failed to get compatibility data for ${profile1.full_name} and ${profile2.full_name}. Skipping pair. Error: ${error.message}`);
+        // Continue to the next pair even if one fails
+      }
     }
   }
-  
+
   console.log('\nDataset generation complete!');
-  console.log(`Generated data for ${signReportsData.total_entries} profiles across ${aspects.length} astrological aspects`);
-  console.log(`Generated compatibility data for ${compatibilityData.total_entries} profile pairs`);
-  console.log(`Sign reports saved to ${path.join(datasetDir, 'sign-reports.json')}`);
-  console.log(`Compatibility data saved to ${path.join(datasetDir, 'compatibility-data.json')}`);
+  // Ensure these variables are defined if you uncomment the sign reports part later
+  // console.log(`Total profiles in dataset: ${signReportsData.total_entries}`);
+  console.log(`Total compatibility pairs in dataset: ${compatibilityData.total_entries}`);
+  // console.log(`Sign reports saved to ${signReportsPath}`);
+  console.log(`Compatibility data saved to ${compatibilityDataPath}`);
 }
 
 // Run the dataset generation
-generateDataset()
+generateDataset();
