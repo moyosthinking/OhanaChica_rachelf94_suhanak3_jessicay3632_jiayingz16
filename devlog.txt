@@ -166,3 +166,4 @@ michelleZ -- 2025-06-03 13:00
 - changed model from 4b to 1.5b to save time
 - finished fine tuning
 - imported Qwen3 model
+- updated profile.html
