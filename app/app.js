@@ -37,8 +37,17 @@ app.get('/login', (req, res) => {
     }
   });
 });
+
 app.get('/register', (req, res) => {
-  res.sendFile(path.join(__dirname, 'public', 'register.html'));
+  const { username, password } = req.body;
+  user.authenticateUser(username, password, (err, userObj) => {
+    if (!req.session.user) {
+      res.sendFile(path.join(__dirname, 'public', 'register.html'));
+    } else {
+      res.redirect('/');
+      console.log(`user already registered`);
+    }
+  });
 });
 
 // Registration endpoint
@@ -77,6 +86,17 @@ app.get('/', (req,res) => {
   res.sendFile(path.join(__dirname, 'public', 'home.html'));
 });
 
+app.get('/profile', (req,res) => {
+  const { username, password } = req.body;
+  user.authenticateUser(username, password, (err, userObj) => {
+    if (req.session.user) {
+      res.sendFile(path.join(__dirname, 'public', 'profile.html'));
+    } else {
+      res.redirect('/');
+      console.log(`no profile! user not logged in`);
+    }
+  });
+});
 
 app.get('/compat', (req,res) => {
   const { username, password } = req.body;
@@ -157,7 +177,7 @@ wss.on('connection', (ws) => {
   });
   ws.on('close', () =>
   {
-    console.log('Websocket : user disconneted');
+    console.log('Websocket : user disconnected');
   });
 });
 

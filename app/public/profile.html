@@ -1,0 +1,52 @@
+<!--
+  OhanaChica: Moyo F., Suhana K., Jessica Y., Michelle Z.
+  SoftDev
+  P05: Astrology
+  2025-06-06
+  Time Spent: ???? hours
+-->
+
+<!DOCTYPE html>
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="/static/styles.css" rel="stylesheet">
+  <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
+  <title> Profile </title>
+</head>
+  <body>
+      <nav class="flex justify-center space-x-4">
+        <a href="/" class="text-lg font-medium rounded-lg px-3 py-2 text-gray-700 hover:bg-gray-100 hover:text-gray-900"> Home </a>
+        <a href="/horoscope" class="text-lg font-medium rounded-lg px-3 py-2 text-gray-700 hover:bg-gray-100 hover:text-gray-900"> Zodiac Signs </a>
+        <a href="/compat" class="text-lg font-medium rounded-lg px-3 py-2 text-gray-700 hover:bg-gray-100 hover:text-gray-900"> Compatibility Checker </a>
+        <a href="/self" class="text-lg font-medium rounded-lg px-3 py-2 text-gray-700 hover:bg-gray-100 hover:text-gray-900"> Self Improvement </a>
+        <a href="/chat" class="text-lg font-medium rounded-lg px-3 py-2 text-gray-700 hover:bg-gray-100 hover:text-gray-900"> Chat </a>
+        <a href="/profile" class="text-lg font-medium rounded-lg px-3 py-2 text-gray-700 hover:bg-gray-100 hover:text-gray-900"> Profile </a>
+        <!-- <a href="/login" class="text-lg font-medium rounded-lg px-3 py-2 text-gray-700 hover:bg-gray-100 hover:text-gray-900"> Login </a>
+        <a href="/register" class="text-lg font-medium rounded-lg px-3 py-2 text-gray-700 hover:bg-gray-100 hover:text-gray-900"> Register </a> -->
+          <a href="/logout" class="text-lg font-medium rounded-lg px-3 py-2 text-gray-700 hover:bg-gray-100 hover:text-gray-900"> Logout </a>
+    </nav>
+    <center>
+      <br><br>
+      <br><br>
+      <br><br>
+      <div>
+          <div class="container p-1 max-w-sm bg-white border border-gray-200 rounded-lg shadow-sm dark:bg-gray-800 dark:border-gray-700">
+            <br><br>
+              <a href="#">
+                <img height=100 width=100 class="rounded-full max-w-s" src="https://i.pinimg.com/474x/2b/da/51/2bda51ca60cc3b5daaa8e062eb880430.jpg">
+                <h1 class="text-4xl font-medium text-gray-800"> User Profile</h1>
+              </a>
+              <div class="p-2">
+                  <a href="#">
+                      <h2 class="mb-2 text-2xl font-bold tracking-tight text-gray-700 dark:text-white">Username : { username }</h2>
+                      <h2 class="mb-2 text-2xl font-bold tracking-tight text-gray-700 dark:text-white">Zodiac : { zodiac }</h2>
+                            <p class="mb-3 font-medium text-gray-700 dark:text-gray-400 break-words"> {date-range} </p>
+                      <h2 class="mb-2 text-2xl font-bold tracking-tight text-gray-700 dark:text-white">Birthday : { birthday }</h2>
+                      <h2 class="mb-2 text-2xl font-bold tracking-tight text-gray-700 dark:text-white">Personality Traits : { traits }</h2>
+                  </a>
+          </div>
+        <br><br>
+      </div>
+    </center>
+  </body>
+</html>
