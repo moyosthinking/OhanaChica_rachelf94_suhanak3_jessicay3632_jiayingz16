@@ -38,12 +38,25 @@
               </a>
               <div class="p-2">
                   <a href="#">
-                      <h2 class="mb-2 text-2xl font-bold tracking-tight text-gray-700 dark:text-white">Username : { username }</h2>
-                      <h2 class="mb-2 text-2xl font-bold tracking-tight text-gray-700 dark:text-white">Zodiac : { zodiac }</h2>                  
-                            <h2 class="mb-2 text-2xl font-bold tracking-tight text-gray-700 dark:text-white">Birthday : { birthday }</h2>
+                      <h2 id="username" class="mb-2 text-2xl font-bold tracking-tight text-gray-700 dark:text-white"></h2>
+                      <h2 id="zodiac" class="mb-2 text-2xl font-bold tracking-tight text-gray-700 dark:text-white"></h2>
+                      <h2 id="birthday" class="mb-2 text-2xl font-bold tracking-tight text-gray-700 dark:text-white"></h2>
                   </a>
           </div>
         <br><br>
+        <script>
+          fetch('/data')
+            .then(res => res.json())
+            .then(user => {
+              console.log('Received user:', user);  // Check this output in browser console
+              document.getElementById('username').textContent = `Username: ${user.username}`;
+              document.getElementById('birthday').textContent = `Birthday: ${user.birthday}`;
+            })
+            .catch(err => {
+              console.error(err);
+              document.getElementById('username').textContent = 'User not logged in or error occurred';
+          });
+          </script>
       </div>
     </center>
   </body>
