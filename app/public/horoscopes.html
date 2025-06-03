@@ -11,45 +11,214 @@
   <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="/static/styles.css" rel="stylesheet">
   <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
-  <title> Horoscopes </title>
+  <title> Zodiac Signs </title>
 </head>
   <body>
       <nav class="flex justify-center space-x-4">
         <a href="/" class="text-lg font-medium rounded-lg px-3 py-2 text-gray-700 hover:bg-gray-100 hover:text-gray-900"> Home </a>
         <a href="/compat" class="text-lg font-medium rounded-lg px-3 py-2 text-gray-700 hover:bg-gray-100 hover:text-gray-900"> Compatibility Checker </a>
         <a href="/self" class="text-lg font-medium rounded-lg px-3 py-2 text-gray-700 hover:bg-gray-100 hover:text-gray-900"> Self Improvement </a>
-        <a href="/horoscope" class="text-lg font-medium rounded-lg px-3 py-2 text-gray-700 hover:bg-gray-100 hover:text-gray-900"> Horoscopes </a>
+        <a href="/horoscope" class="text-lg font-medium rounded-lg px-3 py-2 text-gray-700 hover:bg-gray-100 hover:text-gray-900"> Zodiac Signs </a>
         <a href="/chat" class="text-lg font-medium rounded-lg px-3 py-2 text-gray-700 hover:bg-gray-100 hover:text-gray-900"> Chat </a>
         <a href="/login" class="text-lg font-medium rounded-lg px-3 py-2 text-gray-700 hover:bg-gray-100 hover:text-gray-900"> Login </a>
         <a href="/register" class="text-lg font-medium rounded-lg px-3 py-2 text-gray-700 hover:bg-gray-100 hover:text-gray-900"> Register </a>
+        <a href="/logout" class="text-lg font-medium rounded-lg px-3 py-2 text-gray-700 hover:bg-gray-100 hover:text-gray-900"> Logout </a>
       </nav>
       <br> <br>
       <center>
       <div>
-        <h1 class="text-4xl font-medium text-gray-700"> Horoscopes for Today </h1>
+        <h1 class="text-4xl font-medium text-gray-700"> Zodiac Signs </h1>
         <br> <br>
         <img class="rounded-full max-w-sm" src="https://cdn.mos.cms.futurecdn.net/EbaTBgNtGEqbxVrfumaV5G.jpg">
         <br><br>
-        <h2 class="font-medium text-gray-700 text-3xl"> Choose your Sign </h2>
+        
+        <!-- Quick Navigation Links -->
+        <div class="mb-8">
+          <h3 class="text-xl font-medium text-gray-700 mb-4">Quick Navigation</h3>
+          <div class="flex flex-wrap justify-center gap-2">
+            <a href="#aries-info" class="text-blue-600 hover:text-blue-800">Aries</a> |
+            <a href="#taurus-info" class="text-blue-600 hover:text-blue-800">Taurus</a> |
+            <a href="#gemini-info" class="text-blue-600 hover:text-blue-800">Gemini</a> |
+            <a href="#cancer-info" class="text-blue-600 hover:text-blue-800">Cancer</a> |
+            <a href="#leo-info" class="text-blue-600 hover:text-blue-800">Leo</a> |
+            <a href="#virgo-info" class="text-blue-600 hover:text-blue-800">Virgo</a> |
+            <a href="#libra-info" class="text-blue-600 hover:text-blue-800">Libra</a> |
+            <a href="#scorpio-info" class="text-blue-600 hover:text-blue-800">Scorpio</a> |
+            <a href="#sagittarius-info" class="text-blue-600 hover:text-blue-800">Sagittarius</a> |
+            <a href="#capricorn-info" class="text-blue-600 hover:text-blue-800">Capricorn</a> |
+            <a href="#aquarius-info" class="text-blue-600 hover:text-blue-800">Aquarius</a> |
+            <a href="#pisces-info" class="text-blue-600 hover:text-blue-800">Pisces</a>
+          </div>
+        </div>
+
+        <!-- Zodiac Information Sections -->
+        <div class="max-w-4xl mx-auto px-4">
+          <div id="aries-info" class="mb-8 p-4 bg-white rounded-lg shadow">
+            <h2 class="text-2xl font-bold mb-2">Aries (March 21 - April 19)</h2>
+            <p class="text-gray-700">Aries is a fire sign ruled by Mars, known for being bold, energetic, and fiercely independent. As the first sign of the zodiac, Aries are natural leaders who thrive on new beginnings and challenges. They're courageous and competitive, though sometimes impulsive or quick-tempered.</p>
+          </div>
+
+          <div id="taurus-info" class="mb-8 p-4 bg-white rounded-lg shadow">
+            <h2 class="text-2xl font-bold mb-2">Taurus (April 20 - May 20)</h2>
+            <p class="text-gray-700">Taurus is an earth sign ruled by Venus. Taureans are known for being loyal, practical, and deeply connected to the physical world. They appreciate comfort, beauty, and consistency. While dependable and patient, they can also be stubborn and resistant to change.</p>
+          </div>
+
+          <div id="gemini-info" class="mb-8 p-4 bg-white rounded-lg shadow">
+            <h2 class="text-2xl font-bold mb-2">Gemini (May 21 - June 20)</h2>
+            <p class="text-gray-700">Gemini is an air sign ruled by Mercury, the planet of communication. Geminis are curious, witty, and social butterflies who thrive on intellectual stimulation and variety. They're adaptable and charming, though they may struggle with indecision or restlessness.</p>
+          </div>
+
+          <div id="cancer-info" class="mb-8 p-4 bg-white rounded-lg shadow">
+            <h2 class="text-2xl font-bold mb-2">Cancer (June 21 - July 22)</h2>
+            <p class="text-gray-700">Cancer is a water sign ruled by the Moon. Cancers are deeply emotional, nurturing, and intuitive. They're strongly connected to home and family and often serve as caregivers or emotional anchors. However, their sensitivity can make them prone to moodiness or withdrawal.</p>
+          </div>
+
+          <div id="leo-info" class="mb-8 p-4 bg-white rounded-lg shadow">
+            <h2 class="text-2xl font-bold mb-2">Leo (July 23 - August 22)</h2>
+            <p class="text-gray-700">Leo is a fire sign ruled by the Sun. Leos are confident, charismatic, and naturally drawn to the spotlight. They love expressing themselves and are generous with their affection. At their best, they inspire others; at their worst, they can come off as prideful or attention-seeking.</p>
+          </div>
+
+          <div id="virgo-info" class="mb-8 p-4 bg-white rounded-lg shadow">
+            <h2 class="text-2xl font-bold mb-2">Virgo (August 23 - September 22)</h2>
+            <p class="text-gray-700">Virgo is an earth sign ruled by Mercury. Virgos are analytical, detail-oriented, and highly practical. They strive for perfection and are often seen as reliable and helpful. They value organization and service but may struggle with overthinking or being overly critical.</p>
+          </div>
+
+          <div id="libra-info" class="mb-8 p-4 bg-white rounded-lg shadow">
+            <h2 class="text-2xl font-bold mb-2">Libra (September 23 - October 22)</h2>
+            <p class="text-gray-700">Libra is an air sign ruled by Venus. Libras seek balance, harmony, and beauty in all areas of life. They're diplomatic, charming, and value fairness in relationships. However, their desire to please can lead to indecisiveness or avoidance of conflict.</p>
+          </div>
+
+          <div id="scorpio-info" class="mb-8 p-4 bg-white rounded-lg shadow">
+            <h2 class="text-2xl font-bold mb-2">Scorpio (October 23 - November 21)</h2>
+            <p class="text-gray-700">Scorpio is a water sign ruled by Pluto and Mars. Scorpios are intense, passionate, and deeply emotional. They're known for their depth, loyalty, and powerful presence. While they can be private or even secretive, they are fiercely protective and transformative individuals.</p>
+          </div>
+
+          <div id="sagittarius-info" class="mb-8 p-4 bg-white rounded-lg shadow">
+            <h2 class="text-2xl font-bold mb-2">Sagittarius (November 22 - December 21)</h2>
+            <p class="text-gray-700">Sagittarius is a fire sign ruled by Jupiter. Sagittarians are adventurous, optimistic, and philosophical. They crave freedom and exploration, both physically and intellectually. Their honesty and enthusiasm are magnetic, though they can sometimes be tactless or overly blunt.</p>
+          </div>
+
+          <div id="capricorn-info" class="mb-8 p-4 bg-white rounded-lg shadow">
+            <h2 class="text-2xl font-bold mb-2">Capricorn (December 22 - January 19)</h2>
+            <p class="text-gray-700">Capricorn is an earth sign ruled by Saturn. Capricorns are disciplined, ambitious, and responsible. They're known for their strong work ethic and long-term vision. Though they may seem reserved or serious, they value loyalty and often have a dry sense of humor.</p>
+          </div>
+
+          <div id="aquarius-info" class="mb-8 p-4 bg-white rounded-lg shadow">
+            <h2 class="text-2xl font-bold mb-2">Aquarius (January 20 - February 18)</h2>
+            <p class="text-gray-700">Aquarius is an air sign ruled by Uranus. Aquarians are forward-thinking, innovative, and independent. They often have a unique perspective and a strong desire to improve the world. They can be eccentric or emotionally detached but are driven by ideals and community.</p>
+          </div>
+
+          <div id="pisces-info" class="mb-8 p-4 bg-white rounded-lg shadow">
+            <h2 class="text-2xl font-bold mb-2">Pisces (February 19 - March 20)</h2>
+            <p class="text-gray-700">Pisces is a water sign ruled by Neptune. Pisceans are dreamy, empathetic, and artistic. They are highly intuitive and often feel deeply connected to others' emotions. Their imagination and compassion are strengths, but they can be prone to escapism or over-sensitivity.</p>
+          </div>
+        </div>
+
+        <h2 class="font-medium text-gray-700 text-3xl mt-8"> Get Your Daily Horoscope </h2>
         <br><br>
         <div class="flex justify-center space-x-5">
-          <button type="submit" class="justify-center rounded-md bg-gray-700 px-2 py-2 text-sm/6 font-semibold text-white shadow-xs hover:bg-gray-500 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gray-700"> Aries </button>
-          <button type="submit" class="justify-center rounded-md bg-gray-700 px-2 py-2 text-sm/6 font-semibold text-white shadow-xs hover:bg-gray-500 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gray-700"> Taurus </button>
-          <button type="submit" class="justify-center rounded-md bg-gray-700 px-2 py-2 text-sm/6 font-semibold text-white shadow-xs hover:bg-gray-500 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gray-700"> Gemini </button>
-          <button type="submit" class="justify-center rounded-md bg-gray-700 px-2 py-2 text-sm/6 font-semibold text-white shadow-xs hover:bg-gray-500 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gray-700"> Cancer </button>
-          <button type="submit" class="justify-center rounded-md bg-gray-700 px-2 py-2 text-sm/6 font-semibold text-white shadow-xs hover:bg-gray-500 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gray-700"> Leo </button>
-          <button type="submit" class="justify-center rounded-md bg-gray-700 px-2 py-2 text-sm/6 font-semibold text-white shadow-xs hover:bg-gray-500 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gray-700"> Virgo </button>
+          <button type="submit" id="aries" class="justify-center rounded-md bg-gray-700 px-2 py-2 text-sm/6 font-semibold text-white shadow-xs hover:bg-gray-500 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gray-700"> Aries </button>
+          <button type="submit" id="taurus" class="justify-center rounded-md bg-gray-700 px-2 py-2 text-sm/6 font-semibold text-white shadow-xs hover:bg-gray-500 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gray-700"> Taurus </button>
+          <button type="submit" id="gemini" class="justify-center rounded-md bg-gray-700 px-2 py-2 text-sm/6 font-semibold text-white shadow-xs hover:bg-gray-500 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gray-700"> Gemini </button>
+          <button type="submit" id="cancer" class="justify-center rounded-md bg-gray-700 px-2 py-2 text-sm/6 font-semibold text-white shadow-xs hover:bg-gray-500 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gray-700"> Cancer </button>
+          <button type="submit" id="leo" class="justify-center rounded-md bg-gray-700 px-2 py-2 text-sm/6 font-semibold text-white shadow-xs hover:bg-gray-500 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gray-700"> Leo </button>
+          <button type="submit" id="virgo" class="justify-center rounded-md bg-gray-700 px-2 py-2 text-sm/6 font-semibold text-white shadow-xs hover:bg-gray-500 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gray-700"> Virgo </button>
         </div>
         <br> <br>
         <div class="flex justify-center space-x-5">
-          <button type="submit" class="justify-center rounded-md bg-gray-700 px-2 py-2 text-sm/6 font-semibold text-white shadow-xs hover:bg-gray-500 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gray-700"> Libra </button>
-          <button type="submit" class="justify-center rounded-md bg-gray-700 px-2 py-2 text-sm/6 font-semibold text-white shadow-xs hover:bg-gray-500 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gray-700"> Scorpio </button>
-          <button type="submit" class="justify-center rounded-md bg-gray-700 px-2 py-2 text-sm/6 font-semibold text-white shadow-xs hover:bg-gray-500 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gray-700"> Saggitarius </button>
-          <button type="submit" class="justify-center rounded-md bg-gray-700 px-2 py-2 text-sm/6 font-semibold text-white shadow-xs hover:bg-gray-500 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gray-700"> Capricorn </button>
-          <button type="submit" class="justify-center rounded-md bg-gray-700 px-2 py-2 text-sm/6 font-semibold text-white shadow-xs hover:bg-gray-500 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gray-700"> Aquarius </button>
-          <button type="submit" class="justify-center rounded-md bg-gray-700 px-2 py-2 text-sm/6 font-semibold text-white shadow-xs hover:bg-gray-500 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gray-700"> Pisces </button>
+          <button type="submit" id="libra" class="justify-center rounded-md bg-gray-700 px-2 py-2 text-sm/6 font-semibold text-white shadow-xs hover:bg-gray-500 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gray-700"> Libra </button>
+          <button type="submit" id="scorpio" class="justify-center rounded-md bg-gray-700 px-2 py-2 text-sm/6 font-semibold text-white shadow-xs hover:bg-gray-500 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gray-700"> Scorpio </button>
+          <button type="submit" id="sagittarius" class="justify-center rounded-md bg-gray-700 px-2 py-2 text-sm/6 font-semibold text-white shadow-xs hover:bg-gray-500 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gray-700"> Sagittarius </button>
+          <button type="submit" id="capricorn" class="justify-center rounded-md bg-gray-700 px-2 py-2 text-sm/6 font-semibold text-white shadow-xs hover:bg-gray-500 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gray-700"> Capricorn </button>
+          <button type="submit" id="aquarius" class="justify-center rounded-md bg-gray-700 px-2 py-2 text-sm/6 font-semibold text-white shadow-xs hover:bg-gray-500 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gray-700"> Aquarius </button>
+          <button type="submit" id="pisces" class="justify-center rounded-md bg-gray-700 px-2 py-2 text-sm/6 font-semibold text-white shadow-xs hover:bg-gray-500 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gray-700"> Pisces </button>
         </div>
+        <br> <br>
+        <br><br>
+        <div class="container mx-auto p-4">
+          <div id="horo" class="hidden border-4 border-black-600 rounded-full p-6 shadow-lg max-w-sm mx-auto">
+            <h2 id="t" class="text-3xl font-medium text-gray-700"> </h2>
+          </div>
+          <br> <br>
+          <p id="h" class=" text-xl font-medium text-gray-700 break-words"> </p>
+        </div>
+        <br> <br>
       </div>
+      <!--- Horoscope Buttons 
+      <script>
+        document.getElementById('aries').addEventListener('click', function() {
+        document.getElementById('horo').classList.toggle('hidden');
+        document.getElementById('t').textContent = 'Aries Horoscope';
+        document.getElementById('h').textContent = '';
+        });
+
+        document.getElementById('taurus').addEventListener('click', function() {
+        document.getElementById('horo').classList.toggle('hidden');
+        document.getElementById('t').textContent = 'Taurus Horoscope';
+        document.getElementById('h').textContent = '';
+        });
+
+        document.getElementById('gemini').addEventListener('click', function() {
+        document.getElementById('horo').classList.toggle('hidden');
+        document.getElementById('t').textContent = 'Gemini Horoscope';
+        document.getElementById('h').textContent = '';
+        });
+
+        document.getElementById('cancer').addEventListener('click', function() {
+        document.getElementById('horo').classList.toggle('hidden');
+        document.getElementById('t').textContent = 'Cancer Horoscope';
+        document.getElementById('h').textContent = '';
+        });
+
+        document.getElementById('leo').addEventListener('click', function() {
+        document.getElementById('horo').classList.toggle('hidden');
+        document.getElementById('t').textContent = 'Leo Horoscope';
+        document.getElementById('h').textContent = '';
+        });
+
+        document.getElementById('virgo').addEventListener('click', function() {
+        document.getElementById('horo').classList.toggle('hidden');
+        document.getElementById('t').textContent = 'Virgo Horoscope';
+        document.getElementById('h').textContent = '';
+        });
+
+        document.getElementById('libra').addEventListener('click', function() {
+        document.getElementById('horo').classList.toggle('hidden');
+        document.getElementById('t').textContent = 'Libra Horoscope';
+        document.getElementById('h').textContent = '';
+        });
+
+        document.getElementById('scorpio').addEventListener('click', function() {
+        document.getElementById('horo').classList.toggle('hidden');
+        document.getElementById('t').textContent = 'Scorpio Horoscope';
+        document.getElementById('h').textContent = '';
+        });
+
+        document.getElementById('sagittarius').addEventListener('click', function() {
+        document.getElementById('horo').classList.toggle('hidden');
+        document.getElementById('t').textContent = 'Sagittarius Horoscope';
+        document.getElementById('h').textContent = '';
+        });
+
+        document.getElementById('capricorn').addEventListener('click', function() {
+        document.getElementById('horo').classList.toggle('hidden');
+        document.getElementById('t').textContent = 'Capricorn Horoscope';
+        document.getElementById('h').textContent = '';
+        });
+
+        document.getElementById('aquarius').addEventListener('click', function() {
+        document.getElementById('horo').classList.toggle('hidden');
+        document.getElementById('t').textContent = 'Aquarius Horoscope';
+        document.getElementById('h').textContent = '';
+        });
+
+        document.getElementById('pisces').addEventListener('click', function() {
+        document.getElementById('horo').classList.toggle('hidden');
+        document.getElementById('t').textContent = 'Pisces Horoscope';
+        document.getElementById('h').textContent = '';
+        });
+      </script>
+      -->
       <br> <br>
       <br> <br>
     </center>

@@ -103,9 +103,9 @@ function getRandomLocation() {
 
 // Astrological aspects to query
 
-// const aspects = [
-//   'sun', 'moon'
-// ];
+const aspects = [
+  'sun', 'moon'
+];
 
 // Generate a random profile
 function generateRandomProfile() {
@@ -351,76 +351,72 @@ async function generateDataset() {
 
   // Number of profiles to generate
   const numProfiles = 10000;
-
+  
   // Load existing data if available
-  // let signReportsData = {
-  //   profiles: [],
-  //   total_entries: 0
-  // };
+  let signReportsData = {
+    profiles: [],
+    total_entries: 0
+  };
   let compatibilityData = {
     pairs: [],
     total_entries: 0
   };
 
-  // const signReportsPath = path.join(datasetDir, 'sign-reports.json');
+  const signReportsPath = path.join(datasetDir, 'sign-reports.json');
   const compatibilityDataPath = path.join(datasetDir, 'compatibility-data.json');
 
-  // if (fs.existsSync(signReportsPath)) {
-  //   const existingSignReports = JSON.parse(fs.readFileSync(signReportsPath, 'utf8'));
-  //   signReportsData = existingSignReports;
-  //   console.log(`Loaded ${signReportsData.total_entries} existing profiles`);
-  // }
+  if (fs.existsSync(signReportsPath)) {
+    const existingSignReports = JSON.parse(fs.readFileSync(signReportsPath, 'utf8'));
+    signReportsData = existingSignReports;
+    console.log(`Loaded ${signReportsData.total_entries} existing profiles`);
+  }
 
   if (fs.existsSync(compatibilityDataPath)) {
     const existingCompatibility = JSON.parse(fs.readFileSync(compatibilityDataPath, 'utf8'));
     compatibilityData = existingCompatibility;
     console.log(`Loaded ${compatibilityData.total_entries} existing compatibility pairs`);
   }
-
+  
   // Generate all profiles first
   const profiles = [];
   for (let i = 0; i < numProfiles; i++) {
     profiles.push(generateRandomProfile());
   }
-
+  
   // For each profile, query all aspects and general report
-  // for (let i = 0; i < profiles.length; i++) {
-  //   const profile = profiles[i];
-  //   console.log(`Processing profile ${i+1}/${numProfiles}: ${profile.full_name}`);
-
-  //   const profileData = {
-  //     person: {
-  //       name: profile.full_name,
-  //       birthdate: `${profile.year}-${profile.month}-${profile.day}`,
-  //       birthtime: `${profile.hour}:${profile.min}:${profile.sec}`,
-  //       location: profile.place,
-  //       gender: profile.gender
-  //     },
-  //     aspects: {}
-  //   };
-
-  //   // 1. Get all aspect-specific reports
-  //   for (const aspect of aspects) {
-  //     try {
-  //       const aspectData = await makeAstrologyRequest(profile, aspect);
-  //       profileData.aspects[aspect] = aspectData;
-  //       // Add a delay to avoid rate limiting
-  //       await new Promise(resolve => setTimeout(resolve, 5000));
-  //     } catch (error) {
-  //       console.error(`Failed to get aspect data for ${profile.full_name} (${aspect}): ${error.message}`);
-  //     }
-  //   }
-
-  //   signReportsData.profiles.push(profileData);
-  //   signReportsData.total_entries++;
-
-  //   // Save progress after each profile
-  //   fs.writeFileSync(
-  //     signReportsPath,
-  //     JSON.stringify(signReportsData, null, 2)
-  //   );
-  // }
-
+  for (let i = 0; i < profiles.length; i++) {
+    const profile = profiles[i];
+    console.log(`Processing profile ${i+1}/${numProfiles}: ${profile.full_name}`);
+    
+    const profileData = {
+      person: {
+        name: profile.full_name,
+        birthdate: `${profile.year}-${profile.month}-${profile.day}`,
+        birthtime: `${profile.hour}:${profile.min}:${profile.sec}`,
+        location: profile.place,
+        gender: profile.gender
+      },
+      aspects: {}
+    };
+    
+    // 1. Get all aspect-specific reports
+    for (const aspect of aspects) {
+      const aspectData = await makeAstrologyRequest(profile, aspect);
+      profileData.aspects[aspect] = aspectData;
+      // Add a delay to avoid rate limiting
+      await new Promise(resolve => setTimeout(resolve, 5000));
+    }
+    
+    signReportsData.profiles.push(profileData);
+    signReportsData.total_entries++;
+    
+    // Save progress after each profile
+    fs.writeFileSync(
+      signReportsPath,
+      JSON.stringify(signReportsData, null, 2)
+    );
+  }
+  
   // Generate compatibility data between profiles
   console.log('\nGenerating compatibility data between profiles...');
 
@@ -450,39 +446,32 @@ async function generateDataset() {
         sexual_compatibility: {},
         emotional_compatibility: {}
       };
-
-      try {
-        const physicalData = await makePhysicalCompatibilityRequest(profile1, profile2);
-        pairData.physical_compatibility = physicalData;
-
-        const sexualData = await makeSexualCompatibilityRequest(profile1, profile2);
-        pairData.sexual_compatibility = sexualData;
-
-        const emotionalData = await makeEmotionalCompatibilityRequest(profile1, profile2);
-        pairData.emotional_compatibility = emotionalData;
-
-        compatibilityData.pairs.push(pairData);
-        compatibilityData.total_entries++;
-
-        // Save progress after each compatibility pair
-        fs.writeFileSync(
-          compatibilityDataPath,
-          JSON.stringify(compatibilityData, null, 2)
-        );
-        // Add a delay only after successful requests to prevent rate limiting
-        await new Promise(resolve => setTimeout(resolve, 5000));
-      } catch (error) {
-        console.error(`Failed to get compatibility data for ${profile1.full_name} and ${profile2.full_name}. Skipping pair. Error: ${error.message}`);
-        // Continue to the next pair even if one fails
-      }
+      
+      const physicalData = await makePhysicalCompatibilityRequest(profile1, profile2);
+      pairData.physical_compatibility = physicalData;
+      
+      const sexualData = await makeSexualCompatibilityRequest(profile1, profile2);
+      pairData.sexual_compatibility = sexualData;
+      
+      const emotionalData = await makeEmotionalCompatibilityRequest(profile1, profile2);
+      pairData.emotional_compatibility = emotionalData;
+      await new Promise(resolve => setTimeout(resolve, 5000));
+      
+      compatibilityData.pairs.push(pairData);
+      compatibilityData.total_entries++;
+      
+      // Save progress after each compatibility pair
+      fs.writeFileSync(
+        compatibilityDataPath,
+        JSON.stringify(compatibilityData, null, 2)
+      );
     }
   }
 
   console.log('\nDataset generation complete!');
-  // Ensure these variables are defined if you uncomment the sign reports part later
-  // console.log(`Total profiles in dataset: ${signReportsData.total_entries}`);
+  console.log(`Total profiles in dataset: ${signReportsData.total_entries}`);
   console.log(`Total compatibility pairs in dataset: ${compatibilityData.total_entries}`);
-  // console.log(`Sign reports saved to ${signReportsPath}`);
+  console.log(`Sign reports saved to ${signReportsPath}`);
   console.log(`Compatibility data saved to ${compatibilityDataPath}`);
 }
 

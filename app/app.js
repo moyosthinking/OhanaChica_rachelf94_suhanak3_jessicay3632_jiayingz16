@@ -15,6 +15,7 @@ const http =  require('http');
 const WebSocket =  require('ws');
 const app = express();
 const port = 3000;
+var loggedIn = false;
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(session({
@@ -26,7 +27,15 @@ app.use('/static', express.static(path.join(__dirname, 'public')));
 
 // Serve login and register HTML
 app.get('/login', (req, res) => {
-  res.sendFile(path.join(__dirname, 'public', 'login.html'));
+  const { username, password } = req.body;
+  user.authenticateUser(username, password, (err, userObj) => {
+    if (!req.session.user) {
+      res.sendFile(path.join(__dirname, 'public', 'login.html'));
+    } else {
+      res.redirect('/');
+      console.log(`user already logged in`);
+    }
+  });
 });
 app.get('/register', (req, res) => {
   res.sendFile(path.join(__dirname, 'public', 'register.html'));
@@ -40,12 +49,10 @@ app.post('/register', (req, res) => {
   user.createUser(username, password, birthday, (err, userId) => {
     if (err) {
       console.error('Registration error:', err.message);
-      const errorMessage = encodeURIComponent('Username already exists. Please try a different username.');
-      res.redirect(`/register?error=${errorMessage}`);
+      res.send('<p>Registration failed. Username may already exist.</p><a href="/register.html">Try again</a>');
     } else {
       console.log(`User registered successfully with ID: ${userId}`);
-      const successMessage = encodeURIComponent('Registration successful! Please log in.');
-      res.redirect(`/login?success=${successMessage}`);
+      res.redirect('/login');
     }
   });
 });
@@ -55,15 +62,13 @@ app.post('/login', (req, res) => {
   const { username, password } = req.body;
   user.authenticateUser(username, password, (err, userObj) => {
     if (err) {
-      const errorMessage = encodeURIComponent('Login error occurred.');
-      res.redirect(`/login?error=${errorMessage}`);
+      res.send('<p>Login error occurred.</p><a href="/login.html">Try again</a>');
     } else if (userObj) {
       req.session.user = userObj.username;
       res.redirect('/');
       console.log(`User logged in successfully with username: ${username}`);
     } else {
-      const errorMessage = encodeURIComponent('Invalid credentials.');
-      res.redirect(`/login?error=${errorMessage}`);
+      res.send('<p>Invalid credentials.</p><a href="/login.html">Try again</a>');
     }
   });
 });
@@ -72,50 +77,60 @@ app.get('/', (req,res) => {
   res.sendFile(path.join(__dirname, 'public', 'home.html'));
 });
 
+
+app.get('/compat', (req,res) => {
+  const { username, password } = req.body;
+  user.authenticateUser(username, password, (err, userObj) => {
+    if (req.session.user) {
+      res.sendFile(path.join(__dirname, 'public', 'compatibility.html'));
+    } else {
+      res.redirect('/');
+      console.log(`no compatibility! user not logged in`);
+    }
+  });
+});
+
+app.get('/self', (req,res) => {
+  const { username, password } = req.body;
+  user.authenticateUser(username, password, (err, userObj) => {
+    if (req.session.user) {
+      res.sendFile(path.join(__dirname, 'public', 'selfimprov.html'));
+    } else {
+      res.redirect('/');
+      console.log(`no selfimprovment! user not logged in`);
+    }
+  });
+});
+
+app.get('/horoscope', (req,res) => {
+  res.sendFile(path.join(__dirname, 'public', 'horoscopes.html'));
+});
+
 app.get('/logout', (req, res) => {
+  req.session.destroy((err) => {
+    if (err) {
+      console.error('Error destroying session:', err);
+    }
+    else {
+      console.log('user successfully logged out');
+    }
+  });
   res.redirect('/');
 });
 
 //chattting
 
 app.get('/chat', (req, res) => {
-  if (req.isAuthenticated())
-    {
+  const { username, password } = req.body;
+  user.authenticateUser(username, password, (err, userObj) => {
+    if (req.session.user) {
       res.sendFile(path.join(__dirname, 'public', 'chat.html'));
+      console.log(`logged in user can chat`);
+    } else {
+      res.redirect('/');
+      console.log(`no chatting! user not logged in`);
     }
-  else{
-    res.sendFile(path.join(__dirname, 'public', 'home.html'));
-  }
-});
-
-app.get('/compat', (req, res) => {
-  if (req.isAuthenticated())
-    {
-      res.sendFile(path.join(__dirname, 'public', 'compatibility.html'));
-    }
-  else{
-    res.sendFile(path.join(__dirname, 'public', 'home.html'));
-  }
-});
-
-app.get('/horoscope', (req, res) => {
-  if (req.isAuthenticated())
-    {
-      res.sendFile(path.join(__dirname, 'public', 'horoscope.html'));
-    }
-  else{
-    res.sendFile(path.join(__dirname, 'public', 'home.html'));
-  }
-});
-
-app.get('/self', (req, res) => {
-  if (req.isAuthenticated())
-    {
-      res.sendFile(path.join(__dirname, 'public', 'selfimprov.html'));
-    }
-  else{
-    res.sendFile(path.join(__dirname, 'public', 'home.html'));
-  }
+  });
 });
 
 const server = http.createServer(app);
@@ -145,6 +160,7 @@ wss.on('connection', (ws) => {
     console.log('Websocket : user disconneted');
   });
 });
+
 
 //starts server
 server.listen(port, () => {
