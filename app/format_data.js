@@ -147,40 +147,88 @@ signReportsData.forEach(profile => {
     );
   });
 });
-
 // Format compatibility pairs with relationship advice focus
-compatibilityData.forEach(pair => {
+compatibilityData.forEach((pair, index) => { // Added 'index' to see which pair is problematic
   const p1 = pair.person1;
   const p2 = pair.person2;
-  
-  // Format each compatibility type
-  ['physical_compatibility', 'sexual_compatibility', 'emotional_compatibility'].forEach(compType => {
-    const block = pair[compType].data.content;
-    const descriptions = [];
-    const advice = [];
-    
-    block.forEach(item => {
-      item.reading.forEach(rd => {
-        descriptions.push(`${rd.title}: ${rd.description}`);
-        advice.push(`**${rd.title} Improvement**:\n` +
-          `- Practice open communication about ${rd.title.toLowerCase()}\n` +
-          `- Set mutual goals for enhancing ${rd.title.toLowerCase()}\n` +
-          `- Create a safe space for discussing ${rd.title.toLowerCase()} concerns\n` +
-          `- Develop shared activities that strengthen ${rd.title.toLowerCase()}`);
-      });
-    });
-    
-    const answerText = descriptions.join('\n\n');
-    const adviceText = advice.join('\n\n');
 
-    // Add relationship advice focused prompts
-    writeTrainingRecord(
-      "You are an astrology relationship advisor focused on helping couples improve their connection. Provide specific advice to enhance their relationship.",
-      `Compare: ${p1.birthdate} ${p1.birthtime} ${p1.location} vs ${p2.birthdate} ${p2.birthtime} ${p2.location}\nWhat specific advice would you give to improve their ${compType.replace(/_/g, ' ')}?`,
-      `**${compType.replace(/_/g, ' ')} Analysis**:\n${answerText}\n\n**Relationship Improvement Plan**:\n${adviceText}`
-    );
+  console.log(`\n--- Processing Pair ${index} ---`);
+  console.log(`Person 1: ${p1.birthdate}, ${p1.location}`);
+  console.log(`Person 2: ${p2.birthdate}, ${p2.location}`);
+  console.log("Full pair object:", JSON.stringify(pair, null, 2)); // Stringify for full view
+
+  ['physical_compatibility', 'sexual_compatibility', 'emotional_compatibility'].forEach(compType => {
+    console.log(`  --- Checking compType: ${compType} ---`);
+
+    console.log(`  pair[compType]:`, JSON.stringify(pair[compType], null, 2));
+
+    // Add a robust check before trying to access .data.content
+    if (pair[compType] && pair[compType].data && pair[compType].data.content) {
+      const block = pair[compType].data.content;
+      console.log(`  Successfully retrieved block for ${compType}. Block length: ${block.length}`);
+
+      const descriptions = [];
+      const advice = [];
+
+      block.forEach(item => {
+        item.reading.forEach(rd => {
+          descriptions.push(`${rd.title}: ${rd.description}`);
+          advice.push(`**${rd.title} Improvement**:\n` +
+            `- Practice open communication about ${rd.title.toLowerCase()}\n` +
+            `- Set mutual goals for enhancing ${rd.title.toLowerCase()}\n` +
+            `- Create a safe space for discussing ${rd.title.toLowerCase()} concerns\n` +
+            `- Develop shared activities that strengthen ${rd.title.toLowerCase()}`);
+        });
+      });
+
+      const answerText = descriptions.join('\n\n');
+      const adviceText = advice.join('\n\n');
+
+      // Add relationship advice focused prompts
+      writeTrainingRecord(
+        "You are an astrology relationship advisor focused on helping couples improve their connection. Provide specific advice to enhance their relationship.",
+        `Compare: ${p1.birthdate} ${p1.birthtime} ${p1.location} vs ${p2.birthdate} ${p2.birthtime} ${p2.location}\nWhat specific advice would you give to improve their ${compType.replace(/_/g, ' ')}?`,
+        `**${compType.replace(/_/g, ' ')} Analysis**:\n${answerText}\n\n**Relationship Improvement Plan**:\n${adviceText}`
+      );
+    } else {
+      console.error(`ERROR: Data structure missing 'data' or 'content' for compType: ${compType} in Pair ${index}.`);
+      console.error(`Problematic part:`, JSON.stringify(pair[compType], null, 2));
+    }
   });
 });
+// // Format compatibility pairs with relationship advice focus
+// compatibilityData.forEach(pair => {
+//   const p1 = pair.person1;
+//   const p2 = pair.person2;
+  
+//   // Format each compatibility type
+//   ['physical_compatibility', 'sexual_compatibility', 'emotional_compatibility'].forEach(compType => {
+//     const block = pair[compType].data.content;
+//     const descriptions = [];
+//     const advice = [];
+    
+//     block.forEach(item => {
+//       item.reading.forEach(rd => {
+//         descriptions.push(`${rd.title}: ${rd.description}`);
+//         advice.push(`**${rd.title} Improvement**:\n` +
+//           `- Practice open communication about ${rd.title.toLowerCase()}\n` +
+//           `- Set mutual goals for enhancing ${rd.title.toLowerCase()}\n` +
+//           `- Create a safe space for discussing ${rd.title.toLowerCase()} concerns\n` +
+//           `- Develop shared activities that strengthen ${rd.title.toLowerCase()}`);
+//       });
+//     });
+    
+//     const answerText = descriptions.join('\n\n');
+//     const adviceText = advice.join('\n\n');
+
+//     // Add relationship advice focused prompts
+//     writeTrainingRecord(
+//       "You are an astrology relationship advisor focused on helping couples improve their connection. Provide specific advice to enhance their relationship.",
+//       `Compare: ${p1.birthdate} ${p1.birthtime} ${p1.location} vs ${p2.birthdate} ${p2.birthtime} ${p2.location}\nWhat specific advice would you give to improve their ${compType.replace(/_/g, ' ')}?`,
+//       `**${compType.replace(/_/g, ' ')} Analysis**:\n${answerText}\n\n**Relationship Improvement Plan**:\n${adviceText}`
+//     );
+//   });
+// });
 
 writeStream.end(() => {
   console.log(`Qwen3 training data saved to ${outputFile}`);
