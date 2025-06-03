@@ -156,3 +156,7 @@ michelleZ -- 2025-05-30 10:00
 michelleZ -- 2025-06-02 11:00
 - incorporated general zodiac info in horoscope.html
 - generated more data for training (totaling 40 hours)
+
+michelleZ -- 2025-06-03 11:00
+- finished fine tuning
+- cleaned up directory
