@@ -42,7 +42,7 @@
       </div>
 
         <script>
-          const socket = new WebSocket('ws://' + window.location.host + '?user');
+          const socket = new WebSocket('ws://https://rmoyof.tech/chat' + '?user');
 
           socket.onmessage = (event) => {
             const data = JSON.parse(event.data);
