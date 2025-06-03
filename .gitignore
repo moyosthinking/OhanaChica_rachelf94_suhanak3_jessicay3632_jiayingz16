@@ -3,3 +3,4 @@ app/keys/api_keys.js
 *.env
 .DS_Store
 .venv/
+backend/model/qwen3_1.5b_qlora/

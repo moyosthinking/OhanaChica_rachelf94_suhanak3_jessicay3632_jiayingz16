@@ -158,5 +158,11 @@ michelleZ -- 2025-06-02 11:00
 - generated more data for training (totaling 40 hours)
 
 michelleZ -- 2025-06-03 11:00
-- finished fine tuning
+- fine tuning (2 hours)
 - cleaned up directory
+- removed extra stuff
+
+michelleZ -- 2025-06-03 13:00
+- changed model from 4b to 1.5b to save time
+- finished fine tuning
+- imported Qwen3 model
