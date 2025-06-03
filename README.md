@@ -13,7 +13,7 @@ This project is a web application that introduces users to astrology through per
 - Learn self-improvement tips related to their sign
 
 ## Direct Access
-http://142.93.122.179/
+http://rmoyof.tech/
 
 ## Install Guide
 1. Clone this Repo
