@@ -135,7 +135,7 @@ app.get('/self', (req,res) => {
       res.sendFile(path.join(__dirname, 'public', 'selfimprov.html'));
     } else {
       res.redirect('/');
-      console.log(`no selfimprovment! user not logged in`);
+      console.log(`no self improvment! user not logged in`);
     }
   });
 });
@@ -172,33 +172,7 @@ app.get('/chat', (req, res) => {
 });
 
 const server = http.createServer(app);
-const wss =  new WebSocket.Server({ server });
-let id = 0;
-
-wss.on('connection', (ws) => {
-  console.log('Websocket: new user connection');
-  ws.username = `Astrologist${id++}`;
-
-  ws.on('message', (message) => {
-    const msgStr = message.toString();
-    const full = JSON.stringify({
-      user: ws.username,
-      message: msgStr
-    });
-    wss.clients.forEach(client =>
-    {
-      if (client.readyState === WebSocket.OPEN) {
-        client.send(full);
-      }
-    }
-    );
-  });
-  ws.on('close', () =>
-  {
-    console.log('Websocket : user disconnected');
-  });
-});
-
+const wss = new WebSocket.Server({ server });
 //starts server
 server.listen(port, () => {
   console.log(`Server is running on http://localhost:${port}`);

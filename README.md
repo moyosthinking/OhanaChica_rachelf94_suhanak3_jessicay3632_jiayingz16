@@ -1,16 +1,15 @@
 # p5-ROH by OhanaChica
 
-- Moyo
-- Michelle
-- Suhana
-- Jessica
+- Moyo Fagbuyi
+- Michelle Zhu
+- Suhana Kumar
+- Jessica Yu
 
 This project is a web application that introduces users to astrology through personalized experiences. Users will be able to:
-- Discover their astrology sign (via birthday input)
-- Receive personalized readings
-- Get daily horoscopes
-- Check compatibility with others
-- Learn self-improvement tips related to their sign
+- Discover their astrology sign via their birthday
+- Receive general sign report based on their astrology sign
+- Check compatibility with others via astrology inputs
+- Learn self-improvement tips through AI chat
 
 ## Direct Access
 http://rmoyof.tech/

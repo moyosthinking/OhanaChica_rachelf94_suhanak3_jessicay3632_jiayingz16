@@ -22,8 +22,6 @@ db.serialize(() => {
     // Astrology info table
     db.run(`CREATE TABLE IF NOT EXISTS astrology_info (
         sign TEXT PRIMARY KEY,
-        date_range TEXT,
-        horoscope TEXT,
         compatibility TEXT,
         personalityTraits TEXT,
         advice TEXT
