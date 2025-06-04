@@ -15,14 +15,10 @@ const user = require('./user');
 const http =  require('http');
 const WebSocket =  require('ws');
 const app = express();
-<<<<<<< HEAD
-const PORT = 3000;
-=======
 const port = 3000;
 const axios = require('axios');
 const { createProxyMiddleware } = require('http-proxy-middleware');
 
->>>>>>> a80207e3afa2eb6e10ecc4358e555de811115e64
 var loggedIn = false;
 
 app.use(bodyParser.urlencoded({ extended: true }));
