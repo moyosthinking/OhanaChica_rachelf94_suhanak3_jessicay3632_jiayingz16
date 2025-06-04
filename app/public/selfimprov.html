@@ -12,6 +12,17 @@
   <link href="/static/styles.css" rel="stylesheet">
   <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
   <title> Self Improvement </title>
+  fetch('/get-self-improvement', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({
+      birthday: "1997-04-10",
+      birthtime: "10:00 AM",
+      location: "New York",
+      gender: "female"
+    })
+  });
+  
 </head>
   <body>
       <nav class="flex justify-center space-x-4">
