@@ -48,6 +48,7 @@
             .then(user => {
               console.log('Received user:', user);  // Check this output in browser console
               document.getElementById('username').textContent = `Username: ${user.username}`;
+              document.getElementById('zodiac').textContent = `Zodiac: ${user.zodiac}`;
               document.getElementById('birthday').textContent = `Birthday: ${user.birthday}`;
             })
             .catch(err => {
