@@ -17,6 +17,9 @@ const fs = require('fs');
 const db = require('./db');
 const app = express();
 const port = 3000;
+const axios = require('axios');
+const { createProxyMiddleware } = require('http-proxy-middleware');
+
 var loggedIn = false;
 
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -144,6 +147,36 @@ app.get('/self', (req,res) => {
   });
 });
 
+app.post('/get-compatibility', async (req, res) => {
+  const { sign1, sign2 } = req.body;
+
+  try {
+    const response = await axios.post('http://localhost:5000/get-compatibility', {
+      sign1, sign2
+    });
+
+    res.json({ suggestion: response.data.suggestion });
+  } catch (error) {
+    console.error('Compatibility AI error:', error.message);
+    res.status(500).json({ error: 'Failed to get compatibility advice.' });
+  }
+});
+
+app.post('/get-self-improvement', async (req, res) => {
+  const { birthday, birthtime, location, gender } = req.body;
+
+  try {
+    const response = await axios.post('http://localhost:5000/get-self-improvement', {
+      birthday, birthtime, location, gender
+    });
+
+    res.json({ suggestion: response.data.suggestion });
+  } catch (error) {
+    console.error('Self-improvement AI error:', error.message);
+    res.status(500).json({ error: 'Failed to get self-improvement advice.' });
+  }
+});
+
 app.get('/horoscope', (req,res) => {
   res.sendFile(path.join(__dirname, 'public', 'horoscopes.html'));
 });
@@ -266,6 +299,17 @@ wss.on('connection', (ws) => {
     console.log('Websocket : user disconnected');
   });
 });
+
+// Proxy API calls from Node.js → Python Flask
+app.use('/get-compatibility', createProxyMiddleware({ 
+  target: 'http://localhost:5000', 
+  changeOrigin: true 
+}));
+
+app.use('/get-self-improvement', createProxyMiddleware({ 
+  target: 'http://localhost:5000', 
+  changeOrigin: true 
+}));
 
 
 //starts server

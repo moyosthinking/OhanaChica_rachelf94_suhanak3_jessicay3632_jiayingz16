@@ -18,6 +18,12 @@
       }
     </style>
   <title> Compatibility Checker </title>
+  fetch('/get-compatibility', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ sign1: "Aries", sign2: "Libra" })
+  });
+  
 </head>
   <body>
       <nav class="flex justify-center space-x-4">
