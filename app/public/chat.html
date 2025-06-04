@@ -21,42 +21,88 @@
         <a href="/self" class="text-lg font-medium rounded-lg px-3 py-2 text-gray-700 hover:bg-gray-100 hover:text-gray-900"> Self Improvement </a>
         <a href="/chat" class="text-lg font-medium rounded-lg px-3 py-2 text-gray-700 hover:bg-gray-100 hover:text-gray-900"> Chat </a>
         <a href="/profile" class="text-lg font-medium rounded-lg px-3 py-2 text-gray-700 hover:bg-gray-100 hover:text-gray-900"> Profile </a>
-        <!-- <a href="/login" class="text-lg font-medium rounded-lg px-3 py-2 text-gray-700 hover:bg-gray-100 hover:text-gray-900"> Login </a>
-        <a href="/register" class="text-lg font-medium rounded-lg px-3 py-2 text-gray-700 hover:bg-gray-100 hover:text-gray-900"> Register </a> -->
         <a href="/logout" class="text-lg font-medium rounded-lg px-3 py-2 text-gray-700 hover:bg-gray-100 hover:text-gray-900"> Logout </a>
     </nav>
       <br> <br> <br>
       <center>
       <h1 class="shadow-lg w-full max-w-3xl text-4xl font-medium bg-gray-700 text-white"> Chat </h1>
       <div class="w-full max-w-3xl bg-gray-100 h-screen flex flex-col max-w-lg mx-auto">
-        <div class="bg-gray-100 p-4 text-white flex justify-between items-center">
-          <div class="shadow-lg w-full max-w-3xl h-screen">
-            <div class="pt-4 text-left text-black" id="messages">
+        <div class="bg-gray-100 p-4 text-white flex flex-col h-full">
+          <div class="shadow-lg w-full max-w-3xl flex-1 overflow-y-auto">
+            <div class="pt-4 px-4 text-left text-black" id="messages">
             </div>
-            <div class="justify-center h-screen flex bottom-0 items-center pt-16">
-              <input id="messageInput" class="border-4 block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-800 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6"placeholder="Type a message..." />
-              <button onclick="send()" class="justify-center rounded-md bg-gray-700 px-5 py-1.5 text-sm/6 font-semibold text-white shadow-xs hover:bg-gray-500 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gray-700">Send</button>
-            </div>
+          </div>
+          <div class="flex items-center gap-2 mt-4 px-4 pb-4">
+            <input id="messageInput" 
+                   class="flex-1 border-2 rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-800 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6"
+                   placeholder="Type a message..." 
+                   onkeypress="if(event.key === 'Enter') send()" />
+            <button onclick="send()" 
+                    class="rounded-md bg-gray-700 px-5 py-1.5 text-sm/6 font-semibold text-white shadow-xs hover:bg-gray-500 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gray-700">
+              Send
+            </button>
           </div>
         </div>
       </div>
 
         <script>
-          const socket = new WebSocket('ws://https://rmoyof.tech/chat' + '?user');
+          const socket = new WebSocket('ws://' + window.location.host + '/chat');
+
+          socket.onopen = () => {
+            console.log('Connected to chat server');
+            const msgDiv = document.createElement('div');
+            msgDiv.className = 'text-green-500 p-2';
+            msgDiv.textContent = 'Connected to chat server';
+            document.getElementById('messages').appendChild(msgDiv);
+          };
+
+          socket.onerror = (error) => {
+            console.error('WebSocket error:', error);
+            const msgDiv = document.createElement('div');
+            msgDiv.className = 'text-red-500 p-2';
+            msgDiv.textContent = 'Error connecting to chat server. Please refresh the page.';
+            document.getElementById('messages').appendChild(msgDiv);
+          };
+
+          socket.onclose = () => {
+            console.log('Disconnected from chat server');
+            const msgDiv = document.createElement('div');
+            msgDiv.className = 'text-red-500 p-2';
+            msgDiv.textContent = 'Disconnected from chat server. Please refresh the page.';
+            document.getElementById('messages').appendChild(msgDiv);
+          };
 
           socket.onmessage = (event) => {
+            console.log('Received message:', event.data);
             const data = JSON.parse(event.data);
             const msgDiv = document.createElement('div');
-            msgDiv.textContent = `${data.user}: ${data.message}`;
-            document.getElementById('messages').appendChild(msgDiv);
-            };
+            msgDiv.className = 'mb-2 p-2 rounded-lg ' + 
+              (data.user === 'System' ? 'bg-blue-100' : 'bg-gray-200');
+            
+            const userSpan = document.createElement('span');
+            userSpan.className = 'font-bold';
+            userSpan.textContent = data.user + ': ';
+            
+            const messageSpan = document.createElement('span');
+            messageSpan.textContent = data.message;
+            
+            msgDiv.appendChild(userSpan);
+            msgDiv.appendChild(messageSpan);
+            
+            const messagesDiv = document.getElementById('messages');
+            messagesDiv.appendChild(msgDiv);
+            messagesDiv.scrollTop = messagesDiv.scrollHeight;
+          };
 
           function send() {
             const input = document.getElementById('messageInput');
-            const message = input.value;
-            if (message) {
+            const message = input.value.trim();
+            if (message && socket.readyState === WebSocket.OPEN) {
+              console.log('Sending message:', message);
               socket.send(message);
               input.value = '';
+            } else {
+              console.log('Cannot send message. Socket state:', socket.readyState);
             }
           }
         </script>

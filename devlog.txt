@@ -167,3 +167,7 @@ michelleZ -- 2025-06-03 13:00
 - finished fine tuning
 - imported Qwen3 model
 - updated profile.html
+
+michelleZ -- 2025-06-03 22:00
+- revised README.md
+- tried fixing chat but failed
