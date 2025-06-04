@@ -191,6 +191,9 @@ app.get('/logout', (req, res) => {
 
 //chattting
 
+const server = http.createServer(app);
+const wss = new WebSocket.Server({ server, path: '/chat' });
+
 app.get('/chat', (req, res) => {
   const { username, password } = req.body;
   user.authenticateUser(username, password, (err, userObj) => {
@@ -204,6 +207,7 @@ app.get('/chat', (req, res) => {
   });
 });
 
+<<<<<<< HEAD
 const server = http.createServer(app);
 const wss =  new WebSocket.Server({ server });
 let id = 0;
@@ -229,10 +233,33 @@ wss.on('connection', (ws) => {
   ws.on('close', () =>
   {
     console.log('Websocket : user disconnected');
+=======
+app.get('/username', (req, res) => {
+  res.json({ username: req.session.user });
+});
+
+wss.on('connection', (ws) => {
+  console.log('User connected');
+
+  ws.on('message', (message) => {
+    console.log('Received message:', message);
+
+    // Broadcast to all clients
+    wss.clients.forEach((client) => {
+      if (client.readyState === WebSocket.OPEN) {
+        client.send(message);
+      }
+    });
+  });
+
+  ws.on('close', () => {
+    console.log('User disconnected');
+>>>>>>> 08ae4d240ed1f3e7e5a65832806dee76de94e355
   });
 });
 
 // Proxy API calls from Node.js → Python Flask
+<<<<<<< HEAD
 app.use('/get-compatibility', createProxyMiddleware({
   target: 'http://localhost:5000',
   changeOrigin: true
@@ -245,6 +272,18 @@ app.use('/get-self-improvement', createProxyMiddleware({
 
 
 const wss = new WebSocket.Server({ server });
+=======
+app.use('/get-compatibility', createProxyMiddleware({
+  target: 'http://localhost:5000',
+  changeOrigin: true
+}));
+
+app.use('/get-self-improvement', createProxyMiddleware({
+  target: 'http://localhost:5000',
+  changeOrigin: true
+}));
+
+>>>>>>> 08ae4d240ed1f3e7e5a65832806dee76de94e355
 //starts server
 server.listen(port, () => {
   console.log(`Server is running on http://localhost:${port}`);
