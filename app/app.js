@@ -193,16 +193,16 @@ Please format your response using markdown with the following structure:
             html += '</ul>\n';
             inL = false;
           }
-          html += `<h1 class="text-3xl text-gray-900">${line.slice(2).trim()}</h1>\n`;
+          html += `<h1 class="text-3xl text-gray-800 mb-4">${line.slice(2).trim()}</h1>\n`;
         } else if (line.startsWith('## ')) {
           if (inL) {
             html += '</ul>\n';
             inL = false;
           }
-          html += `<h2 class="text-3xl text-gray-900">${line.slice(3).trim()}</h2>\n`;
+          html += `<h2 class="text-2xl text-gray-800 mt-4 mb-2">${line.slice(3).trim()}</h2>\n`;
         } else if (line.startsWith('- ')) {
           if (!inL) {
-            html += '<ul class="list-disc text-xl list-inside text-gray-700">\n';
+            html += '<ul class="list-disc text-lg list-inside text-gray-800 mb-1">\n';
             inL = true;
           }
           html += `<li>${line.slice(2).trim()}</li>\n`;
@@ -211,7 +211,7 @@ Please format your response using markdown with the following structure:
             html += '</ul>\n';
             inL = false;
           }
-          html += `<p>${line}</p>\n`;
+          html += `<p class="text-lg text-gray-800">${line}</p>\n`;
         }
       }
       if (inL) {
