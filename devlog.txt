@@ -174,3 +174,7 @@ michelleZ -- 2025-06-03 22:00
 
 michelleZ -- 2025-06-04 11:00
 - debugged chat with PMF
+
+michelleZ -- 2025-06-04 1:20
+- incorporated Gemini API for compatibility checker
+- added marked library to format api plain text output

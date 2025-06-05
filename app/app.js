@@ -6,6 +6,8 @@
 //  Time Spent: ???? hours
 //
 
+require('dotenv').config();
+
 const db = require('./db');
 const express = require('express');
 const path = require('path');
@@ -17,9 +19,14 @@ const WebSocket =  require('ws');
 const app = express();
 const port = 3000;
 const axios = require('axios');
-const { createProxyMiddleware } = require('http-proxy-middleware');
+// const { createProxyMiddleware } = require('http-proxy-middleware');
+const { marked } = require('marked');
+const { GoogleGenerativeAI } = require('@google/generative-ai');
 
 var loggedIn = false;
+
+const GEMINI_API_KEY = process.env.GEMINI_API_KEY;
+const genAI = new GoogleGenerativeAI(GEMINI_API_KEY);
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
@@ -30,8 +37,6 @@ app.use(session({
   saveUninitialized: true,
 }));
 app.use('/static', express.static(path.join(__dirname, 'public')));
-
-
 
 // Serve login and register HTML
 app.get('/login', (req, res) => {
@@ -122,6 +127,58 @@ app.get('/compat', (req,res) => {
     }
 });
 
+app.post('/get-compatibility', async (req, res) => {
+  const { sign1, sign2 } = req.body;
+
+  try {
+    const response = await axios.post(
+      `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${GEMINI_API_KEY}`,
+      {
+        contents: [
+          {
+            parts: [
+              {
+                text: `As an astrology expert, analyze the compatibility between ${sign1} and ${sign2}. Consider their elemental compatibility, personality traits, and potential challenges. Provide specific advice on how they can improve their relationship and work through any potential issues.
+
+Please format your response using markdown with the following structure:
+
+# ${sign1} and ${sign2} Compatibility Analysis
+
+## Strengths
+- Point 1
+- Point 2
+- Point 3
+
+## Challenges
+- Point 1
+- Point 2
+- Point 3
+
+## Advice
+- Point 1
+- Point 2
+- Point 3`
+              }
+            ]
+          }
+        ]
+      },
+      {
+        headers: {
+          'Content-Type': 'application/json'
+        }
+      }
+    );
+
+    const markdownText = response.data.candidates[0].content.parts[0].text;
+    const htmlContent = marked(markdownText);
+    res.json({ suggestion: htmlContent });
+  } catch (error) {
+    console.error('Compatibility AI error:', error);
+    res.status(500).json({ error: 'Failed to get compatibility advice' });
+  }
+});
+
 app.get('/self', (req,res) => {
     if (req.session.user) {
       res.sendFile(path.join(__dirname, 'public', 'selfimprov.html'));
@@ -131,35 +188,46 @@ app.get('/self', (req,res) => {
     }
 });
 
-app.post('/get-compatibility', async (req, res) => {
-  const { sign1, sign2 } = req.body;
+// app.post('/get-compatibility', async (req, res) => {
+//   const { sign1, sign2 } = req.body;
 
-  try {
-    const response = await axios.post('http://localhost:5000/get-compatibility', {
-      sign1, sign2
-    });
+//   try {
+//     const response = await axios.post('http://localhost:5000/get-compatibility', {
+//       sign1, sign2
+//     });
 
-    res.json({ suggestion: response.data.suggestion });
-  } catch (error) {
-    console.error('Compatibility AI error:', error.message);
-    res.status(500).json({ error: 'Failed to get compatibility advice.' });
-  }
-});
+//     res.json({ suggestion: response.data.suggestion });
+//   } catch (error) {
+//     console.error('Compatibility AI error:', error.message);
+//     res.status(500).json({ error: 'Failed to get compatibility advice.' });
+//   }
+// });
 
-app.post('/get-self-improvement', async (req, res) => {
-  const { birthday, birthtime, location, gender } = req.body;
+// app.post('/get-self-improvement', async (req, res) => {
+//   const { birthday, birthtime, location, gender } = req.body;
 
-  try {
-    const response = await axios.post('http://localhost:5000/get-self-improvement', {
-      birthday, birthtime, location, gender
-    });
+//   try {
+//     const response = await axios.post('http://localhost:5000/get-self-improvement', {
+//       birthday, birthtime, location, gender
+//     });
 
-    res.json({ suggestion: response.data.suggestion });
-  } catch (error) {
-    console.error('Self-improvement AI error:', error.message);
-    res.status(500).json({ error: 'Failed to get self-improvement advice.' });
-  }
-});
+//     res.json({ suggestion: response.data.suggestion });
+//   } catch (error) {
+//     console.error('Self-improvement AI error:', error.message);
+//     res.status(500).json({ error: 'Failed to get self-improvement advice.' });
+//   }
+// });
+
+// // Proxy API calls from Node.js → Python Flask
+// app.use('/get-compatibility', createProxyMiddleware({
+//   target: 'http://localhost:5000',
+//   changeOrigin: true
+// }));
+
+// app.use('/get-self-improvement', createProxyMiddleware({
+//   target: 'http://localhost:5000',
+//   changeOrigin: true
+// }));
 
 app.get('/horoscope', (req,res) => {
   res.sendFile(path.join(__dirname, 'public', 'horoscopes.html'));
@@ -214,17 +282,6 @@ wss.on('connection', (ws) => {
     console.log('User disconnected');
   });
 });
-
-// Proxy API calls from Node.js → Python Flask
-app.use('/get-compatibility', createProxyMiddleware({
-  target: 'http://localhost:5000',
-  changeOrigin: true
-}));
-
-app.use('/get-self-improvement', createProxyMiddleware({
-  target: 'http://localhost:5000',
-  changeOrigin: true
-}));
 
 //starts server
 server.listen(port, () => {

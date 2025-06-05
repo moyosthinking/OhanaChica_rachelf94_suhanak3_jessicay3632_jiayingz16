@@ -1,6 +1,5 @@
 node_modules
 app/keys/api_keys.js
-*.env
+.env
 .DS_Store
 .venv/
-backend/model/qwen3_1.5b_qlora/
