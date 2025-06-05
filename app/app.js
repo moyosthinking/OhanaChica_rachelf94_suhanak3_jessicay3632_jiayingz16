@@ -68,7 +68,7 @@ app.post('/register', (req, res) => {
   user.createUser(username, password, birthday, (err, userId) => {
     if (err) {
       console.error('Registration error:', err.message);
-      res.send('<p>Registration failed. Username may already exist.</p><a href="/register.html">Try again</a>');
+      res.redirect('/register');
     } else {
       console.log(`User registered successfully with ID: ${userId}`);
       res.redirect('/login');
@@ -89,7 +89,7 @@ app.post('/login', (req, res) => {
       console.log(`User logged in: ${username}`);
       res.redirect('/');
     } else {
-      res.send('<p>Invalid credentials.</p><a href="/login">Try again</a>');
+      res.redirect('/login');
     }
   });
 });
