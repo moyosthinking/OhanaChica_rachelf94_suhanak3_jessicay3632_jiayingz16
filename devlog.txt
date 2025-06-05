@@ -285,3 +285,4 @@ michelleZ -- 2025-06-05 1:20
 - incorporated Gemini API for compatibility checker
 - added marked library to format api plain text output
 - debugged profile error
+- debugged routing issues between /compat and /chat

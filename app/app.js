@@ -38,7 +38,10 @@ app.use(session({
 }));
 app.use('/static', express.static(path.join(__dirname, 'public')));
 
-// Serve login and register HTML
+app.get('/', (req,res) => {
+  res.sendFile(path.join(__dirname, 'public', 'home.html'));
+});
+
 app.get('/login', (req, res) => {
     if (!req.session.user) {
       res.sendFile(path.join(__dirname, 'public', 'login.html'));
@@ -91,10 +94,6 @@ app.post('/login', (req, res) => {
   });
 });
 
-app.get('/', (req,res) => {
-  res.sendFile(path.join(__dirname, 'public', 'home.html'));
-});
-
 app.get('/profile', (req,res) => {
     if (req.session.user) {
       res.sendFile(path.join(__dirname, 'public', 'profile.html'));
@@ -128,7 +127,7 @@ app.get('/data', (req, res) => {
   });
 });
 
-app.get('/compat', (req,res) => {
+app.get('/compatibility', (req,res) => {
     if (req.session.user) {
       res.sendFile(path.join(__dirname, 'public', 'compatibility.html'));
     } else {
@@ -255,7 +254,7 @@ app.get('/logout', (req, res) => {
   res.redirect('/');
 });
 
-//chattting
+//chatting
 
 const server = http.createServer(app);
 const wss = new WebSocket.Server({ server, path: '/chat' });
