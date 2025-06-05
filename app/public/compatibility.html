@@ -82,9 +82,13 @@
         <div id="horo" class="hidden border-4 border-black-600 rounded-full p-6 shadow-lg max-w-sm mx-auto">
           <h2 id="t" class="text-3xl font-medium text-gray-700"> </h2>
         </div>
-        <br><br>
-        <br><br>
-        <p id="h" class=" text-xl font-medium text-gray-700 break-words"> </p>
+        <br> <br>
+        <div class="flex justify-center">
+          <div id="" class=" container bg-white border border-gray-200 rounded-lg shadow-sm dark:bg-gray-800 dark:border-gray-700">
+              <div class="p-5">
+                  <div id="result" class ="font-medium text-gray-800 break-words p-20"> </div>
+              </div>
+          </div>
       </div>
       <br><br>
 
@@ -100,7 +104,7 @@
           document.getElementById('check').addEventListener('click', function() {
             const sign1 = document.getElementById('signs').value;
             const sign2 = document.getElementById('signs1').value;
-            
+
             if (!sign1 || !sign2) {
               alert('Please select both signs to check compatibility');
               return;
@@ -108,7 +112,7 @@
 
             document.getElementById('horo').classList.remove('hidden');
             document.getElementById('t').textContent = 'Compatibility Analysis';
-            document.getElementById('h').textContent = 'Analyzing compatibility...';
+            document.getElementById('result').textContent = 'Analyzing compatibility...';
 
             fetch('/get-compatibility', {
               method: 'POST',
@@ -117,7 +121,7 @@
             })
             .then(response => response.json())
             .then(data => {
-              document.getElementById('h').innerHTML = data.suggestion;
+              document.getElementById('result').innerHTML = data.suggestion;
             })
           });
 
