@@ -71,7 +71,7 @@ michelleZ -- 2025-05-19 17:00
 - successfully resolved issues
 - still need to merge the data in app/dataset
 
-moyoF -- 2025-05-18 22:10
+moyoF -- 2025-05-19 22:10
 - WebSocket is has a conneection but only receiving blobs
 
 michelleZ -- 2025-05-20 11:20
@@ -79,7 +79,10 @@ michelleZ -- 2025-05-20 11:20
 - created API key card
 - figured out data generating details
 
-moyoF -- 2025-05-18 21:10
+jessicaY -- 2025-05-20 11:38
+- home.html
+
+moyoF -- 2025-05-20 21:10
 - no longer receiveing blobs
 - temp user id for differentiaing
 
@@ -106,6 +109,9 @@ michelleZ -- 2025-05-21 11:00
 - finished checkpoint assignment about code format
 - debugging & reorganizing dataset
 
+jessicaY -- 2025-05-22 11:43
+- chat.html is less ugly
+
 moyoF -- 2025-05-22 11:47
 - login and reg is acc connected with HTML
 - started erm checking for auth
@@ -114,6 +120,18 @@ michelleZ -- 2025-05-23 11:00
 - revised dependency list to ensure compatibility with node v12.22.9
 - worked on generating incomplete dataset
 - successfully generated dataset for AI training testing
+
+moyoF -- 2025-05-23 11:37
+- routing checks for loggin in ppl
+
+jessicaY -- 2025-05-23 11:44
+- chat.html
+- home.html
+- horoscope.html
+- register.html
+
+moyoF -- 2025-05-23 11:46
+- more routes more pages avail
 
 michelleZ -- 2025-05-23 12:00
 - fixed registration error
@@ -142,31 +160,96 @@ michelleZ -- 2025-05-26 16:30
 michelleZ -- 2025-05-27 11:00
 - tried to figure out how to trian qwen model
 
+jessicaY -- 2025-05-27 22:21
+- horoscope.html
+
 michelleZ -- 2025-05-28 11:00
 - tried to figure out how to trian qwen model
 
+jessicaY -- 2025-05-28 11:46
+- horoscope.html
+- compatibility.html
+- home.html
+
+jessicaY -- 2025-05-29 11:42
+- selfimprov.html
+- home.html
+
+moyoF -- 2025-05-29 11:47
+- choking my domain to death
+
 michelleZ -- 2025-05-29 19:30
 - successfully fine tuned
+
+moyoF -- 2025-05-29 22:04
+- fixed domain
+- debugging chat/ws
 
 michelleZ -- 2025-05-30 10:00
 - mass generated profiles (1000)
 - researched remote serving
 - revised generate-dataset.js so that it builds off of existing data rather than erasing it
 
+moyoF -- 2025-05-30 11:27
+- fixed chatting/ws
+
+jessicaY -- 2025-05-30 11:46
+- home.html
+
+jessicaY -- 2025-05-31 16:14
+- compatibility.html
+
+jessicaY -- 2025-05-31 18:19
+- horoscope.html
+
+jessicaY -- 2025-05-31 18:42
+- compatibility.html
+
+jessicaY -- 2025-05-31 19:18
+- selfimprov.html
+
+jessicaY -- 2025-06-01 14:48
+- home.html
+
 michelleZ -- 2025-06-02 11:00
 - incorporated general zodiac info in horoscope.html
 - generated more data for training (totaling 40 hours)
+
+suhanaK -- 2025-06-02 11:25
+- added generated dataset for ai model
+
+moyoF -- 2025-06-02 11:25
+- logout routing
+- chat is visible
+
+jessicaY -- 2025-06-02 11:46
+- home.html
+
+suhanaK -- 2025-06-02 02:15
+- merge
+
+suhanaK -- 2025-06-02 02:56
+- udpated data format
 
 michelleZ -- 2025-06-03 11:00
 - fine tuning (2 hours)
 - cleaned up directory
 - removed extra stuff
 
+moyoF -- 2025-06-03 11:45
+- troubleshooting ws on domain
+
+jessicaY -- 2025-06-03 11:45
+- all pages
+
 michelleZ -- 2025-06-03 13:00
 - changed model from 4b to 1.5b to save time
 - finished fine tuning
 - imported Qwen3 model
 - updated profile.html
+
+jessicaY -- 2025-06-03 19:54
+- profile.html
 
 michelleZ -- 2025-06-03 22:00
 - revised README.md
@@ -175,6 +258,29 @@ michelleZ -- 2025-06-03 22:00
 michelleZ -- 2025-06-04 11:00
 - debugged chat with PMF
 
-michelleZ -- 2025-06-04 1:20
+jessicaY -- 2025-06-03 11:32
+- profile.html
+
+suhanaK -- 2025-06-04 11:37
+- ai model deployment
+
+suhanaK -- 2025-06-04 11:40
+- more good stuff
+
+moyoF -- 2025-06-04 11:47
+- debugged chat with DMZ
+
+moyoF -- 2025-06-04 21:52
+- no more user.auth bc it was broken
+- chatting text is not blobby, so its good
+
+moyoF -- 2025-06-04 22:19
+- my domain hates me and i hate it back
+
+moyoF -- 2025-06-04 23:44
+- mucho devlog
+
+michelleZ -- 2025-06-05 1:20
+- revoked AI model deployment plan
 - incorporated Gemini API for compatibility checker
 - added marked library to format api plain text output
