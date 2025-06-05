@@ -47,8 +47,11 @@
         });
 
       const protocol = window.location.protocol === 'https:' ? 'wss' : 'ws';
-      const socket = new WebSocket(`${protocol}://${window.location.host}/chat`);
-      // const socket = new WebSocket("wss://rmoyof.tech/chat");
+      const socket = new WebSocket(
+        (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1')
+          ? `${protocol}://localhost:3000/chat`
+          : `${protocol}://rmoyof.tech/chat`
+      );
 
       socket.onopen = () => {
         console.log('Connected to chat server');
@@ -75,34 +78,47 @@
       };
 
       socket.onmessage = (event) => {
-        // Parse JSON of form { user: "...", message: "..." }
-        let data;
+      // Parse JSON of form { user: "...", message: "..." }
+      if (event.data instanceof Blob) {
+        const reader = new FileReader();
+        reader.onload = () => {
+          try {
+            const data = JSON.parse(reader.result);
+            showMe(data);
+          } catch (e) {
+            console.error('Invalid JSON:', reader.result);
+          }
+        };
+        reader.readAsText(event.data);
+      } else {
         try {
-          data = JSON.parse(event.data);
+          const data = JSON.parse(event.data);
+          showMe(data);
         } catch (e) {
           console.error('Invalid JSON:', event.data);
-          return;
         }
+      }
+    };
 
-        const msgDiv = document.createElement('div');
-        msgDiv.className = 'mb-2 p-2 rounded-lg ' +
-          (data.user === 'System' ? 'bg-blue-100' : 'bg-gray-200');
+    function showMe(data) {
+      const msgDiv = document.createElement('div');
+      msgDiv.className = 'mb-2 p-2 rounded-lg ' +
+        (data.user === 'System' ? 'bg-blue-100' : 'bg-gray-200');
 
-        const userSpan = document.createElement('span');
-        userSpan.className = 'font-bold';
-        userSpan.textContent = data.user + ': ';
+      const userSpan = document.createElement('span');
+      userSpan.className = 'font-bold';
+      userSpan.textContent = data.user + ': ';
 
-        const messageSpan = document.createElement('span');
-        messageSpan.textContent = data.message;
+      const messageSpan = document.createElement('span');
+      messageSpan.textContent = data.message;
 
-        msgDiv.appendChild(userSpan);
-        msgDiv.appendChild(messageSpan);
+      msgDiv.appendChild(userSpan);
+      msgDiv.appendChild(messageSpan);
 
-        const messagesDiv = document.getElementById('messages');
-        messagesDiv.appendChild(msgDiv);
-        messagesDiv.scrollTop = messagesDiv.scrollHeight;
-
-      };
+      const messagesDiv = document.getElementById('messages');
+      messagesDiv.appendChild(msgDiv);
+      messagesDiv.scrollTop = messagesDiv.scrollHeight;
+    }
 
       function send() {
         const input = document.getElementById('messageInput');
