@@ -178,10 +178,46 @@ Please format your response using markdown with the following structure:
         }
       }
     );
-
     const markdownText = response.data.candidates[0].content.parts[0].text;
-    const htmlContent = marked(markdownText);
-    res.json({ suggestion: htmlContent });
+
+    const lines = markdownText.split('\n');
+
+      let html = '';
+      let inL = false;
+
+      for (let line of lines) {
+        line = line.trim();
+
+        if (line.startsWith('# ')) {
+          if (inL) {
+            html += '</ul>\n';
+            inL = false;
+          }
+          html += `<h1 class="text-3xl text-gray-900">${line.slice(2).trim()}</h1>\n`;
+        } else if (line.startsWith('## ')) {
+          if (inL) {
+            html += '</ul>\n';
+            inL = false;
+          }
+          html += `<h2 class="text-3xl text-gray-900">${line.slice(3).trim()}</h2>\n`;
+        } else if (line.startsWith('- ')) {
+          if (!inL) {
+            html += '<ul class="list-disc text-xl list-inside text-gray-700">\n';
+            inL = true;
+          }
+          html += `<li>${line.slice(2).trim()}</li>\n`;
+        } else {
+          if (inL) {
+            html += '</ul>\n';
+            inL = false;
+          }
+          html += `<p>${line}</p>\n`;
+        }
+      }
+      if (inL) {
+        html += '</ul>\n';
+      }
+    res.json({ suggestion: html });
   } catch (error) {
     console.error('Compatibility AI error:', error);
     res.status(500).json({ error: 'Failed to get compatibility advice' });
