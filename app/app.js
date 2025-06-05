@@ -20,7 +20,7 @@ const app = express();
 const port = 3000;
 const axios = require('axios');
 // const { createProxyMiddleware } = require('http-proxy-middleware');
-const { marked } = require('marked');
+// const { marked } = require('marked');
 const { GoogleGenerativeAI } = require('@google/generative-ai');
 
 var loggedIn = false;
