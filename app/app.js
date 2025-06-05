@@ -21,6 +21,8 @@ const { createProxyMiddleware } = require('http-proxy-middleware');
 
 var loggedIn = false;
 
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(session({
   secret: 'ohana-secret',
@@ -33,27 +35,21 @@ app.use('/static', express.static(path.join(__dirname, 'public')));
 
 // Serve login and register HTML
 app.get('/login', (req, res) => {
-  const { username, password } = req.body;
-  user.authenticateUser(username, password, (err, userObj) => {
     if (!req.session.user) {
       res.sendFile(path.join(__dirname, 'public', 'login.html'));
     } else {
       res.redirect('/');
       console.log(`user already logged in`);
     }
-  });
 });
 
 app.get('/register', (req, res) => {
-  const { username, password } = req.body;
-  user.authenticateUser(username, password, (err, userObj) => {
     if (!req.session.user) {
       res.sendFile(path.join(__dirname, 'public', 'register.html'));
     } else {
       res.redirect('/');
       console.log(`user already registered`);
     }
-  });
 });
 
 // Registration endpoint
@@ -77,14 +73,15 @@ app.post('/login', (req, res) => {
   const { username, password } = req.body;
   user.authenticateUser(username, password, (err, userObj) => {
     if (err) {
-      res.send('<p>Login error occurred.</p><a href="/login.html">Try again</a>');
+      console.error('no loging!');
+      res.send('<p>Login error occurred.</p><a href="/login">Try again</a>');
     } else if (userObj) {
       req.session.user = userObj.username;
       req.session.userId = userObj.id;
+      console.log(`User logged in: ${username}`);
       res.redirect('/');
-      console.log(`User logged in successfully with username: ${username}`);
     } else {
-      res.send('<p>Invalid credentials.</p><a href="/login.html">Try again</a>');
+      res.send('<p>Invalid credentials.</p><a href="/login">Try again</a>');
     }
   });
 });
@@ -94,15 +91,12 @@ app.get('/', (req,res) => {
 });
 
 app.get('/profile', (req,res) => {
-  const { username, password } = req.body;
-  user.authenticateUser(username, password, (err, userObj) => {
     if (req.session.user) {
       res.sendFile(path.join(__dirname, 'public', 'profile.html'));
     } else {
       res.redirect('/');
       console.log(`no profile! user not logged in`);
     }
-  });
 });
 
 app.get('/data', (req, res) => {
@@ -120,27 +114,21 @@ app.get('/data', (req, res) => {
 });
 
 app.get('/compat', (req,res) => {
-  const { username, password } = req.body;
-  user.authenticateUser(username, password, (err, userObj) => {
     if (req.session.user) {
       res.sendFile(path.join(__dirname, 'public', 'compatibility.html'));
     } else {
       res.redirect('/');
       console.log(`no compatibility! user not logged in`);
     }
-  });
 });
 
 app.get('/self', (req,res) => {
-  const { username, password } = req.body;
-  user.authenticateUser(username, password, (err, userObj) => {
     if (req.session.user) {
       res.sendFile(path.join(__dirname, 'public', 'selfimprov.html'));
     } else {
       res.redirect('/');
       console.log(`no self improvment! user not logged in`);
     }
-  });
 });
 
 app.post('/get-compatibility', async (req, res) => {
@@ -195,8 +183,6 @@ const server = http.createServer(app);
 const wss = new WebSocket.Server({ server, path: '/chat' });
 
 app.get('/chat', (req, res) => {
-  const { username, password } = req.body;
-  user.authenticateUser(username, password, (err, userObj) => {
     if (req.session.user) {
       res.sendFile(path.join(__dirname, 'public', 'chat.html'));
       console.log(`logged in user can chat`);
@@ -204,36 +190,8 @@ app.get('/chat', (req, res) => {
       res.redirect('/');
       console.log(`no chatting! user not logged in`);
     }
-  });
 });
 
-<<<<<<< HEAD
-const server = http.createServer(app);
-const wss =  new WebSocket.Server({ server });
-let id = 0;
-
-wss.on('connection', (ws) => {
-  console.log('Websocket: new user connection');
-  ws.username = `Astrologist${id++}`;
-
-  ws.on('message', (message) => {
-    const msgStr = message.toString();
-    const full = JSON.stringify({
-      user: ws.username,
-      message: msgStr
-    });
-    wss.clients.forEach(client =>
-    {
-      if (client.readyState === WebSocket.OPEN) {
-        client.send(full);
-      }
-    }
-    );
-  });
-  ws.on('close', () =>
-  {
-    console.log('Websocket : user disconnected');
-=======
 app.get('/username', (req, res) => {
   res.json({ username: req.session.user });
 });
@@ -254,12 +212,10 @@ wss.on('connection', (ws) => {
 
   ws.on('close', () => {
     console.log('User disconnected');
->>>>>>> 08ae4d240ed1f3e7e5a65832806dee76de94e355
   });
 });
 
 // Proxy API calls from Node.js → Python Flask
-<<<<<<< HEAD
 app.use('/get-compatibility', createProxyMiddleware({
   target: 'http://localhost:5000',
   changeOrigin: true
@@ -270,20 +226,6 @@ app.use('/get-self-improvement', createProxyMiddleware({
   changeOrigin: true
 }));
 
-
-const wss = new WebSocket.Server({ server });
-=======
-app.use('/get-compatibility', createProxyMiddleware({
-  target: 'http://localhost:5000',
-  changeOrigin: true
-}));
-
-app.use('/get-self-improvement', createProxyMiddleware({
-  target: 'http://localhost:5000',
-  changeOrigin: true
-}));
-
->>>>>>> 08ae4d240ed1f3e7e5a65832806dee76de94e355
 //starts server
 server.listen(port, () => {
   console.log(`Server is running on http://localhost:${port}`);

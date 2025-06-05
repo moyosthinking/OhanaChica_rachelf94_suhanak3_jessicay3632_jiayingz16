@@ -37,7 +37,8 @@
       </div>
     </div>
 
-    <script>
+     <script>
+      
       let currentUsername = 'Anonymous';
       fetch('/username')
         .then(res => res.json())
@@ -47,7 +48,7 @@
 
       const protocol = window.location.protocol === 'https:' ? 'wss' : 'ws';
       const socket = new WebSocket(`${protocol}://${window.location.host}/chat`);
-      //might just work domain const socket = new WebSocket("wss://rmoyof.tech/chat");
+      // const socket = new WebSocket("wss://rmoyof.tech/chat");
 
       socket.onopen = () => {
         console.log('Connected to chat server');
@@ -101,15 +102,6 @@
         messagesDiv.appendChild(msgDiv);
         messagesDiv.scrollTop = messagesDiv.scrollHeight;
 
-        // Broadcast to all clients
-        socket.clients.forEach((client) => {
-          if (client !== socket && client.readyState === WebSocket.OPEN) {
-            client.send(JSON.stringify({
-              user: 'System',
-              message: data.user + ': ' + data.message
-            }));
-          }
-        });
       };
 
       function send() {
