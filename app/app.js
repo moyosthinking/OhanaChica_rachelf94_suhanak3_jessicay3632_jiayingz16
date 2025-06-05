@@ -233,6 +233,69 @@ app.get('/self', (req,res) => {
     }
 });
 
+app.post('/get-self-improvement', async (req, res) => {
+  const { zodiac, concern } = req.body;
+
+  try {
+    const response = await axios.post(
+      `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${GEMINI_API_KEY}`,
+      {
+        contents: [
+          {
+            parts: [
+              {
+                text: `As a life coach and astrology expert, give self-improvement advice to a person with the zodiac sign ${zodiac}. 
+They are currently struggling with the following issue: "${concern}". Based on the strengths and weaknesses of their sign, suggest personalized and practical steps to help them grow and resolve this issue.
+
+Please format your response in **markdown** using the following structure:
+
+# Advice for a ${zodiac}
+
+## Insight
+- Brief summary of the emotional dynamics and zodiac tendencies at play.
+
+## Steps to Improve
+- Step 1: ...
+- Step 2: ...
+- Step 3: ...
+
+## Encouragement
+- End with a brief message of motivation.`
+              }
+            ]
+          }
+        ]
+      },
+      {
+        headers: {
+          'Content-Type': 'application/json'
+        }
+      }
+    );
+    console.log("Gemini Response:", JSON.stringify(response.data, null, 2));
+
+    const markdown = response.data?.candidates?.[0]?.content?.parts?.[0]?.text;
+    if (!markdown) {
+      throw new Error("Gemini did not return a valid response.");
+    }
+
+    res.json({ suggestion: markdown });
+
+} catch (error) {
+  console.error('Gemini self-improvement error:', error.message);
+  if (error.response) {
+    console.error('Gemini status:', error.response.status);
+    console.error('Gemini data:', error.response.data);
+  }
+  res.status(500).json({ error: 'Failed to get self-improvement advice' });
+}
+
+});
+
+
+
+
+// removed bc unable to deploy self fine tuned ai model
 // app.post('/get-compatibility', async (req, res) => {
 //   const { sign1, sign2 } = req.body;
 
