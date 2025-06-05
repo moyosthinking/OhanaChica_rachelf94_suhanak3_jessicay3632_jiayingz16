@@ -113,8 +113,18 @@ app.get('/data', (req, res) => {
     if (!row) {
       return res.status(404).json({ error: 'User not found' });
     }
-    console.log('Sending user data:', row);
-    res.json(row);
+
+    // Calculate zodiac sign
+    const zodiacSign = user.getZodiac(row.birthday);
+
+    // Add zodiac sign to the response
+    const userData = {
+      ...row,
+      zodiac: zodiacSign
+    };
+
+    console.log('Sending user data:', userData);
+    res.json(userData);
   });
 });
 

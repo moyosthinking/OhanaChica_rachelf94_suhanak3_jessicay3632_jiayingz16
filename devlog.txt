@@ -284,3 +284,4 @@ michelleZ -- 2025-06-05 1:20
 - revoked AI model deployment plan
 - incorporated Gemini API for compatibility checker
 - added marked library to format api plain text output
+- debugged profile error

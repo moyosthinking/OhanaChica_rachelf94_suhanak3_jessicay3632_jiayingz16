@@ -44,17 +44,16 @@
         <br><br>
         <script>
           fetch('/data')
-            .then(res => res.json())
-            .then(user => {
-              console.log('Received user:', user);  // Check this output in browser console
-              document.getElementById('username').textContent = `Username: ${user.username}`;
-              document.getElementById('zodiac').textContent = `Zodiac: ${user.zodiac}`;
-              document.getElementById('birthday').textContent = `Birthday: ${user.birthday}`;
+            .then(response => response.json())
+            .then(data => {
+              document.getElementById('username').textContent = `Username: ${data.username}`;
+              document.getElementById('zodiac').textContent = `Zodiac: ${data.zodiac}`;
+              document.getElementById('birthday').textContent = `Birthday: ${data.birthday}`;
             })
-            .catch(err => {
-              console.error(err);
-              document.getElementById('username').textContent = 'User not logged in or error occurred';
-          });
+            .catch(error => {
+              console.error('Error:', error);
+              document.getElementById('username').textContent = 'Error loading user data';
+            });
           </script>
       </div>
     </center>

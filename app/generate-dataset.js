@@ -130,49 +130,49 @@ function generateRandomProfile() {
 }
 
 // Function to make API request for general sign report with a specific profile and aspect
-// function makeAstrologyRequest(profile, aspect) {
-//   return new Promise((resolve, reject) => {
-//     const options = {
-//       'method': 'POST',
-//       'url': `https://astroapi-4.divineapi.com/western-api/v1/general-sign-report/${aspect}`,
-//       'headers': {
-//         'Authorization': `Bearer ${keys.AUTH_TOKEN}`
-//       },
-//       formData: {
-//         'api_key': keys.API_KEY,
-//         'full_name': profile.full_name.toString(),
-//         'day': profile.day.toString(),
-//         'month': profile.month.toString(),
-//         'year': profile.year.toString(),
-//         'hour': profile.hour.toString(),
-//         'min': profile.min.toString(),
-//         'sec': profile.sec.toString(),
-//         'gender': profile.gender.toString(),
-//         'place': profile.place.toString(),
-//         'lat': profile.lat.toString(),
-//         'lon': profile.lon.toString(),
-//         'tzone': profile.tzone.toString(),
-//         'lan': 'en',
-//         'house_system': 'P'
-//       }
-//     };
+function makeAstrologyRequest(profile, aspect) {
+  return new Promise((resolve, reject) => {
+    const options = {
+      'method': 'POST',
+      'url': `https://astroapi-4.divineapi.com/western-api/v1/general-sign-report/${aspect}`,
+      'headers': {
+        'Authorization': `Bearer ${keys.AUTH_TOKEN}`
+      },
+      formData: {
+        'api_key': keys.API_KEY,
+        'full_name': profile.full_name.toString(),
+        'day': profile.day.toString(),
+        'month': profile.month.toString(),
+        'year': profile.year.toString(),
+        'hour': profile.hour.toString(),
+        'min': profile.min.toString(),
+        'sec': profile.sec.toString(),
+        'gender': profile.gender.toString(),
+        'place': profile.place.toString(),
+        'lat': profile.lat.toString(),
+        'lon': profile.lon.toString(),
+        'tzone': profile.tzone.toString(),
+        'lan': 'en',
+        'house_system': 'P'
+      }
+    };
 
-//     request(options, function(error, response) {
-//       if (error) {
-//         console.error(`Request error for general sign report (${aspect}): ${error.message}`);
-//         return reject(error);
-//       }
-//       try {
-//         const data = JSON.parse(response.body);
-//         resolve(data.data);
-//       } catch (parseError) {
-//         console.error(`JSON parse error for general sign report (${aspect}): ${parseError.message}`);
-//         console.error('Response body:', response.body);
-//         reject(parseError);
-//       }
-//     });
-//   });
-// }
+    request(options, function(error, response) {
+      if (error) {
+        console.error(`Request error for general sign report (${aspect}): ${error.message}`);
+        return reject(error);
+      }
+      try {
+        const data = JSON.parse(response.body);
+        resolve(data.data);
+      } catch (parseError) {
+        console.error(`JSON parse error for general sign report (${aspect}): ${parseError.message}`);
+        console.error('Response body:', response.body);
+        reject(parseError);
+      }
+    });
+  });
+}
 
 // Function to make API request for physical compatibility between two profiles
 function makePhysicalCompatibilityRequest(profile1, profile2) {
