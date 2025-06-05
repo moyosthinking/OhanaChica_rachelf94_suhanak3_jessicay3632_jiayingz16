@@ -84,9 +84,9 @@
         </div>
         <br> <br>
         <div class="flex justify-center">
-          <div id="" class=" container bg-white border border-gray-200 rounded-lg shadow-sm dark:bg-gray-800 dark:border-gray-700">
+          <div id="horo2" class="hidden container bg-white border border-gray-200 rounded-lg shadow-sm dark:bg-gray-800 dark:border-gray-700">
               <div class="p-5">
-                  <div id="result" class ="font-medium text-gray-800 break-words p-20"> </div>
+                  <div id="result" class ="text-xl font-medium text-gray-800 break-words p-20"> </div>
               </div>
           </div>
       </div>
@@ -110,6 +110,7 @@
               return;
             }
 
+            document.getElementById('horo2').classList.remove('hidden');
             document.getElementById('horo').classList.remove('hidden');
             document.getElementById('t').textContent = 'Compatibility Analysis';
             document.getElementById('result').textContent = 'Analyzing compatibility...';
