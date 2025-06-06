@@ -309,7 +309,12 @@ Please format your response in **markdown** using the following structure:
 });
 
 app.get('/daily', (req, res) => {
-  res.sendFile(path.join(__dirname, 'public', 'daily.html'));
+      if (req.session.user) {
+      res.sendFile(path.join(__dirname, 'public', 'compatibility.html'));
+    } else {
+      res.redirect('/');
+      console.log(`no compatibility! user not logged in`);
+    }
 });
 
 app.post('/get-daily', async (req, res) => {
