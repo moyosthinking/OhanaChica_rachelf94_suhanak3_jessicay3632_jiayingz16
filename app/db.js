@@ -19,15 +19,6 @@ db.serialize(() => {
         birthday TEXT
         )`
     );
-
-    // Astrology info table
-    db.run(`CREATE TABLE IF NOT EXISTS astrology_info (
-        sign TEXT PRIMARY KEY,
-        compatibility TEXT,
-        personalityTraits TEXT,
-        advice TEXT
-    )`)
-
 });
 
 module.exports = db;
