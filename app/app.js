@@ -125,10 +125,9 @@ app.get('/data', (req, res) => {
     const zodiacSign = user.getZodiac(row.birthday);
 
     // Add zodiac sign to the response
-    const userData = {
-      ...row,
+    const userData = Object.assign({}, row, {
       zodiac: zodiacSign
-    };
+    });
 
     console.log('Sending user data:', userData);
     res.json(userData);
@@ -193,8 +192,8 @@ Please format your response using markdown with the following structure:
       let html = '';
       let inL = false;
 
-      for (let line of lines) {
-        line = line.trim();
+      for (let i = 0; i < lines.length; i++) {
+        let line = lines[i].trim();
 
         if (line.startsWith('# ')) {
           if (inL) {
