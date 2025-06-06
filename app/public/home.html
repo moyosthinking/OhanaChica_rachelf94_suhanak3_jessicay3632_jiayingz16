@@ -31,7 +31,13 @@
       <a href="/register" class="text-lg font-medium rounded-lg px-3 py-2 text-gray-700 hover:bg-gray-100 hover:text-gray-900"> Register </a>
     </nav>
     <center>
-      <br><br>
+    <br><br>
+      <!-- Login Required Message -->
+      <div id="login-required-message" class="hidden mb-6 p-4 text-center bg-yellow-100 border border-yellow-400 rounded-lg mx-8">
+        <p class="text-yellow-800 text-lg font-medium">
+          Please <a href="/login" class="text-yellow-900 underline hover:text-yellow-700">log in</a> to access this feature.
+        </p>
+      </div>
       <br><br>
       <br><br>
       <div>
@@ -69,6 +75,23 @@
           }
       </script> -->
         <br> <br>
+
+      <!-- Script to handle login required message -->
+      <script>
+        // Check for loginRequired parameter in URL
+        const urlParams = new URLSearchParams(window.location.search);
+        const loginRequired = urlParams.get('loginRequired');
+        
+        if (loginRequired === 'true') {
+          const messageDiv = document.getElementById('login-required-message');
+          messageDiv.classList.remove('hidden');
+          
+          // Clean up the URL by removing the query parameter
+          const url = new URL(window.location);
+          url.searchParams.delete('loginRequired');
+          window.history.replaceState({}, document.title, url.pathname);
+        }
+      </script>
       </center>
   </body>
 </html>

@@ -343,10 +343,8 @@ michelleZ -- 2025-06-05 23:00
 - debugged Divine api calls with DSF
 - wrote script for presentation
 - finished daily horoscope feature
-<<<<<<< HEAD
-=======
 
 michelleZ -- 2025-06-06 13:00
 - final round debugging
 - fixed node version compatibility issue
->>>>>>> baca204c90353bdd1541e348d6aaa57fd72e9bd1
+- added login required message

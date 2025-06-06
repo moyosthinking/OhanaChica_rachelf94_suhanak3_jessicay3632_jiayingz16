@@ -106,7 +106,7 @@ app.get('/profile', (req,res) => {
     if (req.session.user) {
       res.sendFile(path.join(__dirname, 'public', 'profile.html'));
     } else {
-      res.redirect('/');
+      res.redirect('/?loginRequired=true');
       console.log(`no profile! user not logged in`);
     }
 });
@@ -138,7 +138,7 @@ app.get('/compatibility', (req,res) => {
     if (req.session.user) {
       res.sendFile(path.join(__dirname, 'public', 'compatibility.html'));
     } else {
-      res.redirect('/');
+      res.redirect('/?loginRequired=true');
       console.log(`no compatibility! user not logged in`);
     }
 });
@@ -235,7 +235,7 @@ app.get('/self', (req,res) => {
     if (req.session.user) {
       res.sendFile(path.join(__dirname, 'public', 'selfimprov.html'));
     } else {
-      res.redirect('/');
+      res.redirect('/?loginRequired=true');
       console.log(`no self improvment! user not logged in`);
     }
 });
@@ -311,7 +311,7 @@ app.get('/daily', (req, res) => {
       if (req.session.user) {
       res.sendFile(path.join(__dirname, 'public', 'daily.html'));
     } else {
-      res.redirect('/');
+      res.redirect('/?loginRequired=true');
       console.log(`no daily horoscope! user not logged in`);
     }
 });
@@ -448,7 +448,7 @@ app.get('/chat', (req, res) => {
       res.sendFile(path.join(__dirname, 'public', 'chat.html'));
       console.log(`logged in user can chat`);
     } else {
-      res.redirect('/');
+      res.redirect('/?loginRequired=true');
       console.log(`no chatting! user not logged in`);
     }
 });
