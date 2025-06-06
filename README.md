@@ -1,17 +1,15 @@
-# p5-ROH by OhanaChica
+# Astrology Extravaganza by OhanaChica
+### Members + Roles:
 
-- Moyo Fagbuyi
-- Michelle Zhu
-- Suhana Kumar
-- Jessica Yu
+- Moyo Fagbuyi : PM; Backend; Websocket Integration; Node Integration
+- Michelle Zhu : Backend; API Integration; Dataset Generation; AI Model Fine-Tuning; Node Functionality
+- Suhana Kumar : Backend; API Integration; Dataset Generation; AI Model Fine-Tuning
+- Jessica Yu : Frontend; HTML; Tailwind
 
-This project is a web application that introduces users to astrology through personalized experiences. Users will be able to:
-- Discover their astrology sign via their birthday
-- Receive general sign report based on their astrology sign
-- Check compatibility with others via astrology inputs
-- Learn self-improvement tips through AI chat
+## Project Description
+Astrology Extravaganza is a Node application that introduces users to astrology through personalized experiences. Users will be able to discover their astrology sign via their birthday, receive general sign report based on their astrology sign, check compatibility with others via astrology inputs, learn self-improvement tips through AI chat, and chat with other users.
 
-## Direct Access
+## For Direct Access:
 http://rmoyof.tech/
 
 ## Install Guide

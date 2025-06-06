@@ -3,7 +3,7 @@
 //  SoftDev
 //  P05: Astrology
 //  2025-06-06
-//  Time Spent: ???? hours
+//  Time Spent: 1 hours
 //
 
 const sqlite3 = require('sqlite3').verbose();

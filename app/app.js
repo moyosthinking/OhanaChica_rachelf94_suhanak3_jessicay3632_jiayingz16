@@ -3,7 +3,7 @@
 //  SoftDev
 //  P05: Astrology
 //  2025-06-06
-//  Time Spent: ???? hours
+//  Time Spent: ~7 hours
 //
 
 require('dotenv').config();
@@ -23,7 +23,7 @@ const FormData = require('form-data');
 const fs = require('fs'); 
 
 // const { createProxyMiddleware } = require('http-proxy-middleware');
-const { marked } = require('marked');
+// const { marked } = require('marked');
 const { GoogleGenerativeAI } = require('@google/generative-ai');
 
 var loggedIn = false;
@@ -74,7 +74,7 @@ app.post('/register', (req, res) => {
   user.createUser(username, password, birthday, (err, userId) => {
     if (err) {
       console.error('Registration error:', err.message);
-      res.send('<p>Registration failed. Username may already exist.</p><a href="/register.html">Try again</a>');
+      res.redirect('/register');
     } else {
       console.log(`User registered successfully with ID: ${userId}`);
       res.redirect('/login');
@@ -95,7 +95,7 @@ app.post('/login', (req, res) => {
       console.log(`User logged in: ${username}`);
       res.redirect('/');
     } else {
-      res.send('<p>Invalid credentials.</p><a href="/login">Try again</a>');
+      res.redirect('/login');
     }
   });
 });

@@ -1,3 +1,9 @@
+  // OhanaChica: Moyo F., Suhana K., Jessica Y., Michelle Z.
+  // SoftDev
+  // P05: Astrology
+  // 2025-06-06
+  // Time Spent: ~2 hours
+  
 const db = require('./db');
 const bcrypt = require('bcrypt');
 

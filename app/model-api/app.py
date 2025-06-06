@@ -1,3 +1,9 @@
+#   OhanaChica: Moyo F., Suhana K., Jessica Y., Michelle Z.
+#   SoftDev
+#   P05: Astrology
+#   2025-06-06
+#   Time Spent: ~2 hours
+
 from flask import Flask, request, jsonify
 from flask_cors import CORS
 from transformers import AutoTokenizer, AutoModelForCausalLM
