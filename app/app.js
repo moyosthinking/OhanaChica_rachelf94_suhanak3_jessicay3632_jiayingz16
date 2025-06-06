@@ -310,10 +310,10 @@ Please format your response in **markdown** using the following structure:
 
 app.get('/daily', (req, res) => {
       if (req.session.user) {
-      res.sendFile(path.join(__dirname, 'public', 'compatibility.html'));
+      res.sendFile(path.join(__dirname, 'public', 'daily.html'));
     } else {
       res.redirect('/');
-      console.log(`no compatibility! user not logged in`);
+      console.log(`no daily horoscope! user not logged in`);
     }
 });
 
@@ -376,6 +376,7 @@ app.post('/get-daily', async (req, res) => {
     }
   } catch (error) {
     console.error('Daily horoscope API error:', error.message);
+    res.status(500).json({ error: 'Failed to get daily horoscope' });
   }
 });
 
