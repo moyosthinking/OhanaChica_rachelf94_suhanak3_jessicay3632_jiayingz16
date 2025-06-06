@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Daily Horoscope</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-50 text-gray-800">
+  <div class="max-w-xl mx-auto p-6 mt-10 bg-white rounded-xl shadow-md text-center">
+    <h1 class="text-3xl font-bold mb-6">Get Your Daily Horoscope</h1>
+
+    <select id="sign-select" class="w-full p-2 border rounded mb-4">
+      <option value="">Select Your Sign</option>
+      <option value="aries">Aries</option>
+      <option value="taurus">Taurus</option>
+      <option value="gemini">Gemini</option>
+      <option value="cancer">Cancer</option>
+      <option value="leo">Leo</option>
+      <option value="virgo">Virgo</option>
+      <option value="libra">Libra</option>
+      <option value="scorpio">Scorpio</option>
+      <option value="sagittarius">Sagittarius</option>
+      <option value="capricorn">Capricorn</option>
+      <option value="aquarius">Aquarius</option>
+      <option value="pisces">Pisces</option>
+    </select>
+
+    <button id="fetch-btn" class="bg-indigo-600 text-white px-4 py-2 rounded hover:bg-indigo-500">
+      Show Horoscope
+    </button>
+
+    <div id="result-box" class="mt-6 hidden p-4 border rounded bg-gray-100 text-left">
+      <h2 id="sign-title" class="text-xl font-semibold mb-2"></h2>
+      <p id="prediction-text" class="text-gray-700"></p>
+    </div>
+  </div>
+
+  <script>
+    document.getElementById('fetch-btn').addEventListener('click', async () => {
+      const sign = document.getElementById('sign-select').value;
+      const title = document.getElementById('sign-title');
+      const prediction = document.getElementById('prediction-text');
+      const resultBox = document.getElementById('result-box');
+
+      if (!sign) {
+        alert('Please select your zodiac sign.');
+        return;
+      }
+
+      try {
+        const response = await fetch('/get-daily', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ sign })
+        });
+
+        const data = await response.json();
+
+        if (data.prediction) {
+          title.textContent = `${sign.charAt(0).toUpperCase() + sign.slice(1)} Horoscope`;
+          prediction.textContent = data.prediction;
+        } else {
+          title.textContent = 'Error';
+          prediction.textContent = 'Could not fetch horoscope.';
+        }
+
+        resultBox.classList.remove('hidden');
+      } catch (err) {
+        title.textContent = 'Error';
+        prediction.textContent = 'Something went wrong. Try again later.';
+        resultBox.classList.remove('hidden');
+        console.error(err);
+      }
+    });
+  </script>
+</body>
+</html>
