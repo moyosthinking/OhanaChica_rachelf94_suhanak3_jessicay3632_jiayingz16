@@ -7,7 +7,7 @@
 - Jessica Yu : Frontend; HTML; Tailwind
 
 ## Project Description
-Astrology Extravaganza is a Node application that introduces users to astrology through personalized experiences. Users will be able to discover their astrology sign via their birthday, receive general sign report based on their astrology sign, check compatibility with others via astrology inputs, learn self-improvement tips through AI chat, and chat with other users.
+Astrology Extravaganza is a Node application that introduces users to astrology through personalized experiences. Users will be able to discover their astrology sign via their birthday, receive a daily horoscope, check thier compatibility with others via astrology inputs, learn self-improvement tips through AI chat, and chat with other users.
 
 ## For Direct Access:
 http://rmoyof.tech/
