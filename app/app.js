@@ -340,7 +340,7 @@ app.post('/get-daily', async (req, res) => {
     console.log("✅ Horoscope received:", response.data);
     res.json({ prediction: response.data.prediction });
   } catch (err) {
-    console.error('❌ Error from Divine API:', err.response?.data || err.message);
+    console.error('❌ Error from Divine API:', (err.response && err.response.data) || err.message);
     res.status(500).json({ error: 'Failed to fetch horoscope.' });
   }
 });
