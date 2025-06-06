@@ -280,7 +280,16 @@ Please format your response in **markdown** using the following structure:
     );
     console.log("Gemini Response:", JSON.stringify(response.data, null, 2));
 
-    const markdown = response.data?.candidates?.[0]?.content?.parts?.[0]?.text;
+    const markdown = (
+    response &&
+    response.data &&
+    response.data.candidates &&
+    response.data.candidates[0] &&
+    response.data.candidates[0].content &&
+    response.data.candidates[0].content.parts &&
+    response.data.candidates[0].content.parts[0] &&
+    response.data.candidates[0].content.parts[0].text
+    );
     if (!markdown) {
       throw new Error("Gemini did not return a valid response.");
     }
