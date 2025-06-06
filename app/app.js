@@ -363,7 +363,8 @@ app.post('/get-daily', async (req, res) => {
     if (response.success === 1) {
       const sign = response.data.sign;
       const prediction = response.data.prediction;
-      const specialColors = response.data.special?.lucky_color_codes || [];
+      const specialColors = (response.data.special && response.data.special.lucky_color_codes) || [];
+
       
       res.json({ 
         sign: sign,
