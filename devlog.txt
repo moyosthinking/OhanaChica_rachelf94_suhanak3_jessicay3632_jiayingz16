@@ -347,3 +347,4 @@ michelleZ -- 2025-06-05 23:00
 michelleZ -- 2025-06-06 13:00
 - final round debugging
 - fixed node version compatibility issue
+- added login required message
