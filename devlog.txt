@@ -281,3 +281,17 @@ moyoF -- 2025-06-05 18:43
 
 moyoF -- 2025-06-05 21:45
 - deliverables(readme, headings, google desing doc)
+
+=================================================================
+Design Doc changes since v0:
+- Added database tables
+- Created visualizations for database tables
+- Fixed component map
+- Removed API
+- Updated core functionalities
+- Redistributed tasks
+- Chat Feature upgraded from optional status
+- Removed AI Model: A Nvidia GPU is needed to host it. We cannot self-host it on CPU, since we don't have enough RAM
+- Added Gemini and Natal API to implement features instead
+- Didn't use Kerykeion library to train our Model
+=================================================================
