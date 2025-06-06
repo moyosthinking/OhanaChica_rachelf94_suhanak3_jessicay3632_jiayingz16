@@ -280,7 +280,16 @@ Please format your response in **markdown** using the following structure:
     );
     console.log("Gemini Response:", JSON.stringify(response.data, null, 2));
 
-    const markdown = response.data?.candidates?.[0]?.content?.parts?.[0]?.text;
+    const markdown = (
+    response &&
+    response.data &&
+    response.data.candidates &&
+    response.data.candidates[0] &&
+    response.data.candidates[0].content &&
+    response.data.candidates[0].content.parts &&
+    response.data.candidates[0].content.parts[0] &&
+    response.data.candidates[0].content.parts[0].text
+    );
     if (!markdown) {
       throw new Error("Gemini did not return a valid response.");
     }
@@ -331,7 +340,7 @@ app.post('/get-daily', async (req, res) => {
     console.log("✅ Horoscope received:", response.data);
     res.json({ prediction: response.data.prediction });
   } catch (err) {
-    console.error('❌ Error from Divine API:', err.response?.data || err.message);
+    console.error('❌ Error from Divine API:', (err.response && err.response.data) || err.message);
     res.status(500).json({ error: 'Failed to fetch horoscope.' });
   }
 });
