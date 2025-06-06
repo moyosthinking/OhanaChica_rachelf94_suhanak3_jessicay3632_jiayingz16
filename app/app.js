@@ -310,28 +310,16 @@ Please format your response in **markdown** using the following structure:
 });
 
 app.get('/daily', (req, res) => {
-  res.sendFile(path.join(__dirname, 'public', 'daily.html'));
+      if (req.session.user) {
+      res.sendFile(path.join(__dirname, 'public', 'compatibility.html'));
+    } else {
+      res.redirect('/');
+      console.log(`no compatibility! user not logged in`);
+    }
 });
 
 
 app.post('/get-daily', async (req, res) => {
-<<<<<<< HEAD
-  var request = require('request');
-  var options = {
-  'method': 'POST',
-  'url': 'https://astroapi-5.divineapi.com/api/v2/daily-horoscope',
-  'headers': {
-    'Authorization': 'Bearer {ACCESS_TOKEN}'
-  },
-  formData: {
-    'api_key': '{DIVINE_API_KEY}',
-    'sign': user.sign,
-    'day': user.day,
-    'month': user.month,
-    'year': user.year,
-    'tzone': '-5',
-    'lan': 'en'
-=======
   const { sign } = req.body;
   console.log("Getting horoscope for:", sign);
 
@@ -361,7 +349,6 @@ app.post('/get-daily', async (req, res) => {
   } catch (err) {
     console.error('❌ Error from Divine API:', (err.response && err.response.data) || err.message);
     res.status(500).json({ error: 'Failed to fetch horoscope.' });
->>>>>>> 0d09abecc7cb3febaa812d63c98c8f9960abdf89
   }
 };
 request(options, function (error, response) {
