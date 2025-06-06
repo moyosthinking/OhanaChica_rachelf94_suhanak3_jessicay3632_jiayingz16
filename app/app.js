@@ -19,8 +19,8 @@ const WebSocket =  require('ws');
 const app = express();
 const port = 3000;
 const axios = require('axios');
-const FormData = require('form-data');
-const fs = require('fs'); 
+const request = require('request');
+
 
 // const { createProxyMiddleware } = require('http-proxy-middleware');
 // const { marked } = require('marked');
@@ -29,6 +29,8 @@ const { GoogleGenerativeAI } = require('@google/generative-ai');
 var loggedIn = false;
 
 const GEMINI_API_KEY = process.env.GEMINI_API_KEY;
+const ACCESS_TOKEN = process.env.ACCESS_TOKEN;
+const DIVINE_API_KEY = process.env.DIVINE_API_KEY;
 const genAI = new GoogleGenerativeAI(GEMINI_API_KEY);
 
 
@@ -304,36 +306,28 @@ app.get('/daily', (req, res) => {
 
 
 app.post('/get-daily', async (req, res) => {
-  const { sign } = req.body;
-  console.log("Getting horoscope for:", sign);
-
-  try {
-    const form = new FormData();
-    form.append('api_key', '{a95a9d4ad9d2a46dfec1a9ac9c2ac421}' ); 
-    form.append('sign', sign);
-    form.append('day', new Date().getDate().toString());
-    form.append('month', (new Date().getMonth() + 1).toString());
-    form.append('year', new Date().getFullYear().toString());
-    form.append('tzone', '5.5');
-    form.append('lan', 'en');
-
-    const response = await axios.post(
-      'https://astroapi-5.divineapi.com/api/v2/daily-horoscope',
-      form,
-      {
-        headers: {
-          ...form.getHeaders(),
-          Authorization: `Bearer {eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwczovL2RpdmluZWFwaS5jb20vc2lnbnVwIiwiaWF0IjoxNzQ5MTc1ODcwLCJuYmYiOjE3NDkxNzU4NzAsImp0aSI6Ikh0T0F2SmNndGpLc1p6cE4iLCJzdWIiOiIzNzY4IiwicHJ2IjoiZTZlNjRiYjBiNjEyNmQ3M2M2Yjk3YWZjM2I0NjRkOTg1ZjQ2YzlkNyJ9.cZxxZEclb8xFUyWYMAwqz6Rotc1zlPWoGJrGnuN6d-g}` 
-        }
-      }
-    );
-
-    console.log("✅ Horoscope received:", response.data);
-    res.json({ prediction: response.data.prediction });
-  } catch (err) {
-    console.error('❌ Error from Divine API:', err.response?.data || err.message);
-    res.status(500).json({ error: 'Failed to fetch horoscope.' });
+  var request = require('request');
+  var options = {
+  'method': 'POST',
+  'url': 'https://astroapi-5.divineapi.com/api/v2/daily-horoscope',
+  'headers': {
+    'Authorization': 'Bearer {ACCESS_TOKEN}'
+  },
+  formData: {
+    'api_key': '{DIVINE_API_KEY}',
+    'sign': user.sign,
+    'day': user.day,
+    'month': user.month,
+    'year': user.year,
+    'tzone': '-5',
+    'lan': 'en'
   }
+};
+request(options, function (error, response) {
+  if (error) throw new Error(error);
+  console.log(response.body);
+})
+
 });
 
 
