@@ -7,72 +7,129 @@
   <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
 </head>
 <body class="bg-gray-50 text-gray-800">
-  <div class="max-w-xl mx-auto p-6 mt-10 bg-white rounded-xl shadow-md text-center">
-    <h1 class="text-3xl font-bold mb-6">Get Your Daily Horoscope</h1>
+  <br>
+  <nav class="flex justify-center space-x-4 h-10 px-4">
+    <a href="/" class="">
+      <img src="../static/logo.png" alt="Logo" class="h-20 w-auto pb-6" />
+    </a>
+    <a href="/" class="text-lg font-medium rounded-lg px-3 py-2 text-gray-700 hover:bg-gray-100 hover:text-gray-900"> Home </a>
+    <a href="/horoscope" class="text-lg font-medium rounded-lg px-3 py-2 text-gray-700 hover:bg-gray-100 hover:text-gray-900"> Zodiac Signs </a>
+    <a href="/daily" class="text-lg font-medium rounded-lg px-3 py-2 text-gray-700 hover:bg-gray-100 hover:text-gray-900"> Daily Horoscope </a>
+    <a href="/compatibility" class="text-lg font-medium rounded-lg px-3 py-2 text-gray-700 hover:bg-gray-100 hover:text-gray-900"> Compatibility Checker </a>
+    <a href="/self" class="text-lg font-medium rounded-lg px-3 py-2 text-gray-700 hover:bg-gray-100 hover:text-gray-900"> Self Improvement </a>
+    <a href="/chat" class="text-lg font-medium rounded-lg px-3 py-2 text-gray-700 hover:bg-gray-100 hover:text-gray-900"> Chat </a>
+    <a href="/profile" class="text-lg font-medium rounded-lg px-3 py-2 text-gray-700 hover:bg-gray-100 hover:text-gray-900"> Profile </a>
+  </nav>
 
-    <select id="sign-select" class="w-full p-2 border rounded mb-4">
-      <option value="">Select Your Sign</option>
-      <option value="aries">Aries</option>
-      <option value="taurus">Taurus</option>
-      <option value="gemini">Gemini</option>
-      <option value="cancer">Cancer</option>
-      <option value="leo">Leo</option>
-      <option value="virgo">Virgo</option>
-      <option value="libra">Libra</option>
-      <option value="scorpio">Scorpio</option>
-      <option value="sagittarius">Sagittarius</option>
-      <option value="capricorn">Capricorn</option>
-      <option value="aquarius">Aquarius</option>
-      <option value="pisces">Pisces</option>
-    </select>
+  <div class="max-w-4xl mx-auto p-6 mt-10 bg-white rounded-xl shadow-md">
+    <h1 class="text-3xl font-bold mb-6 text-center">Your Daily Horoscope</h1>
 
-    <button id="fetch-btn" class="bg-indigo-600 text-white px-4 py-2 rounded hover:bg-indigo-500">
-      Show Horoscope
-    </button>
+    <div id="loading" class="text-gray-600 text-center">Loading your horoscope...</div>
 
-    <div id="result-box" class="mt-6 hidden p-4 border rounded bg-gray-100 text-left">
-      <h2 id="sign-title" class="text-xl font-semibold mb-2"></h2>
-      <p id="prediction-text" class="text-gray-700"></p>
+    <div id="result-box" class="mt-6 hidden">
+      <div class="text-center mb-6">
+        <h2 id="sign-title" class="text-4xl font-bold text-purple-600 mb-2"></h2>
+        <div id="lucky-colors" class="flex justify-center space-x-2 mt-4"></div>
+      </div>
+      
+      <div class="grid md:grid-cols-2 gap-6">
+        <div class="bg-gray-50 p-4 rounded-lg">
+          <h3 class="text-xl font-semibold text-gray-800 mb-2">💕 Personal</h3>
+          <p id="personal-text" class="text-gray-700"></p>
+        </div>
+        
+        <div class="bg-gray-50 p-4 rounded-lg">
+          <h3 class="text-xl font-semibold text-gray-800 mb-2">💪 Health</h3>
+          <p id="health-text" class="text-gray-700"></p>
+        </div>
+        
+        <div class="bg-gray-50 p-4 rounded-lg">
+          <h3 class="text-xl font-semibold text-gray-800 mb-2">💼 Profession</h3>
+          <p id="profession-text" class="text-gray-700"></p>
+        </div>
+        
+        <div class="bg-gray-50 p-4 rounded-lg">
+          <h3 class="text-xl font-semibold text-gray-800 mb-2">❤️ Emotions</h3>
+          <p id="emotions-text" class="text-gray-700"></p>
+        </div>
+        
+        <div class="bg-gray-50 p-4 rounded-lg md:col-span-2">
+          <h3 class="text-xl font-semibold text-gray-800 mb-2">✈️ Travel</h3>
+          <p id="travel-text" class="text-gray-700"></p>
+        </div>
+      </div>
     </div>
   </div>
 
   <script>
-    document.getElementById('fetch-btn').addEventListener('click', async () => {
-      const sign = document.getElementById('sign-select').value;
+    async function fetchHoroscope() {
       const title = document.getElementById('sign-title');
-      const prediction = document.getElementById('prediction-text');
       const resultBox = document.getElementById('result-box');
-
-      if (!sign) {
-        alert('Please select your zodiac sign.');
-        return;
-      }
+      const loading = document.getElementById('loading');
+      const luckyColors = document.getElementById('lucky-colors');
+      
+      const personalText = document.getElementById('personal-text');
+      const healthText = document.getElementById('health-text');
+      const professionText = document.getElementById('profession-text');
+      const emotionsText = document.getElementById('emotions-text');
+      const travelText = document.getElementById('travel-text');
 
       try {
         const response = await fetch('/get-daily', {
           method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ sign })
+          headers: { 'Content-Type': 'application/json' }
         });
 
         const data = await response.json();
 
-        if (data.prediction) {
-          title.textContent = `${sign.charAt(0).toUpperCase() + sign.slice(1)} Horoscope`;
-          prediction.textContent = data.prediction;
+        if (response.status === 401) {
+          window.location.href = '/login';
+          return;
+        }
+
+        loading.style.display = 'none';
+
+        if (data.error) {
+          title.textContent = 'Error';
+          personalText.textContent = data.error;
+        } else if (data.sign && data.prediction) {
+          // Display zodiac sign
+          title.textContent = data.sign;
+          
+          // Display prediction categories
+          personalText.textContent = data.prediction.personal || 'No personal prediction available';
+          healthText.textContent = data.prediction.health || 'No health prediction available';
+          professionText.textContent = data.prediction.profession || 'No profession prediction available';
+          emotionsText.textContent = data.prediction.emotions || 'No emotions prediction available';
+          travelText.textContent = data.prediction.travel || 'No travel prediction available';
+          
+          // Display lucky colors
+          if (data.specialColors && data.specialColors.length > 0) {
+            luckyColors.innerHTML = '<p class="text-sm text-gray-600 mb-2">Lucky Colors:</p>';
+            data.specialColors.forEach(color => {
+              const colorDiv = document.createElement('div');
+              colorDiv.style.backgroundColor = color;
+              colorDiv.className = 'w-8 h-8 rounded-full border-2 border-gray-300 shadow-sm';
+              colorDiv.title = color;
+              luckyColors.appendChild(colorDiv);
+            });
+          }
         } else {
           title.textContent = 'Error';
-          prediction.textContent = 'Could not fetch horoscope.';
+          personalText.textContent = 'Could not fetch horoscope data.';
         }
 
         resultBox.classList.remove('hidden');
       } catch (err) {
+        loading.style.display = 'none';
         title.textContent = 'Error';
-        prediction.textContent = 'Something went wrong. Try again later.';
+        personalText.textContent = 'Something went wrong. Try again later.';
         resultBox.classList.remove('hidden');
         console.error(err);
       }
-    });
+    }
+
+    document.addEventListener('DOMContentLoaded', fetchHoroscope);
   </script>
 </body>
 </html>

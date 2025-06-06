@@ -306,72 +306,72 @@ Please format your response in **markdown** using the following structure:
   }
   res.status(500).json({ error: 'Failed to get self-improvement advice' });
 }
-
 });
 
 app.get('/daily', (req, res) => {
   res.sendFile(path.join(__dirname, 'public', 'daily.html'));
 });
 
-
 app.post('/get-daily', async (req, res) => {
-<<<<<<< HEAD
-  var request = require('request');
-  var options = {
-  'method': 'POST',
-  'url': 'https://astroapi-5.divineapi.com/api/v2/daily-horoscope',
-  'headers': {
-    'Authorization': 'Bearer {ACCESS_TOKEN}'
-  },
-  formData: {
-    'api_key': '{DIVINE_API_KEY}',
-    'sign': user.sign,
-    'day': user.day,
-    'month': user.month,
-    'year': user.year,
-    'tzone': '-5',
-    'lan': 'en'
-=======
-  const { sign } = req.body;
-  console.log("Getting horoscope for:", sign);
-
   try {
-    const form = new FormData();
-    form.append('api_key', '{a95a9d4ad9d2a46dfec1a9ac9c2ac421}' ); 
-    form.append('sign', sign);
-    form.append('day', new Date().getDate().toString());
-    form.append('month', (new Date().getMonth() + 1).toString());
-    form.append('year', new Date().getFullYear().toString());
-    form.append('tzone', '5.5');
-    form.append('lan', 'en');
+    if (!req.session.user) {
+      return res.status(401).json({ error: 'User not logged in' });
+    }
 
-    const response = await axios.post(
-      'https://astroapi-5.divineapi.com/api/v2/daily-horoscope',
-      form,
-      {
-        headers: {
-          ...form.getHeaders(),
-          Authorization: `Bearer {eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwczovL2RpdmluZWFwaS5jb20vc2lnbnVwIiwiaWF0IjoxNzQ5MTc1ODcwLCJuYmYiOjE3NDkxNzU4NzAsImp0aSI6Ikh0T0F2SmNndGpLc1p6cE4iLCJzdWIiOiIzNzY4IiwicHJ2IjoiZTZlNjRiYjBiNjEyNmQ3M2M2Yjk3YWZjM2I0NjRkOTg1ZjQ2YzlkNyJ9.cZxxZEclb8xFUyWYMAwqz6Rotc1zlPWoGJrGnuN6d-g}` 
-        }
+    const userData = await new Promise((resolve, reject) => {
+      db.get('SELECT birthday FROM users WHERE username = ?', [req.session.user], (err, row) => {
+        if (err || !row) reject('Failed to get user data');
+        resolve(row);
+      });
+    });
+
+    // get today's date
+    const today = new Date();
+
+    // api call to get daily horoscope
+    const options = {
+      method: 'POST',
+      url: 'https://astroapi-5.divineapi.com/api/v2/daily-horoscope',
+      headers: {
+        'Authorization': `Bearer ${ACCESS_TOKEN}`
+      },
+      formData: {
+        'api_key': DIVINE_API_KEY,
+        'sign': user.getZodiac(userData.birthday).toLowerCase(),
+        'day': today.getDate(),
+        'month': today.getMonth() + 1,
+        'year': today.getFullYear(),
+        'tzone': '-5',
+        'lan': 'en'
       }
-    );
+    };
 
-    console.log("✅ Horoscope received:", response.data);
-    res.json({ prediction: response.data.prediction });
-  } catch (err) {
-    console.error('❌ Error from Divine API:', (err.response && err.response.data) || err.message);
-    res.status(500).json({ error: 'Failed to fetch horoscope.' });
->>>>>>> 0d09abecc7cb3febaa812d63c98c8f9960abdf89
+    const response = await new Promise((resolve, reject) => {
+      request(options, (error, response, body) => {
+        if (error) reject(error);
+        resolve(JSON.parse(body));
+      });
+    });
+    //console.log(response);
+    
+    // Format response for frontend
+    if (response.success === 1) {
+      const sign = response.data.sign;
+      const prediction = response.data.prediction;
+      const specialColors = response.data.special?.lucky_color_codes || [];
+      
+      res.json({ 
+        sign: sign,
+        prediction: prediction,
+        specialColors: specialColors
+      });
+    } else {
+      res.json({ error: 'Could not get horoscope prediction' });
+    }
+  } catch (error) {
+    console.error('Daily horoscope API error:', error.message);
   }
-};
-request(options, function (error, response) {
-  if (error) throw new Error(error);
-  console.log(response.body);
-})
-
 });
-
-
 
 
 // removed bc unable to deploy self fine tuned ai model
